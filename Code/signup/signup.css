@@ -1,0 +1,113 @@
+.titleBox{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 28px;
+    /* padding: 6px; */
+}
+
+.underline{
+    background-color: white;
+    width: 64px;
+    height: 2px;
+    margin: auto;
+    margin-top: 6px;
+}
+
+.box{
+    background-color: #BDC0AC;
+    width: 33.7%;
+    margin: auto;
+    margin-top: 35px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 48px 6% 30px 6%;
+}
+
+.box label{
+    font-weight: 1000;
+}
+
+.kotakInput{
+    background-color: #604E49;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.logoInput{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.styleInput{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #604E49;
+    color: white;
+    height: 45px;
+    font-family: inherit;
+    width: 80%;
+}
+
+input{
+    border: none;
+    outline:none;
+}
+
+input:active{
+    border: none;
+    outline:none;
+}
+
+::placeholder {
+    color: white;
+    opacity: .8;
+}
+
+.buttonSubmit{
+    width: 110px;
+    background-color: #D2C2B0;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.5));
+    font-family: inherit;
+}
+
+.wrapSubmit{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonSubmit:focus{ 
+    border: 1px solid white;
+    outline: none;
+    background-color: red;
+}
+
+.kataPenutup{
+    width: 210px;
+    margin: auto;
+    margin-top: 12px;
+    border-top: 1px solid white;
+    font-size: 8px;
+    font-weight: normal;
+    padding: 12px;
+    text-align: center;
+}
+
+a{
+    color: inherit;
+    font-weight: bold;
+}
+
+a:hover{
+    color: red;
+}
