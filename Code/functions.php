@@ -68,5 +68,34 @@ function signup($data){
     }
 }
 
+function login($data){
+    // Function ini return bilangan asli jika berhasil
+    // dan return -1 jika gagal
 
+    $username = $data["username"];
+    $password = $data["password"];
+
+    $result = query("SELECT * FROM user WHERE username='$username'");
+
+    // Kalau tidak ada username yang dimaksud
+    if(sizeof($result) === 0){
+        return -1;
+    } else {
+        $result = $result[0];
+    }
+
+    if(password_verify($password, $result["password"])){
+        return $result["userId"];
+    } else{
+        return -1;
+    }
+}
+
+function detailUser($id){
+    // Function ini akan return array yang berisi informasi dari user dengan id tertentu
+
+    $result = query("SELECT * FROM user WHERE userId='$id'")[0];
+
+    return $result;
+}
 ?>

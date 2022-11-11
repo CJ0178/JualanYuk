@@ -1,7 +1,18 @@
 <?php 
 
+session_start();
 require '../functions.php';
 $items = query("SELECT * FROM item");
+
+// Cek apakah current user sudah ada
+if(isset($_SESSION["currentUserId"])){
+    // Jika masuk memlalui login,
+    $currentUserData = detailUser($_SESSION["currentUserId"]);
+    $currentUsername = $currentUserData["username"];
+} else{
+    // Jika masuk melalui url
+    $currentUsername = "YOUR NAME";
+}
 
 ?>
 
@@ -42,7 +53,7 @@ $items = query("SELECT * FROM item");
         </div>
 
         <!-- akun -->
-        <div class="namaAkun">JEFFERSON JOHAN</div>
+        <div class="namaAkun"><?= $currentUsername ?></div>
 
         <!-- kotak logo -->
         <div class="kotakLogo">

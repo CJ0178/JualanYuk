@@ -1,5 +1,21 @@
 <?php 
 
+session_start();
+require '../functions.php';
+
+// Jika user sudah pencet tombol login
+if(isset($_POST["submit"])){
+    $_SESSION["currentUserId"] = login($_POST);
+    if($_SESSION["currentUserId"] != -1){
+        // Kalau login berhasil
+        alertMessage('Login berhasil');
+        redirectTo('../home/home.php');
+    } else {
+        // Kalau login gagal
+        alertMessage('Login gagal');
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +90,7 @@
                         <path d="M14.875 12.25H15.183C15.8227 12.2502 16.4403 12.4839 16.9198 12.9074C17.3993 13.3308 17.7077 13.9147 17.787 14.5495L18.1291 17.283C18.1599 17.5293 18.1379 17.7792 18.0647 18.0163C17.9915 18.2535 17.8687 18.4723 17.7044 18.6583C17.5402 18.8443 17.3382 18.9933 17.112 19.0953C16.8857 19.1973 16.6404 19.2501 16.3922 19.25H4.60774C4.35958 19.2501 4.11424 19.1973 3.88801 19.0953C3.66178 18.9933 3.45983 18.8443 3.29557 18.6583C3.13131 18.4723 3.00849 18.2535 2.93527 18.0163C2.86205 17.7792 2.84009 17.5293 2.87087 17.283L3.21212 14.5495C3.29148 13.9144 3.60011 13.3303 4.07997 12.9068C4.55983 12.4833 5.17787 12.2498 5.81787 12.25H6.12499" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <input type="text" name="username" id="username" placeholder="Masukkan Nama Pengguna" class="styleInput">
+                <input type="text" name="username" id="username" placeholder="Masukkan Nama Pengguna" class="styleInput" autocomplete="off">
             </div>
 
             <!-- Kata Sandi -->
@@ -86,12 +102,12 @@
                     <path d="M13.75 7.5C14.4404 7.5 15 6.94036 15 6.25C15 5.55964 14.4404 5 13.75 5C13.0596 5 12.5 5.55964 12.5 6.25C12.5 6.94036 13.0596 7.5 13.75 7.5Z" fill="white"/>
                     </svg>
                 </div>
-                <input type="password" name="password" id="password" placeholder="Masukkan Kata Sandi" class="styleInput">
+                <input type="password" name="password" id="password" placeholder="Masukkan Kata Sandi" class="styleInput" autocomplete="off">
             </div>
 
             <!-- Button Buat Akun -->
             <div class="wrapSubmit">
-                <input type="submit" value="Masuk" onclick="return confirm('Yakin?');" class="buttonSubmit">
+                <input type="submit" name="submit" value="Masuk" onclick="return confirm('Yakin?');" class="buttonSubmit">
             </div>
 
             <div class="kataPenutup">
