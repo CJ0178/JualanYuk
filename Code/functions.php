@@ -2,8 +2,20 @@
 // Connect Database
 $conn = mysqli_connect("localhost", "root", "", "jualanyuk");
 
-// Function query return array associative
+function alertMessage($message){
+    // Function ini cuma untuk alert dengan tulisan tertentu
+
+    echo "<script> alert('$message') </script>";
+}
+
+function redirectTo($url){
+    // Function ini untuk redirect ke url tertentu
+
+    echo "<script> document.location.href = '$url' </script>;";
+}
+
 function query($strQuery){
+    // Function query return array associative
     global $conn;
 
     // Ambil hasil select dari query
@@ -17,6 +29,43 @@ function query($strQuery){
     }
 
     return $temp;
+}
+
+function signup($data){
+    // Function ini return true jika berhasil
+    // dan return false jika gagal
+
+    global $conn;
+
+    $username = htmlspecialchars($data["username"]) ;
+    $password = htmlspecialchars($data["password"]);
+    $confirmPassword = htmlspecialchars($data["confirmPassword"]);
+
+    // Cek apakah ada salah satu yang kosong
+    if( strlen($username) === 0 ||
+        strlen($password) === 0 ||
+        strlen($confirmPassword) === 0){
+        
+        return false;
+    }
+
+    // Cek apakah password dan confirmnya beda
+    if($password != $confirmPassword){
+        return false;
+    }
+
+    // Hash password untuk disimpan dalam database
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Query database
+    $result = mysqli_query($conn, "INSERT INTO user(username,password) VALUES ('$username', '$password')");
+
+    // Jika berhasil, maka return true
+    if(mysqli_affected_rows($conn) > 0){
+        return true;
+    } else{
+        return false;
+    }
 }
 
 
