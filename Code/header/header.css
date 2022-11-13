@@ -117,10 +117,13 @@ body{
 
 /* kotak logo */
 .kotakLogo{
-    /* background-color: aqua; */
     width: 100px;
     display: flex;
     justify-content: space-around;
     line-height: 63px;
     margin-left: 15px;
+}
+
+.logOut:hover{
+    cursor: pointer;
 }
