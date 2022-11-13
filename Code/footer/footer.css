@@ -1,14 +1,134 @@
-.isi{
-    width: 75%;
-    background-color: aqua;
-    height: 50px;
-    margin: auto;
-    
-}
-
 .footer{
     width: 65.6%;
     margin: auto;
     height: 100px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+}
+
+.bagAtas{
+    display: flex;
+    /* background-color: pink; */
+}
+
+.cariKami{
+    /* background-color: pink; */
+    width: 60.98%;
+    /* height: 200px; */
+    padding-top: 155px;
+    padding-bottom: 50px;
+}
+
+.berlangganan{
+    /* background-color: blue; */
+    /* height: 200px; */
+    width: 39.02%;
+    padding-top: 97px;
+    padding-bottom: 45px;
+}
+
+.logoCariKami{
+    display: flex;
+    width: 29.26%;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.cariKami p{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.berlangganan p{
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.email{
+    display: flex;
+    /* background-color: yellow; */
+    margin-top: 18px;
+    margin-bottom: 15px;
+}
+
+.kotakEmail{
+    /* background-color: red; */
+    width: 57.99%;
+}
+
+.styleInput{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #F9F9F9;
+    color: black;
+    height: 52px;
+    font-family: inherit;
+    width: 100%;
+    border: #F9F9F9 1px solid;
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+input:active{
+    border: none;
+    outline:none;
+}
+
+::placeholder {
+    color: black;
+    opacity: .2;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.btnBerlangganan{
+    /* width: 42.01%; */
+    /* width: 129.5%; */
+    /* width: 100%; */
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 52px;
+    background-color: #BDC0AC;
+    color: white;
+    border: 1px solid white;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.btnBerlangganan:focus{
+    border: 1px solid white;
+    outline: none;
+    background-color: red;
+}
+
+.penutupan p{
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FFFFFF;
+    opacity: 0.5;
+    width: 320px;
+    letter-spacing: -0.02em;
+}
+
+.garis{
+    background-color: white;
+    height: 2px;
+    width: 100%;
+}
+
+.copyright{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: white;
+    padding-top: 35px;
+    padding-bottom: 15px;
+    /* background-color: pink; */
 }
