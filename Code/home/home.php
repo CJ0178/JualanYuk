@@ -3,6 +3,7 @@
 session_start();
 require '../functions.php';
 $items = query("SELECT * FROM item");
+$categories = query("SELECT * FROM category");
 
 // Cek apakah current user sudah ada
 if(isset($_SESSION["currentUserId"])){
@@ -115,54 +116,12 @@ if(isset($_SESSION["currentUserId"])){
 
         <!-- kategori -->
         <div class="kategori">
+            <?php foreach($categories as $category): ?>
             <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
+                <div class="gambar" style="background-image: url('../image/Kategori/<?=$category["categoryImage"]?>') ;"></div>
+                <div class="teks"><?=$category["categoryName"]?></div>
             </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/kategori1.png') ;"></div>
-                <div class="teks">Makanan</div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
         <!-- rekomendasi -->
