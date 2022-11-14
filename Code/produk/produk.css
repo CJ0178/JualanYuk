@@ -60,8 +60,6 @@
 
 .kotakKanan{
     width: 75.46%;
-    /* height: 2000px; */
-    /* background-color: antiquewhite; */
 }
 
 .kotakGambarProduk{
@@ -76,8 +74,6 @@
 
 .bawahProduk{
     margin-top: 20px;
-    /* background-color: coral; */
-    /* height: 500px;    */
     display: flex;
 }
 
@@ -241,5 +237,4 @@
 
 .beliSekarang p{
     width: 90px;
-    /* background-color: pink; */
 }
