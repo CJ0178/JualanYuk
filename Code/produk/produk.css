@@ -1,0 +1,245 @@
+.main{
+    /* background-color: yellow; */
+    width: 60.65%;
+    margin: auto;
+    /* height: 2000px; */
+    margin-top: 50px;
+    display: flex;
+}
+
+.kotakKiri{
+    width: 24.54%;
+    /* background-color: pink; */
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card{
+    background-color: #604E49;
+    width: 73%;
+    height: 140px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gambarCard{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    height: 72.32%;
+}
+
+.deskripsiCard{
+    display: flex;
+}
+
+.kiri{
+    /* background-color: aquamarine; */
+    width: 84.16%;
+    font-weight: 500;
+    font-size: 9.2px;
+    line-height: 12px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 10px;
+}
+
+.kanan{
+    width: 15.84%;
+    /* background-color: blue; */
+    padding-right: 30px;
+    height: 20px;
+    padding-top: 10px;
+}
+
+.harga{
+    text-decoration: underline;
+}
+
+.kotakKanan{
+    width: 75.46%;
+    /* height: 2000px; */
+    /* background-color: antiquewhite; */
+}
+
+.kotakGambarProduk{
+    height: 370px;
+    background-color: #604E49;
+    border: 2px solid #FFFFFF;
+    box-shadow: 6px 4px 8px rgba(0, 0, 0, 0.25);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.bawahProduk{
+    margin-top: 20px;
+    /* background-color: coral; */
+    /* height: 500px;    */
+    display: flex;
+}
+
+.deskripsiKiri{
+    width: 73.55%;
+    /* height: 500px; */
+    /* background-color: darkcyan; */
+}
+
+.deskripsiKanan{
+    width: 26.45%;
+    /* height: 500px; */
+    /* background-color: indigo; */
+}
+
+.namaProduk{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 37px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+}
+
+.tulisanDeskripsi{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: underline;
+}
+
+.isiDeskripsi{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    width: 75.44%;
+}
+
+.tulisanRating{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: underline;
+    margin-top: 25px;
+}
+
+.rating{
+    /* margin-top: 10px; */
+    display: flex;
+}
+
+.bintang{
+    margin-top: 10px;
+}
+
+.angkaRating{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 43px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 12px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.perLima{
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px;
+}
+
+.hargaProduk{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 37px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.totalItem{
+    display: flex;
+    width: 85.7%;
+    /* background-color: red; */
+}
+
+.kotakMin{
+    border: 1px solid #E4E4E4;
+    height: 30px;
+    width: 33.333%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.kotakAngka{
+    border: 1px solid #E4E4E4;
+    height: 30px;
+    width: 33.333%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.kotakTambah{
+    border: 1px solid #E4E4E4;
+    height: 30px;
+    width: 33.333%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.tulisanKeranjang{
+    height: 40px;
+    margin-top: 13px;
+    width: 85.7%;
+    background-color: #604E49;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.2px;
+}
+
+.beliSekarang{
+    height: 40px;
+    margin-top: 13px;
+    width: 85.7%;
+    background-color: #BDC0AC;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.2px;
+}
+
+.beliSekarang p{
+    width: 90px;
+    /* background-color: pink; */
+}
