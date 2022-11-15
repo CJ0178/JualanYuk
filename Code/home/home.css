@@ -115,8 +115,8 @@
 .rekomendasi{
     background-color: #BDC0AC;
     margin-top: 25px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 4%;
+    padding-right: 4%;
     padding-bottom: 48px;
     box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.25); 
 }
@@ -171,8 +171,8 @@
     display: flex;
     font-size: 12px;
     height: 29.42%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 7px;
+    padding-right: 5px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     line-height: 17px;
 }
@@ -183,6 +183,10 @@
 
 .kanan{
     padding-top: 12%;
+}
+
+.kiri p{
+    font-size: 11px;
 }
 
 /* banner */
@@ -263,7 +267,7 @@
 }
 
 .cardLengkapi{
-    width: 12vw;
+    width: 12.5vw;
     height: 12.17vw;
     border: white 1px solid;
     background-color: #604E49;
@@ -293,9 +297,13 @@
 
 .kiri2{
     width: 89.4%;
-    /* font-size: 12px; */
+    font-size: 11px;
 }
 
 .kanan2{
     padding-top: 12%;
+}
+
+.harga{
+    text-decoration: underline;
 }
