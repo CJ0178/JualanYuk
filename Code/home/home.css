@@ -90,7 +90,12 @@
     height: 72px;
     background-color: #BDC0AC;
     border: solid 2px #8C8E81;
+    /* display: flex; */
+}
+
+.cardKategori>a{
     display: flex;
+    height: 100%;
 }
 
 .gambar{

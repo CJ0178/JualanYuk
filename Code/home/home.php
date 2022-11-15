@@ -117,10 +117,12 @@ if(isset($_SESSION["currentUserId"])){
         <!-- kategori -->
         <div class="kategori">
             <?php foreach($categories as $category): ?>
-            <div class="cardKategori">
-                <div class="gambar" style="background-image: url('../image/Kategori/<?=$category["categoryImage"]?>') ;"></div>
-                <div class="teks"><?=$category["categoryName"]?></div>
-            </div>
+                <div class="cardKategori">
+                    <a href="../kategoriProduk/kategoriProduk.php?categoryId=<?=$category['categoryId']?>">
+                        <div class="gambar" style="background-image: url('../image/Kategori/<?=$category["categoryImage"]?>') ;"></div>
+                        <div class="teks"><?=$category["categoryName"]?></div>
+                    </a>
+                </div>
             <?php endforeach; ?>
         </div>
 
