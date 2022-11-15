@@ -173,8 +173,13 @@ if(isset($_GET["id"])){
                             <p>Rp<?=number_format($item["buyPrice"])?></p>
                         </div>
                         <div class="totalItem">
+                            <!-- Kotak plus min -->
                             <div class="kotakMin">-</div>
-                            <div class="kotakAngka">1</div>
+                            <div class="kotakAngka">
+                                <form action="" method="post">
+                                    <input type="text" name="qtyBeli" id="qtyBeli" class="inputText" value="1">
+                                </form>
+                            </div>
                             <div class="kotakTambah">+</div>
                         </div>
                         <div class="tulisanKeranjang">KERANJANG</div>
@@ -253,5 +258,7 @@ if(isset($_GET["id"])){
                 <p>Hak Cipta @ JualanYuk! 2022</p>
             </div>
         </div>
+
+        <script src="produk.js"></script>
 </body>
 </html>

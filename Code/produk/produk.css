@@ -1,3 +1,24 @@
+.inputText {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #8C8E81;
+    color: white;
+    font-family: inherit;
+    width: 100%;
+    height: 30px;
+    outline: none;
+    text-align: center;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+.inputText:focus {
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
 .main{
     /* background-color: yellow; */
     width: 60.65%;
@@ -181,16 +202,13 @@
     line-height: 22px;
 }
 
+.kotakMin:hover, .kotakTambah:hover{
+    cursor: pointer;
+}
+
 .kotakAngka{
-    border: 1px solid #E4E4E4;
     height: 30px;
     width: 33.333%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 22px;
 }
 
 .kotakTambah{
