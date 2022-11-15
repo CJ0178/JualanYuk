@@ -1,3 +1,18 @@
+.isiEdit2{
+    /* resize:vertical; */
+    min-width: 600px;
+    min-height: 650px;
+    max-width: 600px;
+    max-height: 650px;
+    overflow: hidden;
+    
+    /* padding-left: 20px; */
+}
+
+/* .textArea:focus{
+    padding-left: 20px;
+} */
+
 .main{
     width: 50.26%;
     /* height: 2000px; */
@@ -55,11 +70,54 @@
     color: #FFFFFF;
 }
 
-.isiEdit{
+.isiEdit {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #8C8E81;
+    color: white;
+    font-family: inherit;
+    width: 100%;
+    height: 20px;
+    outline: none;
+    /* background-color: pink; */
+    padding: 0;
+    /* text-align: center; */
+    border-bottom: 1px solid white;
+    /* border-top: 1px solid white; */
+    width: 85%;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
     color: #FFFFFF;
+}
+
+.isiEdit2{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #8C8E81;
+    color: white;
+    font-family: inherit;
+    width: 100%;
+    height: 20px;
+    outline: none;
+    /* background-color: pink; */
+    padding: 0;
+    /* text-align: center; */
+    border: 1px solid white;
+    /* border-top: 1px solid white; */
+    width: 85%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.isiEdit2{
+    padding: 10px;
 }
 
 .nama{
