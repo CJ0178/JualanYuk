@@ -8,22 +8,23 @@ if(isset($_SESSION["currentUserId"])){
     $currentUserData = detailUser($_SESSION["currentUserId"]);
     $currentUsername = $currentUserData["username"];
 
-    // Jika dia adalah admin, langsung lempar
-    if($currentUsername == 'admin'){
+    // Jika dia bukan admin, langsung lempar
+    if($currentUsername != 'admin'){
         header("Location: ../editStok/editStok.php");
     }
 } else{
-    // Jika masuk melalui url
-    $currentUsername = "YOUR NAME";
+    // Jika masuk melalui url, lempar ke home
+    header("Location: ../editStok/editStok.php");
 }
 
 // Cek apakah produk yang dipilih sudah ada
 if(isset($_GET["id"])){
     $itemId = $_GET["id"];
     $item = query("SELECT * FROM item WHERE itemId = $itemId")[0];
+    $itemCategory = query("SELECT c.categoryName FROM category c JOIN item i ON i.categoryId = c.categoryId WHERE i.itemId=$itemId")[0]['categoryName'];
     $categories = query("SELECT * FROM category");
 } else{
-    // KAlau belum ada produk yang dipilih
+    // Kalau belum ada produk yang dipilih
     redirectTo('../home/home.php');
 }
 
@@ -97,9 +98,10 @@ if(isset($_GET["id"])){
                     <div class="namaProduk">
                         <p>EDIT PRODUK</p>
                     </div>
+                    <form action="../edit.php" method="post" id="buttonSave">
+                    <input type="hidden" name="id" value="<?=$itemId?>">
                     <div class="deskripsiProduk">
                         <div class="edit">
-                            <form action="">
                                 <div class="nama">
                                     <p class="judulEdit">Nama Produk:</p>
                                         <input type="text" name="nama" class="isiEdit" value="<?=$item["itemName"]?>">
@@ -121,21 +123,25 @@ if(isset($_GET["id"])){
                                         <select name="kategori" class="optionKategori">
                                             <option value="">Pilih Kategori</option>
                                             <?php foreach($categories as $category): ?>
-                                                <option value="<?=$category["categoryId"]?>"><?=$category["categoryName"]?></option>
+                                                <!-- Kalau category nya sesuai dengan category barang, maka otomatis selected -->
+                                                <?php if($category['categoryName'] == $itemCategory):?>
+                                                    <option value="<?=$category["categoryId"]?>" selected><?=$category["categoryName"]?></option>
+                                                <?php else: ?>
+                                                    <option value="<?=$category["categoryId"]?>"><?=$category["categoryName"]?></option>
+                                                <?php endif; ?>
                                             <?php endforeach; ?>
                                         </select>
                                 </div>
-                            </form>
                         </div>
                         <div class="tulisanDeskripsi">Deskripsi:</div>
                         <div class="isiDeskripsi">
-                            <form action="">
-                                <textarea name="isiEdit" id="isiEdit2" class="isiEdit2" cols="100" rows="200">
+                                <textarea name="deskripsi" id="isiEdit2" class="isiEdit2" cols="100" rows="200">
 <?=$item["itemDescription"]?>
                                 </textarea>
-                            </form>
+                            
                         </div>
                     </div>
+                    </form>
                 </div>
                 <div class="kotakSampah">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +153,7 @@ if(isset($_GET["id"])){
                     </svg>
                 </div>
                 <div class="deskripsiKanan">
-                    <div class="tulisanKeranjang">SIMPAN</div>
+                        <div class="tulisanKeranjang">SIMPAN</div>
                 </div>
             </div>
         </div>
@@ -220,5 +226,6 @@ if(isset($_GET["id"])){
             <p>Hak Cipta @ JualanYuk! 2022</p>
         </div>
     </div>
+    <script src="editProduk.js"></script>
 </body>
 </html>
