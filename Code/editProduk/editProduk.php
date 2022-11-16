@@ -1,17 +1,31 @@
 <?php 
-
 session_start();
 require '../functions.php';
-$items = query("SELECT * FROM item");
 
 // Cek apakah current user sudah ada
 if(isset($_SESSION["currentUserId"])){
     // Jika masuk memlalui login,
     $currentUserData = detailUser($_SESSION["currentUserId"]);
     $currentUsername = $currentUserData["username"];
+
+    // Jika dia bukan admin, langsung lempar
+    if($currentUsername != 'admin'){
+        header("Location: ../editStok/editStok.php");
+    }
 } else{
-    // Jika masuk melalui url
-    $currentUsername = "YOUR NAME";
+    // Jika masuk melalui url, lempar ke home
+    header("Location: ../editStok/editStok.php");
+}
+
+// Cek apakah produk yang dipilih sudah ada
+if(isset($_GET["id"])){
+    $itemId = $_GET["id"];
+    $item = query("SELECT * FROM item WHERE itemId = $itemId")[0];
+    $itemCategory = query("SELECT c.categoryName FROM category c JOIN item i ON i.categoryId = c.categoryId WHERE i.itemId=$itemId")[0]['categoryName'];
+    $categories = query("SELECT * FROM category");
+} else{
+    // Kalau belum ada produk yang dipilih
+    redirectTo('../home/home.php');
 }
 
 ?>
@@ -22,11 +36,10 @@ if(isset($_SESSION["currentUserId"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Stok</title>
+    <title>Edit Produk</title>
     <link rel="stylesheet" href="../header/header.css">
-    <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="editProduk.css">
     <link rel="stylesheet" href="../footer/footer.css">
-    <link rel="stylesheet" href="editStok.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
@@ -36,7 +49,7 @@ if(isset($_SESSION["currentUserId"])){
         <a href="../home/home.php">
             <div class="logo" style="background-image: url(../image/logo.svg) ;"></div>
         </a>
-        
+
         <!-- search -->
         <div class="search1" id="search1">
             <div class="svgSearch">
@@ -72,43 +85,76 @@ if(isset($_SESSION["currentUserId"])){
                         <path d="M1.66667 23.3333H11.6667C12.1086 23.3329 12.5322 23.1572 12.8447 22.8447C13.1572 22.5322 13.3329 22.1086 13.3333 21.6667V19.1667H11.6667V21.6667H1.66667V1.66667H11.6667V4.16667H13.3333V1.66667C13.3329 1.22477 13.1572 0.801108 12.8447 0.488643C12.5322 0.176178 12.1086 0.000441231 11.6667 0H1.66667C1.22477 0.000441231 0.801108 0.176178 0.488643 0.488643C0.176178 0.801108 0.000441231 1.22477 0 1.66667V21.6667C0.000441231 22.1086 0.176178 22.5322 0.488643 22.8447C0.801108 23.1572 1.22477 23.3329 1.66667 23.3333Z" fill="white"/>
                         <path d="M13.8217 15.4884L16.81 12.5001H5V10.8334H16.81L13.8217 7.84508L15 6.66675L20 11.6667L15 16.6667L13.8217 15.4884Z" fill="white"/>
                     </svg>                                     
-                </a>
+                </a>                             
             </div>
         </div>
     </div>
 
     <!-- body -->
     <div class="main">
-        <!-- lengkapi tokomu -->
-        <div class="kotakLengkapi">
-            <div class="kotakAtas2">
-                <div class="tulisanLengkapi">
-                    DAFTAR PRODUK
-                </div>
-                <div class="garis2"></div>
-            </div>
-            <div class="bantuan"></div>
-            <div class="isiLengkapi">
-                <?php foreach($items as $item): ?>
-                <div class="cardLengkapi">
-                    <div class="gambarLengkapi" style="background-image:url(../image/Produk/<?=$item["itemImage"]?>);"></div>
-                    <div class="deskripsiLengkapi">
-                        <div class="kiri2">
-                            <p><?=$item["itemName"]?> (<?=$item["qtyPerItem"]?>pcs)</p>
-                            <p class="harga">Rp<?=number_format($item["buyPrice"])?></p>
+        <div class="gambarProduk" style="background-image:url(../image/Produk/<?=$item['itemImage']?>) ;"></div>
+            <div class="bawahProduk">
+                <div class="deskripsiKiri">
+                    <div class="namaProduk">
+                        <p>EDIT PRODUK</p>
+                    </div>
+                    <form action="../edit.php" method="post" id="buttonSave">
+                    <input type="hidden" name="id" value="<?=$itemId?>">
+                    <div class="deskripsiProduk">
+                        <div class="edit">
+                                <div class="nama">
+                                    <p class="judulEdit">Nama Produk:</p>
+                                        <input type="text" name="nama" class="isiEdit" value="<?=$item["itemName"]?>">
+                                </div>
+                                <div class="qtyPerPcs">
+                                    <p class="judulEdit">Qty (Pcs):</p>
+                                        <input type="text" name="qtyPerPcs" class="isiEdit" value="<?=$item["qtyPerItem"]?>">
+                                </div>
+                                <div class="harga">
+                                    <p class="judulEdit">Harga:</p>
+                                        <input type="text" name="harga" class="isiEdit" value="<?=$item["buyPrice"]?>">
+                                </div>
+                                <div class="stok">
+                                    <p class="judulEdit">Stok:</p>
+                                        <input type="text" name="stok" class="isiEdit" value="<?=$item["itemStock"]?>">
+                                </div>
+                                <div class="kategoriProduk">
+                                    <p class="judulEdit">Kategori:</p>
+                                        <select name="kategori" class="optionKategori">
+                                            <option value="">Pilih Kategori</option>
+                                            <?php foreach($categories as $category): ?>
+                                                <!-- Kalau category nya sesuai dengan category barang, maka otomatis selected -->
+                                                <?php if($category['categoryName'] == $itemCategory):?>
+                                                    <option value="<?=$category["categoryId"]?>" selected><?=$category["categoryName"]?></option>
+                                                <?php else: ?>
+                                                    <option value="<?=$category["categoryId"]?>"><?=$category["categoryName"]?></option>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                </div>
                         </div>
-                        <div class="kanan2">
-                            <a href="../editProduk/editProduk.php?id=<?=$item['itemId']?>">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12.7987 14.9334H1.06656V3.20132H8.11649L9.18305 2.13477H1.06656C0.783688 2.13477 0.512405 2.24713 0.312387 2.44715C0.112369 2.64717 0 2.91845 0 3.20132V14.9334C0 15.2163 0.112369 15.4876 0.312387 15.6876C0.512405 15.8876 0.783688 16 1.06656 16H12.7987C13.0815 16 13.3528 15.8876 13.5528 15.6876C13.7529 15.4876 13.8652 15.2163 13.8652 14.9334V6.93427L12.7987 8.00082V14.9334Z" fill="white"/>
-                                <path d="M15.7478 2.04945L13.9506 0.252304C13.8709 0.172328 13.7761 0.108875 13.6718 0.0655804C13.5675 0.0222857 13.4556 0 13.3427 0C13.2298 0 13.1179 0.0222857 13.0136 0.0655804C12.9093 0.108875 12.8145 0.172328 12.7348 0.252304L5.42352 7.60621L4.83159 10.1713C4.80637 10.2956 4.80902 10.424 4.83935 10.5472C4.86968 10.6704 4.92693 10.7853 5.00699 10.8837C5.08705 10.9822 5.18793 11.0616 5.30237 11.1164C5.41681 11.1712 5.54196 11.1999 5.66883 11.2005C5.7344 11.2077 5.80057 11.2077 5.86614 11.2005L8.45254 10.6299L15.7478 3.26532C15.8278 3.18557 15.8912 3.09081 15.9345 2.98649C15.9778 2.88217 16.0001 2.77033 16.0001 2.65739C16.0001 2.54444 15.9778 2.4326 15.9345 2.32828C15.8912 2.22396 15.8278 2.12921 15.7478 2.04945ZM7.89793 9.64333L5.94614 10.0753L6.39942 8.13949L11.9029 2.59873L13.4067 4.10257L7.89793 9.64333ZM14.0093 3.49997L12.5055 1.99612L13.332 1.15354L14.8465 2.66805L14.0093 3.49997Z" fill="white"/>
-                            </svg>                                                            
-                            </a>
+                        <div class="tulisanDeskripsi">Deskripsi:</div>
+                        <div class="isiDeskripsi">
+                                <textarea name="deskripsi" id="isiEdit2" class="isiEdit2" cols="100" rows="200">
+<?=$item["itemDescription"]?>
+                                </textarea>
+                            
                         </div>
                     </div>
+                    </form>
                 </div>
-                
-                <?php endforeach; ?>
+                <div class="kotakSampah">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.1399 34H8.85988C8.47507 33.9909 8.09583 33.9061 7.74381 33.7504C7.39179 33.5947 7.07391 33.3711 6.80831 33.0925C6.54271 32.8139 6.33461 32.4857 6.1959 32.1267C6.05718 31.7676 5.99058 31.3848 5.99988 31V11.23H7.99988V31C7.99033 31.1222 8.00504 31.2451 8.04315 31.3616C8.08126 31.4781 8.14202 31.5859 8.22194 31.6788C8.30186 31.7717 8.39937 31.848 8.50885 31.9031C8.61833 31.9582 8.73763 31.9911 8.85988 32H27.1399C27.2621 31.9911 27.3814 31.9582 27.4909 31.9031C27.6004 31.848 27.6979 31.7717 27.7778 31.6788C27.8577 31.5859 27.9185 31.4781 27.9566 31.3616C27.9947 31.2451 28.0094 31.1222 27.9999 31V11.23H29.9999V31C30.0092 31.3848 29.9426 31.7676 29.8039 32.1267C29.6651 32.4857 29.457 32.8139 29.1915 33.0925C28.9259 33.3711 28.608 33.5947 28.2559 33.7504C27.9039 33.9061 27.5247 33.9909 27.1399 34Z" fill="white"/>
+                        <path d="M30.78 9H5C4.73478 9 4.48043 8.89464 4.29289 8.70711C4.10536 8.51957 4 8.26522 4 8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7H30.78C31.0452 7 31.2996 7.10536 31.4871 7.29289C31.6746 7.48043 31.78 7.73478 31.78 8C31.78 8.26522 31.6746 8.51957 31.4871 8.70711C31.2996 8.89464 31.0452 9 30.78 9Z" fill="white"/>
+                        <path d="M21 13H23V28H21V13Z" fill="white"/>
+                        <path d="M13 13H15V28H13V13Z" fill="white"/>
+                        <path d="M23 5.86H21.1V4H14.9V5.86H13V4C12.9994 3.48645 13.1963 2.99233 13.55 2.62C13.9037 2.24767 14.3871 2.02568 14.9 2H21.1C21.6129 2.02568 22.0963 2.24767 22.45 2.62C22.8037 2.99233 23.0006 3.48645 23 4V5.86Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="deskripsiKanan">
+                        <div class="tulisanKeranjang">SIMPAN</div>
+                </div>
             </div>
         </div>
     </div>
@@ -180,5 +226,6 @@ if(isset($_SESSION["currentUserId"])){
             <p>Hak Cipta @ JualanYuk! 2022</p>
         </div>
     </div>
+    <script src="editProduk.js"></script>
 </body>
 </html>
