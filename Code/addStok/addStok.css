@@ -7,19 +7,15 @@
 }
 
 input[type='file'] {
-    color: rgba(0, 0, 0, 0)
+    opacity: 0;
 }
 
 input[type=file]::file-selector-button{
     visibility: hidden;
-    /* color: transparent; */
-    /* background-color: pink; */
 }
 
 input[type=file]::-webkit-file-upload-button{
     visibility: hidden;
-    /* color: transparent; */
-    /* background-color: pink; */
 }
 
 .fileLabel{
