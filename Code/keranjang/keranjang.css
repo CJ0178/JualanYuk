@@ -35,3 +35,57 @@
     width: 100%;
     height: 200px;
 }
+
+.pilihSemua{
+    /* background-color: yellow; */
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    /* display: block; */
+}
+
+.pilihSemua input{
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.check{
+    height: 24px;
+    width: 24px;
+    border: 1px solid #FFFFFF;
+    background-color: aquamarine;
+}
+
+.pilihSemua:hover input ~ .check{
+    background-color: wheat;
+}
+
+.pilihSemua input:checked ~ .check{
+    background-color: #FFFFFF;
+    border: 1px solid white;
+}
+
+.check:after {
+    content: "";
+    display: none;
+}
+
+.pilihSemua input:checked ~ .check:after{
+    display: block;
+}
+
+.pilihSemua .check:after{
+    width: 10px;
+    height: 10px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
