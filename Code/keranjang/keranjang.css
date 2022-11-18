@@ -3,7 +3,8 @@
     /* background-color: pink; */
     /* height: 2000px; */
     margin: auto;
-    margin-top: 37px;
+    margin-top: 25px;
+    margin-bottom: 150px;
 }
 
 .borderNone{
@@ -16,7 +17,7 @@
     flex-direction: column;
     padding-left: 30px;
     /* background-color: yellow; */
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .tulisanKeranjang{
@@ -287,3 +288,77 @@
 
 /* kotak plus min */
 
+.bagianBawah{
+    background-color: #8C8E81;
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: 140px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+}
+
+.kotakDalam{
+    width: 38.82%;
+    background-color: #604E49;
+    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    height: 125px;
+    padding: 10px 40px;
+    /* padding-left: 40px; */
+    /* padding-right: 40px; */
+}
+
+.tulisanSub{
+    font-weight: 600;
+    font-size: 15px;
+    /* text-decoration: underline; */
+    line-height: 22px;
+}
+
+.garis3{
+    height: 1px;
+    background-color: white;
+    width: 68px;
+}
+
+.atas{
+    margin-bottom: 5px;
+}
+
+.bawah{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* background-color: yellow; */
+}
+
+.totalBrg, .totalHrg{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tombolCekot{
+    margin-top: 4px;
+    height: fit-content;
+    background-color: #BDC0AC;
+    width: fit-content;
+    padding: 10px 15px;
+    display: flex;
+    float: right;
+    cursor: pointer;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.tulisanCekot{
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.25);
+}
