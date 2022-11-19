@@ -1,23 +1,28 @@
 .main{
     width: 59.66%;
-    background-color: pink;
-    height: 1000px;
+    /* background-color: pink; */
+    /* height: 2000px; */
     margin: auto;
-    margin-top: 37px;
+    margin-top: 25px;
+    margin-bottom: 150px;
+}
+
+.borderNone{
+    border: none !important;
 }
 
 .kotakAtas{
     height: 22px;
     display: flex;
     flex-direction: column;
-    padding-left: 25px;
+    padding-left: 30px;
     /* background-color: yellow; */
     margin-bottom: 20px;
 }
 
 .tulisanKeranjang{
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 900;
     height: 40px;
     display: flex;
     align-items: flex-start;
@@ -31,7 +36,329 @@
 }
 
 .kotakBawah{
-    background-color: violet;
+    /* background-color: brown ; */
     width: 100%;
-    height: 200px;
+    /* height: 2000px; */
+}
+
+.pilihSemua{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 17px;
+}
+
+.kotakPilih{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #FFFFFF;
+    margin-right: 35px;
+    margin-left: 13px;
+    /* background-color: yellow; */
+    
+    cursor: pointer;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.kotakPilih>svg{
+    height: 20px;
+    width: 20px;
+}
+
+
+.kotakPilih input{
+    /* Hide default checkbox */
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+.checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #eee;
+    
+}
+
+/* .checkBox{
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.checkBoxInput{
+    display: none;
+}
+
+.checkBoxBox{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 35px;
+    margin-left: 13px;
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.checkBoxBox::after{
+    content: '\2714';
+    color: #8C8E81;
+    transform: scale(0);
+    transition: transform 0.15s;
+}
+
+.checkBoxInput:checked + .checkBoxBox{
+    background: white;
+    border: 1px solid #FFFFFF;
+} 
+
+.checkBoxInput:checked + .checkBoxBox::after{
+    transform: scale(1);
+} */
+
+.garis2{
+    height: 1px;
+    background-color: white;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.kumpulanKeranjang{
+    /* background-color: brown; */
+    width: 100%;
+    /* height: 1150px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.cardKeranjang{
+    width: 100%;
+    height: 115px;
+    /* background-color: green; */
+    /* border: 1px solid white; */
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.kotakFoto{
+    width: 115px;
+    height: 115px;
+    background-color: #604E49;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.kotakTulisan{
+    /* background-color: aquamarine; */
+    width: 220px;
+    height: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+}
+
+.harga{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: underline;
+}
+
+.kotakJumlah{
+    width: 130px;
+    /* background-color: tan; */
+    height: 100%;
+}
+
+.tempatSampah{
+    width: 110px;
+    height: 100%;
+    /* background-color: cornflowerblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svgTempatSampah{
+    cursor: pointer;
+}
+
+.totalHarga{
+    width: 111px;
+    height: 100%;
+    /* background-color: black; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding-left: 13px;
+}
+
+/* kotak plus min */
+
+.kotakJumlah{
+    display: flex;
+    align-items: center;
+}
+
+.kotakMin{
+    border: 1px solid #E4E4E4;
+    height: 30px;
+    width: 33.333%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.kotakMin:hover, .kotakTambah:hover{
+    cursor: pointer;
+}
+
+.kotakAngka{
+    height: 30px;
+    width: 33.333%; 
+}
+
+.kotakTambah{
+    border: 1px solid #E4E4E4;
+    height: 30px;
+    width: 33.333%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.inputText {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #8C8E81;
+    color: white;
+    font-family: inherit;
+    width: 100%;
+    height: 30px;
+    outline: none;
+    text-align: center;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+.inputText:focus {
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+/* kotak plus min */
+
+.bagianBawah{
+    background-color: #8C8E81;
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: 140px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+}
+
+.kotakDalam{
+    width: 38.82%;
+    background-color: #604E49;
+    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    height: 125px;
+    padding: 10px 40px;
+    /* padding-left: 40px; */
+    /* padding-right: 40px; */
+}
+
+.tulisanSub{
+    font-weight: 600;
+    font-size: 15px;
+    /* text-decoration: underline; */
+    line-height: 22px;
+}
+
+.garis3{
+    height: 1px;
+    background-color: white;
+    width: 68px;
+}
+
+.atas{
+    margin-bottom: 5px;
+}
+
+.bawah{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* background-color: yellow; */
+}
+
+.totalBrg, .totalHrg{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tombolCekot{
+    margin-top: 4px;
+    height: fit-content;
+    background-color: #BDC0AC;
+    width: fit-content;
+    padding: 10px 15px;
+    display: flex;
+    float: right;
+    cursor: pointer;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.tulisanCekot{
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.25);
 }
