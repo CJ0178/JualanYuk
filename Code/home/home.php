@@ -17,7 +17,7 @@ if(isset($_SESSION["currentUserId"])){
     }
 } else{
     // Jika masuk melalui url
-    $currentUsername = "YOUR NAME";
+    redirectTo('../login/login.php');
 }
 
 ?>
