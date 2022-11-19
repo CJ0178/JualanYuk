@@ -264,6 +264,6 @@ if(isset($_GET["id"])){
             </div>
         </div>
 
-        <script src="produk.js"></script>
+        <script src="produkk.js"></script>
 </body>
 </html>

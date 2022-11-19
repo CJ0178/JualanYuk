@@ -13,10 +13,10 @@ if(
     mysqli_query($conn, $strQuery);
 
     if(mysqli_affected_rows($conn) > 0){
-        // Jika berhasil update
+        // Jika berhasil delete
         alertMessage('Delete berhasil');
     } else{
-        // Jika gagal update
+        // Jika gagal delete
         alertMessage('Delete gagal');
     }
     redirectTo('editStok/editStok.php');
