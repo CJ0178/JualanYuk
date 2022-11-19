@@ -7,6 +7,7 @@ require '../functions.php';
 if(isset($_SESSION["currentUserId"])){
     // Jika masuk memlalui login,
     $currentUserData = detailUser($_SESSION["currentUserId"]);
+    $currentUserId = $currentUserData['userId'];
     $currentUsername = $currentUserData["username"];
 
     // Jika dia adalah admin, langsung lempar
@@ -176,12 +177,16 @@ if(isset($_GET["id"])){
                             <!-- Kotak plus min -->
                             <div class="kotakMin">-</div>
                             <div class="kotakAngka">
-                                <form action="" method="post">
-                                    <input type="text" name="qtyBeli" id="qtyBeli" class="inputText" value="1">
+                                <form action="../insertKeranjang.php" method="get" id="formKeranjang">
+                                    <input type="hidden" name="userId" value="<?=$currentUserId?>">
+                                    <input type="hidden" name="itemId" value="<?=$itemId?>">
+                                    <input type="text" name="qty" id="qtyBeli" class="inputText" value="1">
                                 </form>
                             </div>
                             <div class="kotakTambah">+</div>
                         </div>
+
+                        
                         <div class="tulisanKeranjang">KERANJANG</div>
                         <div class="beliSekarang">
                             <p>BELI SEKARANG</p>
