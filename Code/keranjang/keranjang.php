@@ -149,8 +149,8 @@ $i = 0;
                             </a>
                         </div>
                     </div>
-                    <div class="totalHarga">
-                        <p class="harga">Rp180.000</p>
+                    <div class="harga totalHarga">
+                        <p class="subtotal">Rp<?=number_format($trolly['buyPrice']*$trolly['qty'])?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -167,11 +167,11 @@ $i = 0;
             <div class="bawah">
                 <div class="totalBrg">
                     <p class="tulis">Total Barang</p>
-                    <p class="jumlah">12 Barang</p>
+                    <p class="jumlah grandTotalQty">12 Barang</p>
                 </div>
                 <div class="totalHrg">
                     <p class="tulis">Total Harga</p>
-                    <p class="harga">Rp1.080.000</p>
+                    <p class="harga grandTotal">Rp0</p>
                 </div>
             </div>
             <div class="tombolCekot">

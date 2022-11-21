@@ -4,6 +4,9 @@ gambarLogoPilihSemua = document.getElementById('gambarLogoPilihSemua')
 gambarlogo = document.getElementsByClassName('gambarlogo')
 checkBoxInputs = document.getElementsByClassName('checkBoxInput')
 containerInputs = document.getElementsByClassName('kotakPilih')
+grandTotalPrice = document.getElementsByClassName('grandTotal')[0]
+grandTotalQty = document.getElementsByClassName('grandTotalQty')[0]
+formQty = document.getElementsByClassName('qtyBeli')
 
 // Convert ke array
 checkBoxInputs = Array.prototype.slice.call(checkBoxInputs);
@@ -56,6 +59,9 @@ buttonPilihSemua.addEventListener('click', ()=>{
             
         }
     });
+    
+    grandTotalPrice.innerHTML = calculatePrice()
+    grandTotalQty.innerHTML = calculateQuantity()
 })
 
 // Loop untuk setiap checkbox barang
@@ -69,7 +75,7 @@ containerInputsItem.forEach((element, index)=>{
             gambarlogo[index].classList.add('displayNone')
             containerInputsItem[index].classList.remove('borderNone')
         }
-
+        
         // gambarlogo[index].classList.toggle('displayNone')
         // containerInputsItem[index].classList.toggle('borderNone')
         if(allChecked()){
@@ -79,6 +85,9 @@ containerInputsItem.forEach((element, index)=>{
             gambarLogoPilihSemua.classList.add('displayNone')
             containerInputs[0].classList.remove('borderNone')
         }
+        
+        grandTotalPrice.innerHTML = calculatePrice()
+        grandTotalQty.innerHTML = calculateQuantity()
     })
 });
 
@@ -105,5 +114,37 @@ for(let i = 0; i < buttonMinus.length; i++){
             document.getElementsByClassName('qty'+i)[0].submit()
         }
     })
+    
+}
 
+// Menghitung harga
+prices = document.getElementsByClassName('subtotal')
+function calculatePrice(){
+    total = 0
+    for(let i = 0; i < checkBoxInputs.length; i++){
+        // Kalau dichecked
+        if(checkBoxInputs[i].checked){
+            // Hilangkan Rp
+            temp = prices[i].innerHTML.substring(2,prices[i].length)
+            // Menghilangkan koma
+            while(temp != temp.replace(',','')){
+                temp = temp.replace(',','')
+            }
+            total += parseInt(temp)
+        }
+    }
+    total = 'Rp' + total.toLocaleString('en-US')
+    return total
+}
+
+function calculateQuantity(){
+    total = 0
+    for(let i = 0; i < checkBoxInputs.length; i++){
+        // Kalau dichecked
+        if(checkBoxInputs[i].checked){
+            total += parseInt(formQty[i].value);
+        }
+    }
+    total = total + ' Barang'
+    return total
 }
