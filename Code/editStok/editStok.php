@@ -81,13 +81,28 @@ if(isset($_SESSION["currentUserId"])){
     <div class="main">
         <!-- lengkapi tokomu -->
         <div class="kotakLengkapi">
-            <div class="kotakAtas2">
-                <div class="tulisanLengkapi">
-                    DAFTAR PRODUK
+            <div class="pembungkusContainer">
+                <div class="containerKiri">
+                    <div class="kotakAtas2">
+                        <div class="tulisanLengkapi">
+                            DAFTAR PRODUK
+                        </div>
+                        <div class="garis2"></div>
+                    </div>
+                    <div class="bantuan"></div>
                 </div>
-                <div class="garis2"></div>
+                <div class="containerKanan">
+                    <div class="tambahProduk">
+                         <div class="tandaPlus">
+                            +
+                        </div>
+                        <div class="tulisanTambahProduk">
+                            TAMBAH PRODUK
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bantuan"></div>
+
             <div class="isiLengkapi">
                 <?php foreach($items as $item): ?>
                 <div class="cardLengkapi">
