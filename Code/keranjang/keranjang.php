@@ -22,6 +22,7 @@ if(isset($_SESSION["currentUserId"])){
 // Query seluruh keranjang yang dimiliki currentUser
 $currentUserId = $currentUserData['userId'];
 $trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.buyPrice, i.itemImage FROM trolly t JOIN item i ON i.itemId=t.itemId WHERE t.userId=$currentUserId");
+$i = 0;
 // var_dump($trollies);
 ?>
 
@@ -110,7 +111,6 @@ $trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.
                 <div class="tulisanPilih">Pilih Semua</div>
             </div>
             <div class="garis2"></div>
-            <form action="">
             <div class="kumpulanKeranjang">
                 <?php foreach($trollies as $trolly): ?>
                 <div class="cardKeranjang">
@@ -120,7 +120,6 @@ $trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.
                             <path d="M20.8232 5H19.2813C19.0652 5 18.86 5.09086 18.7277 5.24633L9.63318 15.7921L5.27233 10.7343C5.20636 10.6576 5.12227 10.5956 5.02638 10.5529C4.93049 10.5103 4.82529 10.488 4.71867 10.4879H3.17682C3.02903 10.4879 2.94742 10.6434 3.03786 10.7484L9.07953 17.7547C9.36187 18.0818 9.90449 18.0818 10.189 17.7547L20.9621 5.25845C21.0526 5.15547 20.971 5 20.8232 5Z" fill="#8C8E81"/>
                         </svg>      
                         <input type="checkbox" name="" class="checkBoxInput">
-                        <!-- <span class="checkmark displayNone"></span> -->
                     </div>
                     <div class="kotakFoto" style="background-image:url(../image/Produk/<?=$trolly['itemImage']?>) ;"></div>
                     <div class="kotakTulisan">
@@ -130,8 +129,9 @@ $trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.
                     <div class="kotakJumlah">
                         <div class="kotakMin">-</div>
                         <div class="kotakAngka">
-                            <form action="" method="post">
-                                <input type="text" name="qtyBeli" class="inputText qtyBeli" value="<?=$trolly['qty']?>">
+                            <form action="../updateKeranjang.php" method="get" class="qty<?php echo"$i"; $i++;?>">
+                                <input type="hidden" name="itemId" value="<?=$trolly['itemId']?>">
+                                <input type="text" name="qtyKeranjang" class="inputText qtyBeli" value="<?=$trolly['qty']?>">
                             </form>
                         </div>
                         <div class="kotakTambah">+</div>
@@ -156,7 +156,6 @@ $trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.
                 <?php endforeach; ?>
             </div>
 
-            </form>
         </div>
     </div>
     <div class="bagianBawah">
