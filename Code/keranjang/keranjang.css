@@ -339,13 +339,13 @@
 }
 
 .tombolCekot{
-    margin-top: 4px;
+    /* margin-top: 4px; */
     height: fit-content;
     background-color: #BDC0AC;
     width: fit-content;
     padding: 10px 15px;
     display: flex;
-    float: right;
+    /* float: right; */
     cursor: pointer;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
 }
@@ -361,4 +361,12 @@
     text-transform: uppercase;
     color: #FFFFFF;
     text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.tombol{
+    width: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: end;
+    margin-top: 4px;
 }
