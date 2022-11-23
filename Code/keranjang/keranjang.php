@@ -167,7 +167,7 @@ $i = 0;
             <div class="bawah">
                 <div class="totalBrg">
                     <p class="tulis">Total Barang</p>
-                    <p class="jumlah grandTotalQty">12 Barang</p>
+                    <p class="jumlah grandTotalQty">0 Barang</p>
                 </div>
                 <div class="totalHrg">
                     <p class="tulis">Total Harga</p>
