@@ -28,6 +28,8 @@ if(isset($_SESSION["currentUserId"])){
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="addStok.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="addStok.js"></script>
 </head>
 <body>
     <!-- header -->
@@ -83,8 +85,7 @@ if(isset($_SESSION["currentUserId"])){
     <div class="main">
         <form action="../insertItem.php" method="post" enctype="multipart/form-data" id="form">
         <div class="gambarProduk" style="background-image:url(../image/plus.png) ;">
-                <!-- <label id="fileLabel" class="fileLabel">+</label> -->
-                <input type="file" name="gambar" id="addPhoto" class="addPhoto">
+                <input type="file" name="gambar" id="addPhoto" class="addPhoto" onchange="readURL(this);">
         </div>
             <div class="bawahProduk">
                 <div class="deskripsiKiri">
@@ -203,6 +204,6 @@ if(isset($_SESSION["currentUserId"])){
         </div>
     </div>
 
-    <script src="addStok.js"></script>
+    
 </body>
 </html>
