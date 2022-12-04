@@ -1,3 +1,20 @@
+// Jalanin header
+window.onload = function(){
+    buttonSearch = document.getElementById('search1')
+    kotakMuncul = document.getElementById('search2')
+    buttonSearch.addEventListener('click', ()=>{
+        kotakMuncul.classList.toggle('displayNone')
+        buttonSearch.classList.add('displayNone')
+    })
+}
+
+function checkSubmit(e) {
+    if(e && e.keyCode == 13) {
+       document.forms[0].submit();
+    }
+ }
+ 
+
 // Button Pilih Semua Checkbox
 buttonPilihSemua = document.getElementById('pilihSemua')
 gambarLogoPilihSemua = document.getElementById('gambarLogoPilihSemua')
@@ -148,3 +165,5 @@ function calculateQuantity(){
     total = total + ' Barang'
     return total
 }
+
+

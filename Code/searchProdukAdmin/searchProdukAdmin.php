@@ -2,7 +2,15 @@
 
 session_start();
 require '../functions.php';
-$items = query("SELECT * FROM item");
+
+// Cek apakah ada keyword
+if(isset($_GET['keyword'])){
+    $keyword = $_GET['keyword'];
+    $items = query("SELECT * FROM ITEM WHERE itemName LIKE '%$keyword%'");
+} else{
+    // Jika tidak ada keyword
+    redirectTo('../home/home.php');
+}
 
 // Cek apakah current user sudah ada
 if(isset($_SESSION["currentUserId"])){
@@ -13,6 +21,8 @@ if(isset($_SESSION["currentUserId"])){
     // Jika masuk melalui url
     $currentUsername = "YOUR NAME";
 }
+
+
 
 ?>
 
@@ -26,7 +36,7 @@ if(isset($_SESSION["currentUserId"])){
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="../footer/footer.css">
-    <link rel="stylesheet" href="editStok.css">
+    <link rel="stylesheet" href="searchProdukAdmin.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
@@ -87,30 +97,6 @@ if(isset($_SESSION["currentUserId"])){
     <div class="main">
         <!-- lengkapi tokomu -->
         <div class="kotakLengkapi">
-            <div class="pembungkusContainer">
-                <div class="containerKiri">
-                    <div class="kotakAtas2">
-                        <div class="tulisanLengkapi">
-                            DAFTAR PRODUK
-                        </div>
-                        <div class="garis2"></div>
-                    </div>
-                    <div class="bantuan"></div>
-                </div>
-                <div class="containerKanan">
-                    <a href="../addStok/addStok.php">
-                    <div class="tambahProduk">
-                         <div class="tandaPlus">
-                            +
-                        </div>
-                        <div class="tulisanTambahProduk">
-                            TAMBAH PRODUK
-                        </div>
-                    </div>
-                    </a>
-                </div>
-            </div>
-
             <div class="isiLengkapi">
                 <?php foreach($items as $item): ?>
                 <div class="cardLengkapi">

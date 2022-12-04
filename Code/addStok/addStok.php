@@ -55,7 +55,11 @@ if(isset($_SESSION["currentUserId"])){
                     <path d="M26.25 29.1137L20.7225 22.7139L19.6575 23.93L25.185 30.3299C25.2544 30.4103 25.3369 30.4742 25.4279 30.5179C25.5188 30.5617 25.6163 30.5844 25.7148 30.5848C25.8134 30.5852 25.911 30.5633 26.0022 30.5203C26.0934 30.4773 26.1763 30.414 26.2462 30.3342C26.3161 30.2543 26.3717 30.1594 26.4098 30.0549C26.4478 29.9503 26.4675 29.8382 26.4679 29.7248C26.4682 29.6115 26.4492 29.4992 26.4118 29.3944C26.3744 29.2895 26.3194 29.1941 26.25 29.1137Z" fill="#FFF9F9"/>
                 </svg>                    
             </div>
-            <div class="searchText">Cari</div>
+            <div class="searchText">
+                <form action="../searchProduk/searchProduk.php" method="get">
+                    <input type="text" class="inputKeyword" name="keyword" placeholder="Cari" onKeyPress="return checkSubmit(event)" autocomplete="off">
+                </form>
+            </div>
         </div>
 
         <!-- akun -->
@@ -204,6 +208,6 @@ if(isset($_SESSION["currentUserId"])){
         </div>
     </div>
 
-    
+    <script src="../header/header.js"></script>
 </body>
 </html>

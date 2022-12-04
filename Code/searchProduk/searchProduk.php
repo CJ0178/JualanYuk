@@ -2,17 +2,33 @@
 
 session_start();
 require '../functions.php';
-$items = query("SELECT * FROM item");
+
+// Cek apakah ada keyword
+if(isset($_GET['keyword'])){
+    $keyword = $_GET['keyword'];
+    $items = query("SELECT * FROM ITEM WHERE itemName LIKE '%$keyword%'");
+} else{
+    // Jika tidak ada keyword
+    redirectTo('../home/home.php');
+}
+
 
 // Cek apakah current user sudah ada
 if(isset($_SESSION["currentUserId"])){
     // Jika masuk memlalui login,
     $currentUserData = detailUser($_SESSION["currentUserId"]);
     $currentUsername = $currentUserData["username"];
+    
+    // Jika dia adalah admin, langsung lempar
+    if($currentUsername == 'admin'){
+        header("Location: ../searchProdukAdmin/searchProdukAdmin.php?keyword=$keyword");
+    }
 } else{
     // Jika masuk melalui url
     $currentUsername = "YOUR NAME";
 }
+
+
 
 ?>
 
@@ -22,11 +38,12 @@ if(isset($_SESSION["currentUserId"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Stok</title>
+    <title>Kategori Produk</title>
     <link rel="stylesheet" href="../header/header.css">
     <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="../footer/footer.css">
-    <link rel="stylesheet" href="editStok.css">
+    <link rel="stylesheet" href="../editStok/editStok.css">
+    <link rel="stylesheet" href="searchProduk.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
@@ -87,51 +104,41 @@ if(isset($_SESSION["currentUserId"])){
     <div class="main">
         <!-- lengkapi tokomu -->
         <div class="kotakLengkapi">
-            <div class="pembungkusContainer">
-                <div class="containerKiri">
-                    <div class="kotakAtas2">
-                        <div class="tulisanLengkapi">
-                            DAFTAR PRODUK
-                        </div>
-                        <div class="garis2"></div>
-                    </div>
-                    <div class="bantuan"></div>
-                </div>
-                <div class="containerKanan">
-                    <a href="../addStok/addStok.php">
-                    <div class="tambahProduk">
-                         <div class="tandaPlus">
-                            +
-                        </div>
-                        <div class="tulisanTambahProduk">
-                            TAMBAH PRODUK
-                        </div>
-                    </div>
-                    </a>
-                </div>
-            </div>
-
             <div class="isiLengkapi">
+                <!-- Looping item -->
                 <?php foreach($items as $item): ?>
-                <div class="cardLengkapi">
-                    <div class="gambarLengkapi" style="background-image:url(../image/Produk/<?=$item["itemImage"]?>);"></div>
-                    <div class="deskripsiLengkapi">
-                        <div class="kiri2">
-                            <p><?=$item["itemName"]?> (<?=$item["qtyPerItem"]?>pcs)</p>
-                            <p class="harga">Rp<?=number_format($item["buyPrice"])?></p>
-                        </div>
-                        <div class="kanan2">
-                            <a href="../editProduk/editProduk.php?id=<?=$item['itemId']?>">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12.7987 14.9334H1.06656V3.20132H8.11649L9.18305 2.13477H1.06656C0.783688 2.13477 0.512405 2.24713 0.312387 2.44715C0.112369 2.64717 0 2.91845 0 3.20132V14.9334C0 15.2163 0.112369 15.4876 0.312387 15.6876C0.512405 15.8876 0.783688 16 1.06656 16H12.7987C13.0815 16 13.3528 15.8876 13.5528 15.6876C13.7529 15.4876 13.8652 15.2163 13.8652 14.9334V6.93427L12.7987 8.00082V14.9334Z" fill="white"/>
-                                <path d="M15.7478 2.04945L13.9506 0.252304C13.8709 0.172328 13.7761 0.108875 13.6718 0.0655804C13.5675 0.0222857 13.4556 0 13.3427 0C13.2298 0 13.1179 0.0222857 13.0136 0.0655804C12.9093 0.108875 12.8145 0.172328 12.7348 0.252304L5.42352 7.60621L4.83159 10.1713C4.80637 10.2956 4.80902 10.424 4.83935 10.5472C4.86968 10.6704 4.92693 10.7853 5.00699 10.8837C5.08705 10.9822 5.18793 11.0616 5.30237 11.1164C5.41681 11.1712 5.54196 11.1999 5.66883 11.2005C5.7344 11.2077 5.80057 11.2077 5.86614 11.2005L8.45254 10.6299L15.7478 3.26532C15.8278 3.18557 15.8912 3.09081 15.9345 2.98649C15.9778 2.88217 16.0001 2.77033 16.0001 2.65739C16.0001 2.54444 15.9778 2.4326 15.9345 2.32828C15.8912 2.22396 15.8278 2.12921 15.7478 2.04945ZM7.89793 9.64333L5.94614 10.0753L6.39942 8.13949L11.9029 2.59873L13.4067 4.10257L7.89793 9.64333ZM14.0093 3.49997L12.5055 1.99612L13.332 1.15354L14.8465 2.66805L14.0093 3.49997Z" fill="white"/>
-                            </svg>                                                            
-                            </a>
+                <a href="../produk/produk.php?id=<?=$item["itemId"]?>" style="color: inherit; text-decoration: inherit;">
+                    <div class="cardLengkapi">
+                        <div class="gambarLengkapi" style="background-image:url(../image/Produk/<?=$item["itemImage"]?>);"></div>
+                        <div class="deskripsiLengkapi">
+                            <div class="kiri2">
+                                <p><?= $item["itemName"]?> (<?= $item["qtyPerItem"]?>pcs)</p>
+                                <p class="harga">Rp<?=number_format($item["buyPrice"])?></p>
+                            </div>
+                            <div class="kanan2">
+                                <svg width="25" height="18" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g filter="url(#filter0_d_111_725)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9585 5.8094C20.0485 5.89945 20.0991 6.02158 20.0991 6.14893C20.0991 6.27627 20.0485 6.3984 19.9585 6.48845L15.8842 10.5627C15.7941 10.6528 15.672 10.7034 15.5447 10.7034C15.4173 10.7034 15.2952 10.6528 15.2051 10.5627C15.1151 10.4727 15.0645 10.3506 15.0645 10.2232C15.0645 10.0959 15.1151 9.97373 15.2051 9.88368L18.4598 6.62901L4.6799 6.62969C4.61677 6.62969 4.55425 6.61726 4.49592 6.59309C4.43759 6.56893 4.3846 6.53352 4.33995 6.48888C4.29531 6.44423 4.2599 6.39124 4.23574 6.33291C4.21157 6.27458 4.19914 6.21206 4.19914 6.14893C4.19914 6.08579 4.21157 6.02327 4.23574 5.96494C4.2599 5.90662 4.29531 5.85362 4.33995 5.80897C4.3846 5.76433 4.43759 5.72892 4.49592 5.70476C4.55425 5.6806 4.61677 5.66816 4.6799 5.66816L18.4598 5.66884L15.2051 2.41417C15.1151 2.32412 15.0645 2.20199 15.0645 2.07464C15.0645 1.9473 15.1151 1.82517 15.2051 1.73512C15.2952 1.64507 15.4173 1.59448 15.5447 1.59449C15.672 1.59449 15.7941 1.64507 15.8842 1.73512L19.9585 5.8094Z" fill="white"/>
+                                    </g>
+                                    <defs>
+                                    <filter id="filter0_d_111_725" x="0.199219" y="0.594482" width="23.8999" height="17.1089" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dy="3"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="out"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_111_725"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_111_725" result="shape"/>
+                                    </filter>
+                                    </defs>
+                                </svg>                                
+                            </div>
                         </div>
                     </div>
-                </div>
-                
+                </a>
                 <?php endforeach; ?>
+        
             </div>
         </div>
     </div>
