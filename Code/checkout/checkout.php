@@ -265,6 +265,11 @@ $grandTotal = 0;
         </div>
     </div>
 
-    <script src="../header/header.js"></script>
+    <!-- Hidden -->
+    <div class="hidden">
+<?= $_GET['list'] ?>
+    </div>
+
+    <script src="checkout.js"></script>
 </body>
 </html>
