@@ -184,8 +184,8 @@ if(isset($_GET["id"])){
                             <div class="kotakMin">-</div>
                             <div class="kotakAngka">
                                 <form action="../insertKeranjang.php" method="get" id="formKeranjang">
-                                    <input type="hidden" name="userId" value="<?=$currentUserId?>">
-                                    <input type="hidden" name="itemId" value="<?=$itemId?>">
+                                    <input type="hidden" name="userId" value="<?=$currentUserId?>" id="userId">
+                                    <input type="hidden" name="itemId" value="<?=$itemId?>" id="itemId">
                                     <input type="text" name="qty" id="qtyBeli" class="inputText" value="1">
                                 </form>
                             </div>
@@ -196,7 +196,7 @@ if(isset($_GET["id"])){
                         <div class="tulisanKeranjang">KERANJANG</div>
                         <div class="beliSekarang">
                             <p>BELI SEKARANG</p>
-                       </div>
+                        </div>
                     </div>
                 </div>
             </div>

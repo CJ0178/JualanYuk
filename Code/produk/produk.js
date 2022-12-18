@@ -15,11 +15,19 @@ buttonMinus.addEventListener('click', ()=>{
     }
 })
 
+// Redirect ke checkout jika pencet tombol beli sekarang
+buttonBeliSekarang = document.getElementsByClassName('beliSekarang')[0]
+itemId = document.getElementById('itemId').value
+
+buttonBeliSekarang.addEventListener('click', function(){
+    qty = inputQty.value
+    window.location.href = "../checkout/checkout.php?itemId=" + itemId + "&qty=" + qty
+})
+
 // Submit jika pencet tombol keranjang
 buttonKeranjang = document.getElementsByClassName('tulisanKeranjang')[0]
 formKeranjang = document.getElementById('formKeranjang')
 
-console.log(buttonKeranjang);
 buttonKeranjang.addEventListener('click', ()=>{
     
     formKeranjang.submit()

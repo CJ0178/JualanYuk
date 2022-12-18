@@ -19,21 +19,37 @@ if(isset($_SESSION["currentUserId"])){
     redirectTo('../home/home.php');
 }
 
-// Query list pesanan
-$lists = explode(',',$_GET['list']);
-
 $listOfId = array();
 $listOfQty = array();
+if(isset($_GET['itemId']) && isset($_GET['qty'])){
+    // Mode Checkout now
+    // Masukin database dahulu
+    $currentUserId = $_SESSION['currentUserId'];
+    $itemId = $_GET['itemId'];
+    $qty = $_GET['qty'];
+    $query = "INSERT IGNORE INTO Trolly VALUES ($currentUserId, $itemId, $qty)";
+    mysqli_query($conn, $query);
+    $query = "UPDATE Trolly SET qty = $qty WHERE userId = $currentUserId AND itemId = $itemId";
+    mysqli_query($conn, $query);
 
-foreach($lists as $count => $list){
-    if($count % 2 == 0){
-        $listOfId[] = $list;
-    } else {
-        $listOfQty[] = $list;
+    $listOfId[] = $currentUserId;
+    $listOfQty[] = $qty;
+    $items = query("SELECT * FROM Trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = $currentUserId AND t.itemId = $itemId");
+} else {
+    // Mode Keranjang
+    // Query list pesanan
+    $lists = explode(',',$_GET['list']);
+    foreach($lists as $count => $list){
+        if($count % 2 == 0){
+            $listOfId[] = $list;
+        } else {
+            $listOfQty[] = $list;
+        }
     }
+    
+    $items = query("SELECT * FROM trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = ".$_SESSION['currentUserId']. " AND t.itemId IN (". implode(",",$listOfId).")");
 }
 
-$items = query("SELECT * FROM trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = ".$_SESSION['currentUserId']. " AND t.itemId IN (". implode(",",$listOfId).")");
 
 // Total harga
 $grandTotal = 0;
@@ -267,7 +283,11 @@ $grandTotal = 0;
 
     <!-- Hidden -->
     <div class="hidden">
-<?= $_GET['list'] ?>
+<?php if(isset($_GET['list'])): ?>
+<?=$_GET['list']?>
+<?php else: ?>
+<?=$itemId.",".$qty?>
+<?php endif; ?>
     </div>
 
     <script src="checkout.js"></script>
