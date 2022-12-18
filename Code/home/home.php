@@ -14,11 +14,13 @@ ORDER BY SUM(b.qty) DESC
 LIMIT 10");
 
 $recommendations = query("SELECT DISTINCT
-i.*
+i.*,
+o.userId,
+IF(SUM(o.qty) IS NULL, 1000, SUM(o.qty)) as 'Byk pembelian'
 FROM item i
 LEFT JOIN Owns o ON o.itemId = i.itemId
 GROUP BY o.userId, i.itemId
-ORDER BY IF(ABS(o.userId - $currentUserId) IS NULL, 100, ABS(o.userId - $currentUserId)) ASC, SUM(o.qty) ASC
+ORDER BY IF(ABS(o.userId - $currentUserId) IS NULL, 1000, ABS(o.userId - $currentUserId)) ASC, IF(SUM(o.qty) IS NULL, 1000, SUM(o.qty)) ASC
 LIMIT 10");
 
 
