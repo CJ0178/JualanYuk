@@ -24,6 +24,7 @@ containerInputs = document.getElementsByClassName('kotakPilih')
 grandTotalPrice = document.getElementsByClassName('grandTotal')[0]
 grandTotalQty = document.getElementsByClassName('grandTotalQty')[0]
 formQty = document.getElementsByClassName('qtyBeli')
+buttonCheckout = document.getElementsByClassName('tulisanCekot')[0]
 
 // Convert ke array
 checkBoxInputs = Array.prototype.slice.call(checkBoxInputs);
@@ -166,4 +167,22 @@ function calculateQuantity(){
     return total
 }
 
+// Generate string untuk GET, nanti masuk ke halaman checkout
+function generateStringGET(){
+    var stringGet = ""
+    for(let i = 0; i < checkBoxInputs.length; i++){
+        if(checkBoxInputs[i].checked){
+            // console.log(checkBoxInputs[i].value);
+            stringGet += checkBoxInputs[i].value;
+        }
+    }
+    // Buang koma di belakang
+    if(stringGet.slice(-1) == ','){
+        stringGet = stringGet.slice(0,-1)
+    }
+    return stringGet
+}
 
+buttonCheckout.addEventListener('click', function(){
+    document.location.href = "../checkout/checkout.php?list="+generateStringGET()
+})

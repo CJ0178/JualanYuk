@@ -23,7 +23,6 @@ if(isset($_SESSION["currentUserId"])){
 $currentUserId = $currentUserData['userId'];
 $trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.buyPrice, i.itemImage FROM trolly t JOIN item i ON i.itemId=t.itemId WHERE t.userId=$currentUserId");
 $i = 0;
-// var_dump($trollies);
 ?>
 
 <!DOCTYPE html>
@@ -125,7 +124,7 @@ $i = 0;
                             <rect x="0.5" y="0.5" width="23.3226" height="23.3226" fill="white" stroke="white"/>
                             <path d="M20.8232 5H19.2813C19.0652 5 18.86 5.09086 18.7277 5.24633L9.63318 15.7921L5.27233 10.7343C5.20636 10.6576 5.12227 10.5956 5.02638 10.5529C4.93049 10.5103 4.82529 10.488 4.71867 10.4879H3.17682C3.02903 10.4879 2.94742 10.6434 3.03786 10.7484L9.07953 17.7547C9.36187 18.0818 9.90449 18.0818 10.189 17.7547L20.9621 5.25845C21.0526 5.15547 20.971 5 20.8232 5Z" fill="#8C8E81"/>
                         </svg>      
-                        <input type="checkbox" name="" class="checkBoxInput">
+                        <input type="checkbox" value="<?=$trolly['itemId'].','.$trolly['qty'].','?>" class="checkBoxInput">
                     </div>
                     <div class="kotakFoto" style="background-image:url(../image/Produk/<?=$trolly['itemImage']?>) ;"></div>
                     <div class="kotakTulisan">
