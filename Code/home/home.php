@@ -13,15 +13,19 @@ GROUP BY i.itemId
 ORDER BY SUM(b.qty) DESC
 LIMIT 10");
 
-$recommendations = query("SELECT DISTINCT
-i.*,
-o.userId,
-IF(SUM(o.qty) IS NULL, 1000, SUM(o.qty)) as 'Byk pembelian'
-FROM item i
-LEFT JOIN Owns o ON o.itemId = i.itemId
-GROUP BY o.userId, i.itemId
-ORDER BY IF(ABS(o.userId - $currentUserId) IS NULL, 1000, ABS(o.userId - $currentUserId)) ASC, IF(SUM(o.qty) IS NULL, 1000, SUM(o.qty)) ASC
-LIMIT 10");
+$recommendations = query("SELECT i.*,o.userId, o.qty FROM item i
+JOIN Owns o ON o.itemId = i.itemId
+WHERE o.userId = $currentUserId
+UNION
+SELECT i.*, 0, 0 FROM item i
+WHERE i.itemId NOT IN (
+	SELECT i.itemId FROM item i
+	JOIN Owns o ON o.itemId = i.itemId
+	WHERE o.userId = $currentUserId
+)
+ORDER BY IF(abs(userId-$currentUserId) IS NULL, 1000, abs(userId-$currentUserId)) ASC, qty ASC
+LIMIT 10
+");
 
 
 // Cek apakah current user sudah ada
