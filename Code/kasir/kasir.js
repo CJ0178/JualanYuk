@@ -15,6 +15,7 @@ for(let i = 0; i < cardsProduk.length; i++){
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 container.innerHTML = xhr.responseText
+                initPlusMin()
             }
         }
         // Eksekusi ajax
@@ -24,26 +25,30 @@ for(let i = 0; i < cardsProduk.length; i++){
 }
 
 // Plus min
-buttonMinus = document.getElementsByClassName('kotakMin')
-buttonPlus = document.getElementsByClassName('kotakTambah')
-inputQty = document.getElementsByClassName('qtyBeli')
+initPlusMin()
 
-for(let i = 0; i < buttonMinus.length; i++){
-    buttonPlus[i].addEventListener('click', ()=>{
-        inputQty[i].value++
-        // Submit form yang bersangkutan
-        document.getElementsByClassName('qty'+i)[0].submit()
-    })
+function initPlusMin(){
+    buttonMinus = document.getElementsByClassName('kotakMin')
+    buttonPlus = document.getElementsByClassName('kotakTambah')
+    inputQty = document.getElementsByClassName('qtyBeli')
     
-    buttonMinus[i].addEventListener('click', ()=>{
-        if(inputQty[i].value-1 >= 1){
-            inputQty[i].value--
+    for(let i = 0; i < buttonMinus.length; i++){
+        buttonPlus[i].addEventListener('click', ()=>{
+            inputQty[i].value++
+            // Submit form yang bersangkutan
             document.getElementsByClassName('qty'+i)[0].submit()
-        } else{
-            inputQty[i].value = 1
-            document.getElementsByClassName('qty'+i)[0].submit()
-        }
-    })   
+        })
+        
+        buttonMinus[i].addEventListener('click', ()=>{
+            if(inputQty[i].value-1 >= 1){
+                inputQty[i].value--
+                document.getElementsByClassName('qty'+i)[0].submit()
+            } else{
+                inputQty[i].value = 1
+                document.getElementsByClassName('qty'+i)[0].submit()
+            }
+        })   
+    }
 }
 
 
