@@ -115,7 +115,6 @@ input:active{
 .bagianKanan{
     /* background-color: rebeccapurple; */
     width: 74.48%;
-    /* height: 500px; */
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
