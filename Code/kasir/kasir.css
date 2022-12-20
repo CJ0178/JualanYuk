@@ -132,10 +132,11 @@ input:active{
     background-size: contain;
     background-position: center;
     height: 100%;
-    width: 50.37%;
+    width: 38%;
 }
 
 .kotakText{
+    width: 62%;
     display: flex;
     align-items: center;
     font-weight: 700;
