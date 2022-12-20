@@ -1,0 +1,149 @@
+.main{
+    /* background-color: pink; */
+    /* height: 2000px; */
+    width: 72.55%;
+    margin: auto;
+    margin-top: 35px;
+}
+
+.judulKasir{
+    margin: auto;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.garis{
+    background-color: white;
+    height: 1.5px;
+    width: 85px;
+}
+
+.tulisanKasir{
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 33px;
+}
+
+.kotakBawah{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.kotakKiri{
+    width: 66.09%;
+}
+
+.garis2{
+    background-color: white;
+    /* height: 800px; */
+    width: 1.5px;
+    height: auto;
+}
+
+.kotakKanan{
+    background-color: aquamarine;
+    /* height: 1000px; */
+    width: 26.62%;
+}
+
+.cari{
+    width: 100%;
+    height: 37px;
+    background-color: #604E49;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+}
+
+.svgCari{
+    width: 7.59%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tulisanCari{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.kotakKiriBawah{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bagianKiri{
+    /* background-color: salmon; */
+    width: 23.78%;
+    /* height: 500px; */
+}
+
+.bagianKanan{
+    background-color: rebeccapurple;
+    width: 74.48%;
+    /* height: 500px; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kategoriCard{
+    width: 100%;
+    background-color: #BDC0AC;
+    height: 53px;
+    display: flex;
+    margin-bottom: 3px;
+}
+
+.kotakFoto{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    width: 50.37%;
+}
+
+.kotakText{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    padding-left: 3px;
+}
+
+.produkCard{
+    background-color: #604E49;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 25%;
+    height: 110px;
+}
+
+.fotoProduk{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 73%;
+}
+
+.teks{
+    /* background-color: pink; */
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 11px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 5px;
+}
+
+.harga{
+    text-decoration: underline;
+}
