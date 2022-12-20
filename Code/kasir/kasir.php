@@ -51,6 +51,7 @@ $_SESSION['grandTotal'] = 0;
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
+    <div class="bg" id="bg"></div>
     <!-- header -->
     <div class="container">
         <!-- logo -->
@@ -196,7 +197,25 @@ $_SESSION['grandTotal'] = 0;
                         <p class="totalPes">Total Pesanan</p>
                         <p class="harga harga2" id="grandTotal">Rp<?=number_format($_SESSION['grandTotal'])?></p>
                     </div>
-                    <div class="tombolBayar">UPLOAD PESANAN</div>
+                    <button type="submit" class="tombolBayar" onclick="openPopUp()">UPLOAD PESANAN</button>
+                </div>
+            </div>
+            <div class="popUp" id="popUp">
+                <div class="isiDalam">
+                    <p class="berhasil">UPLOAD BERHASIL</p>
+                    <div class="svgBerhasil">
+                        <svg width="131" height="95" viewBox="0 0 150 109" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_556_4125)">
+                            <path d="M-0.532227 4.07471H149.468V99.8317H-0.532227V4.07471ZM74.4678 28.014C81.0982 28.014 87.457 30.5361 92.1454 35.0256C96.8339 39.5151 99.4678 45.6041 99.4678 51.9532C99.4678 58.3023 96.8339 64.3913 92.1454 68.8808C87.457 73.3703 81.0982 75.8925 74.4678 75.8925C67.8374 75.8925 61.4785 73.3703 56.7901 68.8808C52.1017 64.3913 49.4678 58.3023 49.4678 51.9532C49.4678 45.6041 52.1017 39.5151 56.7901 35.0256C61.4785 30.5361 67.8374 28.014 74.4678 28.014ZM32.8011 20.0342C32.8011 24.2669 31.0452 28.3263 27.9196 31.3193C24.7939 34.3123 20.5547 35.9937 16.1344 35.9937V67.9127C20.5547 67.9127 24.7939 69.5942 27.9196 72.5871C31.0452 75.5801 32.8011 79.6395 32.8011 83.8722H116.134C116.134 79.6395 117.89 75.5801 121.016 72.5871C124.142 69.5942 128.381 67.9127 132.801 67.9127V35.9937C128.381 35.9937 124.142 34.3123 121.016 31.3193C117.89 28.3263 116.134 24.2669 116.134 20.0342H32.8011Z" fill="#604E49"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_556_4125">
+                            <rect width="150" height="109" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>                    
+                    </div>
+                    <button type="button" class="kembali" onclick="closePopUp()">KEMBALI KE KASIR</button>
                 </div>
             </div>
        </div>
