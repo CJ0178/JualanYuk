@@ -93,11 +93,10 @@ input:active{
     outline:none;
 }
 
-::placeholder {
+.tulisanCari::placeholder {
     color: white;
     opacity: 1;
 }
-
 
 .kotakKiriBawah{
     width: 100%;
