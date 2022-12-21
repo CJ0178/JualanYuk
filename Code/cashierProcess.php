@@ -11,9 +11,18 @@ mysqli_query($conn, $query);
 
 
 if(!mysqli_affected_rows($conn) > 0){
-    // Jika tidak berhasil insert, barulah nambah stok 1
-    $query = "UPDATE Cashier SET qty = qty + 1 WHERE userId = $currentUserId AND itemId = $itemId";
-    mysqli_query($conn, $query);
+    // Jika tidak berhasil insert, barulah nambah qty 1
+    // Cek dulu stoknya yang sudah ada
+    $stok = query("SELECT qty FROM Owns WHERE userId = $currentUserId AND itemId = $itemId")[0]['qty'];
+    $qtySekarang = query("SELECT qty FROM cashier WHERE userId = $currentUserId AND itemId = $itemId")[0]['qty'];
+    if($qtySekarang < $stok){
+        // Kalau nambah masih cukup, maka tambah
+        $query = "UPDATE Cashier SET qty = qty + 1 WHERE userId = $currentUserId AND itemId = $itemId";
+        mysqli_query($conn, $query);
+    } else{
+        // Kalau dak cukup lagi, kasih pesan
+        echo '<br><center style="color:pink;"> Stok tidak cukup </center>';
+    }
 }
 
 $cashiers = query("SELECT *, o.qty AS 'qty', c.qty AS 'qtyPesan' FROM cashier c JOIN item i ON i.itemId = c.itemId JOIN Owns o ON o.itemId = i.itemId WHERE c.userId = $currentUserId AND o.userId = $currentUserId");
@@ -68,7 +77,7 @@ echo'
     <p class="totalPes">Total Pesanan</p>
     <p class="harga harga2" id="grandTotal">Rp'.number_format($_SESSION['grandTotal']).'</p>
 </div>
-<div class="tombolBayar">UPLOAD PESANAN</div>
+<a href="../cashierDatabase.php"><div class="tombolBayar" onclick="openPopUp()">UPLOAD PESANAN</div></a>
 ';
 
 ?>
