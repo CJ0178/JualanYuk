@@ -1,9 +1,10 @@
 var edit = document.getElementById("edit");
 var centang = document.getElementById("centang");
+var centangKosong = document.getElementById("centangKosong");
 var sampah = document.getElementById("sampah");
 
 function muncul(){
-    centang.classList.toggle("displayNone")
+    centangKosong.classList.toggle("displayNone")
     edit.classList.toggle("displayNone")
     sampah.classList.toggle("displayNone")
 }
@@ -11,10 +12,12 @@ function muncul(){
 edit.addEventListener('click', muncul)
 centang.addEventListener('click', muncul)
 
-centang.addEventListener('mouseenter', function(){
-    centang.style.backgroundColor='Red';
+centangKosong.addEventListener('mouseenter', function(){
+    centang.classList.toggle("displayNone")
+    centangKosong.classList.toggle("displayNone")
 })
 
-centang.addEventListener('mouseleave', function(){
-    centang.style.backgroundColor='white';
+centangKosong.addEventListener('mouseleave', function(){
+    centang.classList.toggle("displayNone")
+    centangKosong.classList.toggle("displayNone")
 })

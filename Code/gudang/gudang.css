@@ -1,0 +1,251 @@
+.main{
+    width: 55.89%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.judulGudang{
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.tulisanGudang{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+.garis10{
+    height: 1.5px;
+    background-color: white;
+    width: 120px;
+}
+
+.cari{
+    width: 33.37%;
+    height: 35px;
+    background-color: #604E49;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    font-size: 16px;
+}
+
+.svgCarii{
+    width: 18.44%;
+    height: 100%;
+    /* background-color: pink; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tulisanCari{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #604E49;
+    color: white;
+    /* height: 45px; */
+    font-family: inherit;
+    width: 100%;
+}
+
+input{
+    border: none;
+    outline:none;
+    padding-left: 5px;
+}
+
+input:active{
+    border: none;
+    outline:none;
+}
+
+.tulisanCari::placeholder {
+    color: white;
+    opacity: 1;
+    font-size: 16px;
+}
+
+.isi{
+    /* height: 2000px; */
+    /* background-color: aqua; */
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.bagianKiri{
+    width: 19.54%;
+    /* background-color: pink; */
+}
+
+.kategoriCard{
+    width: 100%;
+    background-color: #BDC0AC;
+    height: 53px;
+    display: flex;
+    margin-bottom: 3px;
+}
+
+.kotakFoto{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    width: 38%;
+}
+
+.kotakText{
+    width: 62%;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    padding-left: 0px;
+}
+
+.bagianTengah{
+    width: 60.34%;
+    /* background-color: pink; */
+}
+
+.bagianTengahAtas{
+    width: 100%;
+    height: 27px;
+    background-color: #BDC0AC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.bagian{
+    width: 33.33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bagianTengahBawah{
+    /* background-color: pink; */
+    width: 100%;
+    /* height: 1000px; */
+}
+
+.cardBawah{
+    width: 100%;
+    height: 35px;
+    background-color: #604E49;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: -0.01em;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.stok2{
+    text-decoration: underline;
+}
+
+.harga2{
+    text-decoration: underline;
+}
+
+.bagianKanan{
+    width: 15.68%;
+    /* background-color: black; */
+}
+
+.bagianKananAtas{
+    width: 78%;
+    height: 27px;
+    background-color: #BDC0AC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.bagianKananBawah{
+    /* background-color: pink; */
+    width: 100%;
+    /* height: 1000px; */
+}
+
+.cardEdit{
+    width: 78%;
+    background-color: #604E49;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 35px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    all: unset;
+}
+
+.edit{
+    /* background-color: yellow; */
+    height: fit-content;
+}
+
+/* .bagianUjung{
+    width: 2.5%;
+    background-color: pink;
+    padding-top: 21px;
+} */
+
+/* .centangKosong{
+    margin-top: 23.2px;
+}
+
+.centang{
+    margin-top: 23.2px;
+} */
+
+.paket2{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: black; */
+}
+
+.paket{
+    /* width: 15%; */
+    margin-top: 8px;
+    display: flex;
+    height: 35px;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.centang, .centangKosong, .sampah, .edit{
+    cursor: pointer;
+}
