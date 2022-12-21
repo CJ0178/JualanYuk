@@ -14,8 +14,17 @@ UPDATE Owns o
 JOIN Cashier c ON c.userId = o.userId AND c.itemId = o.itemId
 SET o.qty = o.qty - c.qty
 ";
+mysqli_query($conn, $query);
+
+// Kalau qty nya 0, maka delete aja
+$query = "
+DELETE FROM Owns
+WHERE qty = 0
+";
 
 mysqli_query($conn, $query);
+
+
 
 // Insert Sell
 $query = "
