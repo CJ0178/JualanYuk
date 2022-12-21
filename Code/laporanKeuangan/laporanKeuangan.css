@@ -142,6 +142,25 @@ input#session-month::-webkit-calendar-picker-indicator{
     transform: scale(12)
 }
 
+/* untuk tahunan */
+.session-year{
+    background-color: #604E49;
+    border: 0;
+    /* background-color: pink; */
+    text-align: center;
+    font-family: 'Montserrat';
+    color: white;
+    outline: none;
+    font-size: 18px;
+    width: 130px;
+}
+
+.session-year:focus{
+    outline: none;
+}
+
+/* selesai */
+
 .kategori{
     width: 90%;
     /* height: 200px; */
