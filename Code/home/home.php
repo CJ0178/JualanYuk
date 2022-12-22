@@ -132,8 +132,10 @@ if(isset($_SESSION["currentUserId"])){
                     <div class="tulisanFitur2">GUDANG</div>
                 </div>
                 <div class="cardFitur">
-                    <div class="logoFitur" style="background-image:url(../image/fitur3.svg) ;"></div>
-                    <div class="tulisanFitur2">LAPORAN PENJUALAN</div>
+                    <a href="../laporanKeuangan/laporanKeuangan.php" style="width: 100%; display: flex;">
+                        <div class="logoFitur" style="background-image:url(../image/fitur3.svg) ;"></div>
+                        <div class="tulisanFitur2">LAPORAN PENJUALAN</div>
+                    </a>
                 </div>
                 <div class="cardFitur">
                     <a href="../kasir/kasir.php" style="width: 100%; display: flex;">
