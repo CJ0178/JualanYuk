@@ -21,3 +21,10 @@ centangKosong.addEventListener('mouseleave', function(){
     centang.classList.toggle("displayNone")
     centangKosong.classList.toggle("displayNone")
 })
+
+
+function clickMe() {
+    var text = document.getElementById("popup");
+    text.classList.toggle("hide");
+    text.classList.toggle("show");
+}
