@@ -104,6 +104,7 @@ if(isset($_SESSION["currentUserId"])){
                     <p class="opsi">Tahunan</p>
                 </div>
             </div>
+            <form action="" method="get">
             <div class="isi">
                 <div class="pilih">
                     <div class="svgPilih">
@@ -112,31 +113,39 @@ if(isset($_SESSION["currentUserId"])){
                         </svg>                            
                     </div>
 
+                    <!-- Untuk button mode -->
+                    <input type="hidden" name="mode" value="week" id="mode">
+
                     <!-- untuk harian -->
-                    <!-- <input type="text" name="session-date" id="session-date" placeholder="Select Date" onfocus="(this.type='date')"> -->
+                    <input type="text" name="session-date"  id="session-date" class="input" placeholder="Select Date" onfocus="(this.type='date')">
                     
                     <!-- untuk bulanan -->
-                    <input type="text" name="session-month" id="session-month" placeholder="Select Month" onfocus="(this.type='month')">
-
+                    <input type="text" name="session-month" id="session-month" class="input displayNone" placeholder="Select Month" onfocus="(this.type='month')">
+                    
                     <!-- untuk tahunan -->
-                    <div class="tahunan">
+                    <div class="tahunan input displayNone">
                         <select name="session-year" id="session-year" class="session-year">
                             <option value="">Select Year</option>
-                            <option value="">2018</option>
-                            <option value="">2019</option>
-                            <option value="">2020</option>
-                            <option value="">2021</option>
-                            <option value="">2022</option>
-                            <option value="">2023</option>
+                            <?php for($i = 2018 ; $i <= 2023; $i++): ?>
+                            <option value="<?=$i?>"><?=$i?></option>
+                            <?php endfor; ?>
                         </select>
                     </div>
-
+                    
                     <div class="svgPilih">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 16L16 12L12 8L10.6 9.4L12.2 11H8V13H12.2L10.6 14.6L12 16ZM12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88333 20.6873 5.825 19.975 4.925 19.075C4.025 18.175 3.31267 17.1167 2.788 15.9C2.26267 14.6833 2 13.3833 2 12C2 10.6167 2.26267 9.31667 2.788 8.1C3.31267 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31233 8.1 2.787C9.31667 2.26233 10.6167 2 12 2C13.3833 2 14.6833 2.26233 15.9 2.787C17.1167 3.31233 18.175 4.025 19.075 4.925C19.975 5.825 20.6873 6.88333 21.212 8.1C21.7373 9.31667 22 10.6167 22 12C22 13.3833 21.7373 14.6833 21.212 15.9C20.6873 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6873 15.9 21.212C14.6833 21.7373 13.3833 22 12 22Z" fill="white"/>
-                        </svg>                            
+                        </svg>                         
                     </div>
                 </div>
+
+                <div class="bantuan10">
+                    <div class="tombolLihat" id="tombolSubmitForm">
+                        <p class="tulisanLihat">LIHAT STATISTIK</p>
+                    </div>
+                </div>
+
+
                 <div class="kategori">
                     <div class="cardKategori">
                         <div class="svgLogo">
@@ -221,6 +230,7 @@ if(isset($_SESSION["currentUserId"])){
 
                 </div>
             </div>
+            </form>
         </div>
     </div>
 
@@ -291,5 +301,7 @@ if(isset($_SESSION["currentUserId"])){
             <p>Hak Cipta @ JualanYuk! 2022</p>
         </div>
     </div>
+
+    <script src="laporanKeuangan.js"></script>
 </body>
 </html>

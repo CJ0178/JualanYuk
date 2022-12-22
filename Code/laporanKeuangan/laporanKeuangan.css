@@ -44,6 +44,10 @@
     line-height: 23px;
 }
 
+.cardJudul:hover{
+    cursor: pointer;
+}
+
 .isi{
     background-color: #604E49;
     box-shadow: 6px 4px 8px rgba(0, 0, 0, 0.25);
@@ -256,4 +260,8 @@ input#session-month::-webkit-calendar-picker-indicator{
 
 .active{
     height: 55px;
+}
+
+.displayNone{
+    display: none !important;
 }
