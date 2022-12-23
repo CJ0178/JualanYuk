@@ -95,7 +95,7 @@ if(isset($_SESSION["currentUserId"])){
         <div class="kotakBawah">
             <div class="kotakJudul">
                 <div class="cardJudul active">
-                    <p class="opsi">Harian</p>
+                    <p class="opsi">Mingguan</p>
                 </div>
                 <div class="cardJudul">
                     <p class="opsi">Bulanan</p>
@@ -118,7 +118,7 @@ if(isset($_SESSION["currentUserId"])){
                     <input type="hidden" name="mode" value="week" id="mode">
 
                     <!-- untuk harian -->
-                    <input type="date" name="session-date"  id="session-date" value="<?=query('SELECT DATE(CURRENT_TIMESTAMP)AS "date"')[0]['date']?>" class="input">
+                    <input type="week" name="session-week"  id="session-date" class="input">
                     
                     <!-- untuk bulanan -->
                     <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR(CURRENT_TIMESTAMP),"-",MONTH(CURRENT_TIMESTAMP)) AS `month`')[0]['month']?>" class="input displayNone">
@@ -126,7 +126,7 @@ if(isset($_SESSION["currentUserId"])){
                     <!-- untuk tahunan -->
                     <div class="tahunan input displayNone">
                         <?php $currYear = query('SELECT YEAR(CURRENT_TIMESTAMP) as `year`')[0]['year'] ?>
-                        <select name="session-year" id="session-year" class="session-year" value="2020">
+                        <select name="session-year" id="session-year" class="session-year" value="-1">
                             <?php for($i = 2018 ; $i <= 2023; $i++): ?>
                                 <?php if($i == $currYear): ?>
                                 <option value="<?=$i?>" selected><?=$i?></option>

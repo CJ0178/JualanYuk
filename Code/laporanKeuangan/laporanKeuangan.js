@@ -33,12 +33,62 @@ tombolSubmitForm.addEventListener('click', function(){
 arrowKiri = document.getElementById('arrowKiri')
 arrowKanan = document.getElementById('arrowKanan')
 
+arrowKanan.addEventListener('click', function(){
+    indexAktif = checkManaYangAktif()
+
+    if(indexAktif == 0){
+        // Mingguan
+        console.log('1');
+    } else if(indexAktif == 1){
+        // Bulanan
+        const month = new Date(divInput[1].value)
+        if(month.getMonth()+1 == 12){
+            // Jika Desember, nambah tahun
+            month.setMonth((month.getMonth() + 1) % 12)
+            month.setFullYear(month.getFullYear() + 1)
+        } else{
+            month.setMonth(month.getMonth() + 1)
+        }
+
+        divInput[1].value = month.getFullYear() + '-' + addLeadingZeros(month.getMonth() + 1, 2)
+    } else {
+        // Tahunan
+        tahunInput = document.getElementById('session-year')
+        if(tahunInput.value < 2023){
+            tahunInput.value = parseInt(tahunInput.value) + 1
+        }
+    }
+})
+
 arrowKiri.addEventListener('click', function(){
     indexAktif = checkManaYangAktif()
 
-    
+    if(indexAktif == 0){
+        // Mingguan
+        console.log('1');
+    } else if(indexAktif == 1){
+        // Bulanan
+        const month = new Date(divInput[1].value)
+        if(month.getMonth()+1 == 1){
+            // Jika Januari, kurang tahun tahun
+            month.setMonth(11)
+            month.setFullYear(month.getFullYear() - 1)
+        } else{
+            month.setMonth(month.getMonth() - 1)
+        }
+
+        divInput[1].value = month.getFullYear() + '-' + addLeadingZeros(month.getMonth() + 1, 2)
+    } else {
+        // Tahunan
+        tahunInput = document.getElementById('session-year')
+        if(tahunInput.value > 2018){
+            tahunInput.value = parseInt(tahunInput.value) - 1
+        }
+    }
 })
 
+
+// Function
 function checkManaYangAktif(){
     for(let i = 0; i < cardJudul.length; i++){
         if(cardJudul[i].classList.contains('active')){
@@ -47,5 +97,7 @@ function checkManaYangAktif(){
     }
     return -1
 }
-document.getElementById('session-year').value = 2020
-console.log(document.getElementById('session-year').value);
+
+function addLeadingZeros(num, totalLength) {
+    return String(num).padStart(totalLength, '0');
+}
