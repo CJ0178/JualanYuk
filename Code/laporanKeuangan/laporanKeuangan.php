@@ -1,5 +1,34 @@
 <?php 
-// SELECT DATE_ADD('2022-12-01', INTERVAL -DAY('2022-12-01')+1 DAY), LAST_DAY('2022-12-23')
+// Keuntungan (Omset)
+// SELECT
+// SUM(s.sellPrice*s.qty) AS 'revenue',
+// SUM(s.qty * s.COGS) AS 'COGS',
+// SUM(s.sellPrice*s.qty) - SUM(s.qty * s.COGS) AS 'income'
+// FROM sell s
+// JOIN item i ON i.itemId = s.itemId
+// WHERE DATEDIFF('2022-12-31', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '2022-12-01') >= 0
+
+// Produk Terlaris
+// SELECT
+// i.itemName as 'nama'
+// FROM sell s
+// JOIN item i ON i.itemId = s.itemId
+// JOIN category c ON i.categoryId = c.categoryId
+// WHERE DATEDIFF('2022-12-31', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '2022-12-01') >= 0
+// GROUP BY i.itemId
+// ORDER BY SUM(s.qty) DESC
+// LIMIT 2
+
+// Kategori Terpopuler
+// SELECT
+// c.categoryName as 'nama'
+// FROM sell s
+// JOIN item i ON i.itemId = s.itemId
+// JOIN category c ON i.categoryId = c.categoryId
+// WHERE DATEDIFF('2022-12-31', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '2022-12-01') >= 0
+// GROUP BY c.categoryId
+// ORDER BY SUM(s.qty) DESC
+// LIMIT 1
 
 session_start();
 require '../functions.php';
@@ -31,7 +60,7 @@ if(isset($_GET["mode"])){
         $tanggalAkhir = query("SELECT LAST_DAY('$bulanQuery') AS akhir")[0]['akhir'];
 
     } else if($mode == 'year'){
-        $tanggalAwal = $_GET['session-year'].'-12-01';
+        $tanggalAwal = $_GET['session-year'].'-01-01';
         $tanggalAkhir = $_GET['session-year'].'-12-31';
     }
 } else{
@@ -40,6 +69,76 @@ if(isset($_GET["mode"])){
     $tanggalAwal = query("SELECT DATE_ADD('$tanggalHariIni', INTERVAL -DAY('$tanggalHariIni')+1 DAY) AS awal")[0]['awal'];
     $tanggalAkhir = query("SELECT LAST_DAY('$tanggalHariIni') AS akhir")[0]['akhir'];
 }
+
+// Tentukan 6 indikator
+$query = "
+SELECT
+SUM(s.sellPrice*s.qty) AS 'revenue',
+SUM(s.qty * s.COGS) AS 'COGS',
+SUM(s.sellPrice*s.qty) - SUM(s.qty * s.COGS) AS 'income'
+FROM sell s
+JOIN item i ON i.itemId = s.itemId
+WHERE DATEDIFF('$tanggalAkhir', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '$tanggalAwal') >= 0
+";
+
+$queryResult = query($query)[0];
+$revenue = $queryResult['revenue'];
+$COGS = $queryResult['COGS'];
+$income = $queryResult['income'];
+
+$query = "
+SELECT
+i.itemName as 'nama'
+FROM sell s
+JOIN item i ON i.itemId = s.itemId
+JOIN category c ON i.categoryId = c.categoryId
+WHERE DATEDIFF('$tanggalAkhir', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '$tanggalAwal') >= 0
+GROUP BY i.itemId
+ORDER BY SUM(s.qty) DESC
+LIMIT 2
+";
+
+$queryResult = query($query);
+if(isset($queryResult[0]['nama'])){
+    $produkTerlaris1 = $queryResult[0]['nama'];
+} else{
+    $produkTerlaris1 = '-';
+}
+
+if(isset($queryResult[1]['nama'])){
+    $produkTerlaris2 = $queryResult[1]['nama'];
+} else{
+    $produkTerlaris2 = '-';
+}
+
+$query = "
+SELECT
+c.categoryName as 'nama'
+FROM sell s
+JOIN item i ON i.itemId = s.itemId
+JOIN category c ON i.categoryId = c.categoryId
+WHERE DATEDIFF('$tanggalAkhir', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '$tanggalAwal') >= 0
+GROUP BY c.categoryId
+ORDER BY SUM(s.qty) DESC
+LIMIT 1
+";
+
+$kategoriTerpopuler = query($query);
+
+if(isset($kategoriTerpopuler[0]['nama'])){
+    $kategoriTerpopuler = $kategoriTerpopuler[0]['nama'];
+} else{
+    $kategoriTerpopuler = '-';
+}
+
+$query = "
+SELECT
+SUM(s.qty) as 'BanyakPenjualan'
+FROM sell s
+WHERE DATEDIFF('$tanggalAkhir', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '$tanggalAwal') >= 0
+";
+
+$banyakPenjualan = query($query)[0]['BanyakPenjualan'];
 
 ?>
 
@@ -257,7 +356,7 @@ if(isset($_GET["mode"])){
                             </svg>                                
                         </div>
                         <div class="tulisanKategori">
-                            <p class="harga">Rp3.000.000</p>
+                            <p class="harga">Rp<?=number_format($revenue)?></p>
                             <p class="kategoriApa">Keuntungan</p>
                         </div>
                     </div>
@@ -270,7 +369,7 @@ if(isset($_GET["mode"])){
                             </svg>                                                               
                         </div>
                         <div class="tulisanKategori">
-                            <p class="harga">973</p>
+                            <p class="harga"><?=number_format($banyakPenjualan)?></p>
                             <p class="kategoriApa">Banyak Penjualan</p>
                         </div>
                     </div>
@@ -284,7 +383,7 @@ if(isset($_GET["mode"])){
                             </svg>                                                             
                         </div>
                         <div class="tulisanKategori">
-                            <p class="harga">Cimory</p>
+                            <p class="harga"><?=$produkTerlaris1?></p>
                             <p class="kategoriApa">Produk Terlaris</p>
                         </div>
                     </div>
@@ -297,7 +396,7 @@ if(isset($_GET["mode"])){
                             </svg>                                                             
                         </div>
                         <div class="tulisanKategori">
-                            <p class="harga">Rp1.800.000</p>
+                            <p class="harga">Rp<?=number_format($COGS)?></p>
                             <p class="kategoriApa">Pengeluaran</p>
                         </div>
                     </div>
@@ -309,7 +408,7 @@ if(isset($_GET["mode"])){
                             </svg>                                                            
                         </div>
                         <div class="tulisanKategori">
-                            <p class="harga">Makanan</p>
+                            <p class="harga"><?=$kategoriTerpopuler?></p>
                             <p class="kategoriApa">Kategori Terpopuler</p>
                         </div>
                     </div>
@@ -323,7 +422,7 @@ if(isset($_GET["mode"])){
                             </svg>                                                               
                         </div>
                         <div class="tulisanKategori">
-                            <p class="harga">Chitato</p>
+                            <p class="harga"><?=$produkTerlaris2?></p>
                             <p class="kategoriApa">Produk Terlaris</p>
                         </div>
                     </div>
