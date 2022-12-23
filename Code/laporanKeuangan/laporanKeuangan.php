@@ -1,4 +1,6 @@
 <?php 
+// SELECT DATE_ADD('2022-12-01', INTERVAL -DAY('2022-12-01')+1 DAY), LAST_DAY('2022-12-23')
+
 session_start();
 require '../functions.php';
 
@@ -17,6 +19,27 @@ if(isset($_SESSION["currentUserId"])){
     redirectTo('../login/login.php');
 }
 
+// Tentukan tanggal awal dan akhir
+if(isset($_GET["mode"])){
+    // Generate laporan keuangan
+    $mode = $_GET["mode"];
+    if($mode == 'week'){
+
+    } else if($mode == 'month'){
+        $bulanQuery = $_GET["session-month"].'-01';
+        $tanggalAwal = query("SELECT DATE_ADD('$bulanQuery', INTERVAL -DAY('$bulanQuery')+1 DAY) AS awal")[0]['awal'];
+        $tanggalAkhir = query("SELECT LAST_DAY('$bulanQuery') AS akhir")[0]['akhir'];
+
+    } else if($mode == 'year'){
+        $tanggalAwal = $_GET['session-year'].'-12-01';
+        $tanggalAkhir = $_GET['session-year'].'-12-31';
+    }
+} else{
+    // Mode default
+    $tanggalHariIni = query("SELECT DATE(CURRENT_TIMESTAMP) as `date`")[0]['date'];
+    $tanggalAwal = query("SELECT DATE_ADD('$tanggalHariIni', INTERVAL -DAY('$tanggalHariIni')+1 DAY) AS awal")[0]['awal'];
+    $tanggalAkhir = query("SELECT LAST_DAY('$tanggalHariIni') AS akhir")[0]['akhir'];
+}
 
 ?>
 
@@ -94,15 +117,40 @@ if(isset($_SESSION["currentUserId"])){
         </div>
         <div class="kotakBawah">
             <div class="kotakJudul">
-                <div class="cardJudul active">
-                    <p class="opsi">Mingguan</p>
-                </div>
-                <div class="cardJudul">
-                    <p class="opsi">Bulanan</p>
-                </div>
-                <div class="cardJudul">
-                    <p class="opsi">Tahunan</p>
-                </div>
+                <?php if(isset($_GET['mode']) && $_GET['mode'] == 'month'): ?>
+                    <!-- Bulanan -->
+                    <div class="cardJudul">
+                        <p class="opsi">Mingguan</p>
+                    </div>
+                    <div class="cardJudul active">
+                        <p class="opsi">Bulanan</p>
+                    </div>
+                    <div class="cardJudul">
+                        <p class="opsi">Tahunan</p>
+                    </div>
+                <?php elseif(isset($_GET['mode']) && $_GET['mode'] == 'year'): ?>
+                    <!-- Tahunan -->
+                    <div class="cardJudul">
+                        <p class="opsi">Mingguan</p>
+                    </div>
+                    <div class="cardJudul">
+                        <p class="opsi">Bulanan</p>
+                    </div>
+                    <div class="cardJudul active">
+                        <p class="opsi">Tahunan</p>
+                    </div>
+                <?php else: ?>
+                    <!-- Mode default -->
+                    <div class="cardJudul active">
+                        <p class="opsi">Mingguan</p>
+                    </div>
+                    <div class="cardJudul">
+                        <p class="opsi">Bulanan</p>
+                    </div>
+                    <div class="cardJudul">
+                        <p class="opsi">Tahunan</p>
+                    </div>
+                <?php endif; ?>
             </div>
             <form action="" method="get">
             <div class="isi">
@@ -115,28 +163,76 @@ if(isset($_SESSION["currentUserId"])){
                     </div>
 
                     <!-- Untuk button mode -->
-                    <input type="hidden" name="mode" value="week" id="mode">
+                    <?php if(isset($_GET['mode'])): ?>
+                        <input type="hidden" name="mode" value="<?=$_GET['mode']?>" id="mode">
+                    <?php else: ?>
+                        <input type="hidden" name="mode" value="week" id="mode">
+                    <?php endif; ?>
 
-                    <!-- untuk harian -->
-                    <input type="week" name="session-week"  id="session-date" class="input">
-                    
-                    <!-- untuk bulanan -->
-                    <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR(CURRENT_TIMESTAMP),"-",MONTH(CURRENT_TIMESTAMP)) AS `month`')[0]['month']?>" class="input displayNone">
-                    
-                    <!-- untuk tahunan -->
-                    <div class="tahunan input displayNone">
-                        <?php $currYear = query('SELECT YEAR(CURRENT_TIMESTAMP) as `year`')[0]['year'] ?>
-                        <select name="session-year" id="session-year" class="session-year" value="-1">
-                            <?php for($i = 2018 ; $i <= 2023; $i++): ?>
-                                <?php if($i == $currYear): ?>
-                                <option value="<?=$i?>" selected><?=$i?></option>
-                                <?php else: ?>
-                                <option value="<?=$i?>"><?=$i?></option>
-                                <?php endif; ?>
-                            <?php endfor; ?>
-                        </select>
-                    </div>
-                    
+                    <?php if(isset($_GET['mode']) && $_GET['mode'] == 'month'): ?>
+                        <!-- Bulanan -->
+                        <!-- Mode default -->
+                        <input type="date" name="session-week"  id="session-date" class="input displayNone">
+                        
+                        <!-- untuk bulanan -->
+                        <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input">
+                        
+                        <!-- untuk tahunan -->
+                        <div class="tahunan input displayNone">
+                            <?php $currYear = query('SELECT YEAR("'.$tanggalAkhir.'") as `year`')[0]['year'] ?>
+                            <select name="session-year" id="session-year" class="session-year" value="-1">
+                                <?php for($i = 2018 ; $i <= 2023; $i++): ?>
+                                    <?php if($i == $currYear): ?>
+                                    <option value="<?=$i?>" selected><?=$i?></option>
+                                    <?php else: ?>
+                                    <option value="<?=$i?>"><?=$i?></option>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+                    <?php elseif(isset($_GET['mode']) && $_GET['mode'] == 'year'): ?>
+                        <!-- Tahunan -->
+                        <!-- Mode default -->
+                        <input type="date" name="session-week"  id="session-date" class="input displayNone">
+                        
+                        <!-- untuk bulanan -->
+                        <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input displayNone">
+                        
+                        <!-- untuk tahunan -->
+                        <div class="tahunan input">
+                            <?php $currYear = query('SELECT YEAR("'.$tanggalAkhir.'") as `year`')[0]['year'] ?>
+                            <select name="session-year" id="session-year" class="session-year" value="-1">
+                                <?php for($i = 2018 ; $i <= 2023; $i++): ?>
+                                    <?php if($i == $currYear): ?>
+                                    <option value="<?=$i?>" selected><?=$i?></option>
+                                    <?php else: ?>
+                                    <option value="<?=$i?>"><?=$i?></option>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+                    <?php else: ?>
+                        <!-- Mode default -->
+                        <input type="date" name="session-week"  id="session-date" class="input">
+                        
+                        <!-- untuk bulanan -->
+                        <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input displayNone">
+                        
+                        <!-- untuk tahunan -->
+                        <div class="tahunan input displayNone">
+                            <?php $currYear = query('SELECT YEAR("'.$tanggalAkhir.'") as `year`')[0]['year'] ?>
+                            <select name="session-year" id="session-year" class="session-year" value="-1">
+                                <?php for($i = 2018 ; $i <= 2023; $i++): ?>
+                                    <?php if($i == $currYear): ?>
+                                    <option value="<?=$i?>" selected><?=$i?></option>
+                                    <?php else: ?>
+                                    <option value="<?=$i?>"><?=$i?></option>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+                    <?php endif; ?>
+
                     <!-- Arrow Kanan -->
                     <div class="svgPilih" id="arrowKanan">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -185,6 +185,10 @@ input#session-month::-webkit-calendar-picker-indicator{
     padding-right: 5px;
 }
 
+.tombolLihat:hover{
+    cursor: pointer;
+}
+
 .tulisanLihat{
     font-weight: 700;
     font-size: 11px;
