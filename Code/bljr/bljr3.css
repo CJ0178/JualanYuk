@@ -34,7 +34,7 @@ body{
     background-color: blue;
 }
 
-form {
+/* form {
     width: 50%;
   }
   
@@ -44,4 +44,23 @@ form {
   
   .show {
     display: block;
+  } */
+
+  input{
+    all: unset;
+  }
+
+  .satu{
+      margin-top: 50px;
+      position: absolute;
+  }
+
+  .nama::placeholder{
+    /* background-color: aquamarine; */
+    /* border: 1px solid black; */
+    color: black;
+  }
+
+  .nama{
+    background-color: pink;
   }
