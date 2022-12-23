@@ -1,3 +1,4 @@
+// Pilih opsi week, bulan, tahun
 buttonOpsi = document.getElementsByClassName('cardJudul')
 divInput = document.getElementsByClassName('input')
 cardJudul = document.getElementsByClassName('cardJudul')
@@ -27,3 +28,24 @@ tombolSubmitForm = document.getElementById('tombolSubmitForm')
 tombolSubmitForm.addEventListener('click', function(){
     document.forms[1].submit()
 })
+
+// Arrow kiri dan kanan
+arrowKiri = document.getElementById('arrowKiri')
+arrowKanan = document.getElementById('arrowKanan')
+
+arrowKiri.addEventListener('click', function(){
+    indexAktif = checkManaYangAktif()
+
+    
+})
+
+function checkManaYangAktif(){
+    for(let i = 0; i < cardJudul.length; i++){
+        if(cardJudul[i].classList.contains('active')){
+            return i
+        }
+    }
+    return -1
+}
+document.getElementById('session-year').value = 2020
+console.log(document.getElementById('session-year').value);
