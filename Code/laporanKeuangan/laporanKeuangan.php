@@ -189,13 +189,14 @@ $begin = new DateTime( $tanggalAwal );
 $end   = new DateTime( $tanggalAkhir );
 
 $dataPoints = array();
+$currentUserId = $_SESSION['currentUserId'];
 
 for($i = $begin; $i <= $end; $i->modify('+1 day')){
     $tanggalLoop = $i->format("Y-m-d");
     $penghasilan = query("SELECT
     SUM(s.sellPrice - s.COGS)*s.qty as penghasilan
     FROM sell s
-    WHERE s.sellDate = '$tanggalLoop'")[0]['penghasilan'];
+    WHERE s.sellDate = '$tanggalLoop' AND s.userId = $currentUserId")[0]['penghasilan'];
     $dataPoints[] = array("y" => $penghasilan, "label" => $tanggalLoop);
 }
 ?>
