@@ -107,6 +107,47 @@ input#session-date::-webkit-calendar-picker-indicator{
     transform: scale(12)
 }
 
+/* untuk mingguan */
+input[type="week"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    /* background-color: pink; */
+    text-align: center;
+    /* height: fit-content; */
+    height: 20px;
+}
+
+input#session-week[type="text"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    text-align: center;
+    height: 20px;
+}
+
+input#session-week[type="text"]::placeholder{
+    all: unset;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+input#session-week{
+    position:relative;
+    overflow:hidden;
+}
+
+input#session-week::-webkit-calendar-picker-indicator{
+    display:block;
+    top:0;
+    left:0;
+    background: #0000;
+    position:absolute;
+    transform: scale(12);
+    /* background-color: pink; */
+}
+
 /* untuk bulanan */
 input[type="month"]{
     all: unset;
