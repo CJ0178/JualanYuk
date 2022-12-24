@@ -30,6 +30,15 @@
 // ORDER BY SUM(s.qty) DESC
 // LIMIT 1
 
+// SELECT IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
+//           DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 50 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 49 WEEK)) as 'TanggalAwal', 
+          
+//           DATE_SUB(IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
+//           DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 50 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 49 WEEK))
+//                    , INTERVAL WEEKDAY(IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
+//           DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 50 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 49 WEEK))) DAY) + INTERVAL 6 DAY as 'TanggalAkhir'
+
+
 session_start();
 require '../functions.php';
 
@@ -53,7 +62,22 @@ if(isset($_GET["mode"])){
     // Generate laporan keuangan
     $mode = $_GET["mode"];
     if($mode == 'week'){
+        $weekQuery = substr($_GET["session-week"],0,4);
+        $weekKe = substr($_GET["session-week"], -2,2) - 1;
+        
+        $weekQuery .= '-01-01';
+        $query = "
+        SELECT IF(DAY(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY)) < 5,    
+          DATE_ADD(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY), INTERVAL $weekKe WEEK), DATE_ADD(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY), INTERVAL $weekKe-1 WEEK)) as 'TanggalAwal', 
+          
+          DATE_SUB(IF(DAY(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY)) < 5,    
+          DATE_ADD(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY), INTERVAL $weekKe WEEK), DATE_ADD(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY), INTERVAL $weekKe-1 WEEK))
+                   , INTERVAL WEEKDAY(IF(DAY(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY)) < 5,    
+          DATE_ADD(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY), INTERVAL $weekKe WEEK), DATE_ADD(DATE_ADD('$weekQuery', INTERVAL ((7 - WEEKDAY('$weekQuery')) MOD 7) DAY), INTERVAL $weekKe-1 WEEK))) DAY) + INTERVAL 6 DAY as 'TanggalAkhir'
+        ";
 
+        $tanggalAwal = query($query)[0]['TanggalAwal'];
+        $tanggalAkhir = query($query)[0]['TanggalAkhir'];
     } else if($mode == 'month'){
         $bulanQuery = $_GET["session-month"].'-01';
         $tanggalAwal = query("SELECT DATE_ADD('$bulanQuery', INTERVAL -DAY('$bulanQuery')+1 DAY) AS awal")[0]['awal'];
@@ -66,8 +90,18 @@ if(isset($_GET["mode"])){
 } else{
     // Mode default
     $tanggalHariIni = query("SELECT DATE(CURRENT_TIMESTAMP) as `date`")[0]['date'];
-    $tanggalAwal = query("SELECT DATE_ADD('$tanggalHariIni', INTERVAL -DAY('$tanggalHariIni')+1 DAY) AS awal")[0]['awal'];
-    $tanggalAkhir = query("SELECT LAST_DAY('$tanggalHariIni') AS akhir")[0]['akhir'];
+
+    $query = "
+    SELECT IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
+          DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL IF(DAYOFWEEK(date(CURRENT_TIMESTAMP)) = 1, WEEK(date(CURRENT_TIMESTAMP))-1,  WEEK(date(CURRENT_TIMESTAMP)))-1 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL IF(DAYOFWEEK(date(CURRENT_TIMESTAMP)) = 1, WEEK(date(CURRENT_TIMESTAMP))-1,  WEEK(date(CURRENT_TIMESTAMP)))-2 WEEK)) as 'TanggalAwal', 
+          
+          DATE_SUB(IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
+          DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL IF(DAYOFWEEK(date(CURRENT_TIMESTAMP)) = 1, WEEK(date(CURRENT_TIMESTAMP))-1,  WEEK(date(CURRENT_TIMESTAMP)))-1 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL IF(DAYOFWEEK(date(CURRENT_TIMESTAMP)) = 1, WEEK(date(CURRENT_TIMESTAMP))-1,  WEEK(date(CURRENT_TIMESTAMP)))-2 WEEK))
+                   , INTERVAL WEEKDAY(IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
+          DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL IF(DAYOFWEEK(date(CURRENT_TIMESTAMP)) = 1, WEEK(date(CURRENT_TIMESTAMP))-1,  WEEK(date(CURRENT_TIMESTAMP)))-1 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL IF(DAYOFWEEK(date(CURRENT_TIMESTAMP)) = 1, WEEK(date(CURRENT_TIMESTAMP))-1,  WEEK(date(CURRENT_TIMESTAMP)))-2 WEEK))) DAY) + INTERVAL 6 DAY as 'TanggalAkhir'
+    ";
+    $tanggalAwal = query($query)[0]['TanggalAwal'];
+    $tanggalAkhir = query($query)[0]['TanggalAkhir'];
 }
 
 // Tentukan 6 indikator
@@ -314,8 +348,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
 
                     <?php if(isset($_GET['mode']) && $_GET['mode'] == 'month'): ?>
                         <!-- Bulanan -->
-                        <!-- Mode default -->
-                        <input type="date" name="session-week"  id="session-date" class="input displayNone">
+                        <input type="week" name="session-week"  id="session-week" value="" class="input displayNone">
                         
                         <!-- untuk bulanan -->
                         <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input">
@@ -335,8 +368,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                         </div>
                     <?php elseif(isset($_GET['mode']) && $_GET['mode'] == 'year'): ?>
                         <!-- Tahunan -->
-                        <!-- Mode default -->
-                        <input type="date" name="session-week"  id="session-date" class="input displayNone">
+                        <input type="week" name="session-week"  id="session-week" value="" class="input displayNone">
                         
                         <!-- untuk bulanan -->
                         <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input displayNone">
@@ -356,7 +388,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                         </div>
                     <?php else: ?>
                         <!-- Mode default -->
-                        <input type="date" name="session-week"  id="session-date" class="input">
+                        <input type="week" name="session-week"  id="session-week" value="" class="input">
                         
                         <!-- untuk bulanan -->
                         <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input displayNone">
