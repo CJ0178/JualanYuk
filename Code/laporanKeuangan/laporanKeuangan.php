@@ -388,12 +388,15 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                         </div>
                     <?php else: ?>
                         <!-- Mode default -->
-                        <?php //var_dump($tanggalAwal) ?>
-                        <input type="week" name="session-week"  id="session-week" value="<?=query("SELECT 
-                        IF(DAY(DATE_ADD(CONCAT(YEAR('$tanggalAwal'),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR('$tanggalAwal'),'-01-01'))) MOD 7) DAY)) < 5, 
-                        CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(WEEK('$tanggalAwal', 1),2,0)),
-                        CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(IF(DAYOFWEEK('$tanggalAwal') = 1, WEEK('$tanggalAwal'),  WEEK('$tanggalAwal') + 1),2,0))
-                        ) as format")[0]['format']?>" class="input">
+                        <?php if(isset($_GET['session-week'])): ?>
+                            <input type="week" name="session-week"  id="session-week" value="<?=$_GET['session-week']?>" class="input">
+                        <?php else: ?>
+                            <input type="week" name="session-week"  id="session-week" value="<?=query("SELECT 
+                            IF(DAY(DATE_ADD(CONCAT(YEAR('$tanggalAwal'),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR('$tanggalAwal'),'-01-01'))) MOD 7) DAY)) < 5, 
+                            CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(WEEK('$tanggalAwal', 1),2,0)),
+                            CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(IF(DAYOFWEEK('$tanggalAwal') = 1, WEEK('$tanggalAwal'),  WEEK('$tanggalAwal') + 1),2,0))
+                            ) as format")[0]['format']?>" class="input">
+                        <?php endif; ?>
                         
                         <!-- untuk bulanan -->
                         <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input displayNone">
