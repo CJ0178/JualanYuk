@@ -183,7 +183,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
  
         var chart = new CanvasJS.Chart("grafikContainer", {
             title: {
-                text: "<?=$tanggalAwal.' s/d '.$tanggalAkhir?>"
+                text: "Keuntungan <?=$tanggalAwal.' s/d '.$tanggalAkhir?>"
             },
             axisY: {
                 title: "Rupiah"
