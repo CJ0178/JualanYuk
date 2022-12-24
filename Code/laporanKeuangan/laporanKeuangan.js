@@ -87,7 +87,6 @@ arrowKiri.addEventListener('click', function(){
     }
 })
 
-
 // Function
 function checkManaYangAktif(){
     for(let i = 0; i < cardJudul.length; i++){

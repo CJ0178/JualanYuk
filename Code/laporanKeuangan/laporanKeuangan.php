@@ -140,6 +140,30 @@ WHERE DATEDIFF('$tanggalAkhir', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '$tang
 
 $banyakPenjualan = query($query)[0]['BanyakPenjualan'];
 
+// Grafik
+$dataPoints = array(
+	array("y" => 25, "label" => "Sunday"),
+	array("y" => 15, "label" => "Monday"),
+	array("y" => 25, "label" => "Tuesday"),
+	array("y" => 5, "label" => "Wednesday"),
+	array("y" => 10, "label" => "Thursday"),
+	array("y" => 0, "label" => "Friday"),
+	array("y" => 20, "label" => "Saturday")
+);
+
+$begin = new DateTime( $tanggalAwal );
+$end   = new DateTime( $tanggalAkhir );
+
+$dataPoints = array();
+
+for($i = $begin; $i <= $end; $i->modify('+1 day')){
+    $tanggalLoop = $i->format("Y-m-d");
+    $penghasilan = query("SELECT
+    SUM(s.sellPrice - s.COGS)*s.qty as penghasilan
+    FROM sell s
+    WHERE s.sellDate = '$tanggalLoop'")[0]['penghasilan'];
+    $dataPoints[] = array("y" => $penghasilan, "label" => $tanggalLoop);
+}
 ?>
 
 <!DOCTYPE html>
@@ -153,6 +177,26 @@ $banyakPenjualan = query($query)[0]['BanyakPenjualan'];
     <link rel="stylesheet" href="../footer/footer.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="laporanKeuangan.css">
+
+    <script>
+        window.onload = function () {
+ 
+        var chart = new CanvasJS.Chart("grafikContainer", {
+            title: {
+                text: "<?=$tanggalAwal.' s/d '.$tanggalAkhir?>"
+            },
+            axisY: {
+                title: "Rupiah"
+            },
+            data: [{
+                type: "line",
+                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart.render();
+        
+        }
+    </script>
 </head>
 <body>
     <!-- header -->
@@ -427,7 +471,7 @@ $banyakPenjualan = query($query)[0]['BanyakPenjualan'];
                         </div>
                     </div>
                 </div>
-                <div class="grafik">
+                <div class="grafik" id="grafikContainer">
 
                 </div>
             </div>
@@ -503,6 +547,7 @@ $banyakPenjualan = query($query)[0]['BanyakPenjualan'];
         </div>
     </div>
 
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="laporanKeuangan.js"></script>
 </body>
 </html>
