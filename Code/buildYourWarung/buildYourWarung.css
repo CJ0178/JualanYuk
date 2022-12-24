@@ -1,0 +1,34 @@
+.main{
+    width: 68.45%;
+    height: 2000px;
+    /* background-color: pink; */
+    margin: auto;
+    margin-top: 60px;
+}
+
+.judul{
+    width: 60%;   
+    text-align: center;
+    margin: auto;
+    /* background-color: yellow; */
+}
+
+.tulisanJudul{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 32px;
+}
+
+.garis10{
+    width: 250px;
+    height: 1.5px;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.deskripsi{
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 22px;
+}
