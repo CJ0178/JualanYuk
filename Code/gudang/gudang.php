@@ -140,26 +140,36 @@ if(isset($_SESSION["currentUserId"])){
                         <p class="harga">HARGA JUAL(Satuan)</p>
                     </div>
                 </div>
-                <form action="" method="post">
-                    <div class="bagianTengahBawah">
-                        <?php foreach($items as $item): ?>
-                        <div class="cardBawah">
-                            <div class="bagian">
-                                <label for="namaAwal" class="namaAwal" id="namaAwal"><?=$item['itemName']?></label>
-                                <input type="text" name="nama" id="nama" class="nama displayNone" value="<?=$item['itemName']?>" disabled>
-                            </div>
-                            <div class="bagian">
-                                <label for="stokAwal" class="stokAwal" id="stokAwal"><?=$item['qty']?></label>
-                                <input type="text" name="stok2" id="stok2" class="stok2 displayNone" value="<?=$item['qty']?>" disabled>
-                            </div>
-                            <div class="bagian">
-                                <label for="hargaAwal" class="hargaAwal" id="hargaAwal">Rp<?=number_format($item['sellPrice'])?></label>
-                                <input type="text" name="harga2" id="harga2" class="harga2 displayNone" value="<?=$item['sellPrice']?>" disabled>
+                
+                <!-- Untuk keperluan backend -->
+                <div class="userId displayNone"><?=$currentUserId?></div>
+                <div class="queryItem displayNone"><?=$query?></div>
+                
+                <!-- Akhir dari keperluan backend -->
+
+                <div class="bagianTengahBawah">
+                    <?php foreach($items as $item): ?>
+                        <form action="" method="get" class="formItem">
+                        <div class="exactItem">
+                            <div class="itemId displayNone"><?=$item['itemId']?></div>
+                            <div class="cardBawah">
+                                <div class="bagian">
+                                    <label for="namaAwal" class="namaAwal" id="namaAwal"><?=$item['itemName']?></label>
+                                    <input type="text" name="nama" id="nama" class="nama displayNone" value="<?=$item['itemName']?>" disabled>
+                                </div>
+                                <div class="bagian">
+                                    <label for="stokAwal" class="stokAwal" id="stokAwal"><?=$item['qty']?></label>
+                                    <input type="text" name="stok" id="stok2" class="stok2 displayNone" value="<?=$item['qty']?>" disabled>
+                                </div>
+                                <div class="bagian">
+                                    <label for="hargaAwal" class="hargaAwal" id="hargaAwal">Rp<?=number_format($item['sellPrice'])?></label>
+                                    <input type="text" name="harga" id="harga2" class="harga2 displayNone" value="<?=$item['sellPrice']?>" disabled>
+                                </div>
                             </div>
                         </div>
-                        <?php endforeach; ?>
-                    </div>
-                </form>
+                        </form>
+                    <?php endforeach; ?>
+                </div>
             </div>
             <div class="bagianKanan">
                 <div class="bagianKananAtas">
@@ -195,7 +205,7 @@ if(isset($_SESSION["currentUserId"])){
                                 <svg width="17" height="17" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.6 15.2L16.65 8.15L15.25 6.75L9.6 12.4L6.75 9.55L5.35 10.95L9.6 15.2ZM2 20V2H20V20H2Z" fill="#BDC0AC"/>
                                     <rect x="0.5" y="0.5" width="21" height="21" stroke="#BDC0AC"/>
-                                </svg>            
+                                </svg>
                             </button>
                         </div>
                     </div>
@@ -205,6 +215,7 @@ if(isset($_SESSION["currentUserId"])){
         </div>
     </div>
 
+    <div class="temp"></div>
     <!-- footer -->
     <div class="footer">
         <div class="bagAtas">
