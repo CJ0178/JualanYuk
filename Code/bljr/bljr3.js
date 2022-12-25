@@ -4,6 +4,8 @@ var centangKosong = document.getElementById("centangKosong");
 var sampah = document.getElementById("sampah");
 var namaAwal = document.getElementById("namaAwal");
 var nama = document.getElementById("nama");
+var kotak1 = document.getElementById("kotak1");
+var kotak2 = document.getElementById("kotak2");
 
 function muncul(){
     centangKosong.classList.toggle("displayNone")
@@ -41,4 +43,16 @@ centang.addEventListener('click', function(){
     namaAwal.classList.toggle("displayNone");
     nama.classList.toggle("displayNone");
     nama.disabled=true;
+})
+
+
+kotak1.addEventListener('mouseenter', function(){
+    console.log("halo")
+    kotak1.classList.toggle("displayNone");
+    kotak2.classList.toggle("displayNone");
+})
+
+kotak1.addEventListener('mouseleave', function(){
+    kotak1.classList.toggle("displayNone");
+    kotak2.classList.toggle("displayNone");
 })
