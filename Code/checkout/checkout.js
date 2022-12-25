@@ -5,22 +5,6 @@ buttonCheckout.addEventListener('click', function(){
     document.location.href = '../checkoutProcess.php?list='+parameter
 })
 
-// Untuk header
-window.onload = function(){
-    buttonSearch = document.getElementById('search1')
-    kotakMuncul = document.getElementById('search2')
-    buttonSearch.addEventListener('click', ()=>{
-        kotakMuncul.classList.toggle('displayNone')
-        buttonSearch.classList.add('displayNone')
-    })
-}
-
-function checkSubmit(e) {
-    if(e && e.keyCode == 13) {
-       document.forms[0].submit();
-    }
- }
-
 // Untuk pop up
 let popUp = document.getElementById("popUp");
 let bg = document.getElementById("bg");
