@@ -2,6 +2,22 @@
 
 session_start();
 require '../functions.php';
+
+// Cek apakah current user sudah ada
+if(isset($_SESSION["currentUserId"])){
+    // Jika masuk memlalui login,
+    $currentUserData = detailUser($_SESSION["currentUserId"]);
+    $currentUsername = $currentUserData["username"];
+
+    // Jika dia adalah admin, langsung lempar
+    if($currentUsername == 'admin'){
+        header("Location: ../editStok/editStok.php");
+    }
+} else{
+    // Jika masuk melalui url
+    redirectTo('../login/login.php');
+}
+
 $currentUserId = $_SESSION['currentUserId'];
 $items = query("SELECT * FROM item");
 $categories = query("SELECT * FROM category");
@@ -26,22 +42,6 @@ WHERE i.itemId NOT IN (
 ORDER BY IF(abs(userId-$currentUserId) IS NULL, 1000, abs(userId-$currentUserId)) ASC, qty ASC
 LIMIT 10
 ");
-
-
-// Cek apakah current user sudah ada
-if(isset($_SESSION["currentUserId"])){
-    // Jika masuk memlalui login,
-    $currentUserData = detailUser($_SESSION["currentUserId"]);
-    $currentUsername = $currentUserData["username"];
-
-    // Jika dia adalah admin, langsung lempar
-    if($currentUsername == 'admin'){
-        header("Location: ../editStok/editStok.php");
-    }
-} else{
-    // Jika masuk melalui url
-    redirectTo('../login/login.php');
-}
 
 ?>
 
