@@ -137,3 +137,9 @@ body{
   background-size: contain;
   background-position: center;
 }
+
+.minggu{
+  position: absolute;
+  left: 50%;
+  background-color: aquamarine;
+}
