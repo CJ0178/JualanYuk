@@ -207,7 +207,7 @@
 }
 
 .tulisan2{
-    width: 21.33%;
+    width: 50%;
     display: flex;
     align-items: center;
     /* background-color: gray; */
@@ -411,4 +411,16 @@
 
 .open-bg{
     visibility: visible;
+}
+
+.popUpBayar{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85);
+    top: 0;
+    margin: auto;
+    /* padding-top: 310px; */
+    padding-top: 50vh;
+    width: 100%;
+    height: 250vh;
+    z-index: 1;
 }
