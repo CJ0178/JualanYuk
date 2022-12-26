@@ -122,7 +122,7 @@ if(isset($_SESSION["currentUserId"])){
             </div>
 
             <div class="isiLengkapi">
-                <?php foreach($items as $item): ?>
+                <?php foreach($items as $count=>$item): ?>
                 <div class="cardLengkapi">
                     <div class="gambarLengkapi" style="background-image:url(../image/Produk/<?=$item["itemImage"]?>);"></div>
                     <div class="deskripsiLengkapi">
@@ -142,6 +142,10 @@ if(isset($_SESSION["currentUserId"])){
                 </div>
                 
                 <?php endforeach; ?>
+                <!-- Sisa item -->
+                <?php for($i = 0; $i < (5 - ($count + 1)%5)%5; $i++): ?>
+                    <div class="cardLengkapi visibilityHidden"></div>
+                <?php endfor; ?>
             </div>
         </div>
     </div>

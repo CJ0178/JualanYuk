@@ -2,6 +2,22 @@
 
 session_start();
 require '../functions.php';
+
+// Cek apakah current user sudah ada
+if(isset($_SESSION["currentUserId"])){
+    // Jika masuk memlalui login,
+    $currentUserData = detailUser($_SESSION["currentUserId"]);
+    $currentUsername = $currentUserData["username"];
+
+    // Jika dia adalah admin, langsung lempar
+    if($currentUsername == 'admin'){
+        header("Location: ../editStok/editStok.php");
+    }
+} else{
+    // Jika masuk melalui url
+    redirectTo('../login/login.php');
+}
+
 $currentUserId = $_SESSION['currentUserId'];
 $items = query("SELECT * FROM item");
 $categories = query("SELECT * FROM category");
@@ -26,22 +42,6 @@ WHERE i.itemId NOT IN (
 ORDER BY IF(abs(userId-$currentUserId) IS NULL, 1000, abs(userId-$currentUserId)) ASC, qty ASC
 LIMIT 10
 ");
-
-
-// Cek apakah current user sudah ada
-if(isset($_SESSION["currentUserId"])){
-    // Jika masuk memlalui login,
-    $currentUserData = detailUser($_SESSION["currentUserId"]);
-    $currentUsername = $currentUserData["username"];
-
-    // Jika dia adalah admin, langsung lempar
-    if($currentUsername == 'admin'){
-        header("Location: ../editStok/editStok.php");
-    }
-} else{
-    // Jika masuk melalui url
-    redirectTo('../login/login.php');
-}
 
 ?>
 
@@ -289,7 +289,7 @@ if(isset($_SESSION["currentUserId"])){
             <div class="isiLengkapi">
 
                 <!-- Looping item -->
-                <?php foreach($items as $item): ?>
+                <?php foreach($items as $count => $item): ?>
                 <a href="../produk/produk.php?id=<?=$item["itemId"]?>" style="color: inherit; text-decoration: inherit;">
                     <div class="cardLengkapi">
                         <div class="gambarLengkapi" style="background-image:url(../image/Produk/<?=$item["itemImage"]?>);"></div>
@@ -321,6 +321,10 @@ if(isset($_SESSION["currentUserId"])){
                     </div>
                 </a>
                 <?php endforeach; ?>
+                <!-- Sisa item -->
+                <?php for($i = 0; $i < (5 - ($count + 1)%5)%5; $i++): ?>
+                    <div class="cardLengkapi visibilityHidden"></div>
+                <?php endfor; ?>
             </div>
         </div>
     </div>

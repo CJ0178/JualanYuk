@@ -154,3 +154,7 @@ body{
 .logOut:hover{
     cursor: pointer;
 }
+
+.visibilityHidden{
+    visibility: hidden;
+}
