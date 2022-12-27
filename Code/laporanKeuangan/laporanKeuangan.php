@@ -326,7 +326,16 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
 
                     <?php if(isset($_GET['mode']) && $_GET['mode'] == 'month'): ?>
                         <!-- Bulanan -->
-                        <input type="week" name="session-week"  id="session-week" value="<?=query("SELECT CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(IF(DAYOFWEEK('$tanggalAwal') = 1, WEEK('$tanggalAwal')-1,  WEEK('$tanggalAwal')),2,0)) AS 'format';")[0]['format']?>" class="input displayNone">
+                        <input type="week" name="session-week"  id="session-week" value="<?=query("
+                        SELECT IF(weekofyear(date_sub('$tanggalAwal', INTERVAL 7 DAY)) = 51, if(year('$tanggalAwal')%4=0,
+                        Concat(year(date_sub('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
+                        Concat(year(date_sub('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
+                        IF(weekofyear(date_add('$tanggalAwal',INTERVAL 7 day)) = 2, if(year('$tanggalAwal')%4=0,
+                        
+                        Concat(year(date_add('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
+                        Concat(year(date_add('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
+                        Concat(year('$tanggalAwal'), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')))) AS format
+                        ")[0]['format']?>" class="input displayNone">
                         
                         <!-- untuk bulanan -->
                         <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input">
@@ -346,7 +355,16 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                         </div>
                     <?php elseif(isset($_GET['mode']) && $_GET['mode'] == 'year'): ?>
                         <!-- Tahunan -->
-                        <input type="week" name="session-week"  id="session-week" value="<?=query("SELECT CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(IF(DAYOFWEEK('$tanggalAwal') = 1, WEEK('$tanggalAwal')-1,  WEEK('$tanggalAwal')),2,0)) AS 'format';")[0]['format']?>" class="input displayNone">
+                        <input type="week" name="session-week"  id="session-week" value="<?=query("
+                        SELECT IF(weekofyear(date_sub('$tanggalAwal', INTERVAL 7 DAY)) = 51, if(year('$tanggalAwal')%4=0,
+                        Concat(year(date_sub('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
+                        Concat(year(date_sub('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
+                        IF(weekofyear(date_add('$tanggalAwal',INTERVAL 7 day)) = 2, if(year('$tanggalAwal')%4=0,
+                        
+                        Concat(year(date_add('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
+                        Concat(year(date_add('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
+                        Concat(year('$tanggalAwal'), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')))) AS format
+                        ")[0]['format']?>" class="input displayNone">
                         
                         <!-- untuk bulanan -->
                         <input type="month" name="session-month" id="session-month" value="<?=query('SELECT CONCAT(YEAR("'.$tanggalAkhir.'"),"-",LPAD(MONTH("'.$tanggalAkhir.'"), 2,"0")) AS `month`')[0]['month']?>" class="input displayNone">
@@ -369,11 +387,16 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                         <?php if(isset($_GET['session-week'])): ?>
                             <input type="week" name="session-week"  id="session-week" value="<?=$_GET['session-week']?>" class="input">
                         <?php else: ?>
-                            <input type="week" name="session-week"  id="session-week" value="<?=query("SELECT 
-                            IF(DAY(DATE_ADD(CONCAT(YEAR('$tanggalAwal'),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR('$tanggalAwal'),'-01-01'))) MOD 7) DAY)) < 5, 
-                            CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(WEEK('$tanggalAwal', 1),2,0)),
-                            CONCAT(YEAR('$tanggalAwal'),'-W',LPAD(IF(DAYOFWEEK('$tanggalAwal') = 1, WEEK('$tanggalAwal'),  WEEK('$tanggalAwal') + 1),2,0))
-                            ) as format")[0]['format']?>" class="input">
+                            <input type="week" name="session-week"  id="session-week" value="<?=query("
+                            SELECT IF(weekofyear(date_sub('$tanggalAwal', INTERVAL 7 DAY)) = 51, if(year('$tanggalAwal')%4=0,
+                            Concat(year(date_sub('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
+                            Concat(year(date_sub('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
+                            IF(weekofyear(date_add('$tanggalAwal',INTERVAL 7 day)) = 2, if(year('$tanggalAwal')%4=0,
+                            
+                            Concat(year(date_add('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
+                            Concat(year(date_add('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
+                            Concat(year('$tanggalAwal'), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')))) AS format
+                            ")[0]['format']?>" class="input">
                         <?php endif; ?>
                         
                         <!-- untuk bulanan -->
@@ -407,7 +430,6 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                         <p class="tulisanLihat">LIHAT STATISTIK</p>
                     </div>
                 </div>
-
 
                 <div class="kategori">
                     <div class="cardKategori">

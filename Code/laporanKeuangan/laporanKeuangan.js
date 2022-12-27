@@ -26,7 +26,7 @@ for(let i = 0; i < buttonOpsi.length; i++){
 
 tombolSubmitForm = document.getElementById('tombolSubmitForm')
 tombolSubmitForm.addEventListener('click', function(){
-    document.forms[1].submit()
+    document.forms[0].submit()
 })
 
 // Arrow kiri dan kanan
