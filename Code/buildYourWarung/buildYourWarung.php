@@ -130,7 +130,11 @@ if(isset($_SESSION["currentUserId"])){
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
                                     <p class="harga10">Rp8.000.000</p>
-                                    <a href="../checkoutBundle/checkoutBundle.php?bundle=1"><div class="beliCard2">BELI SEKARANG!</div></a>
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="1">
+                                        <input type="hidden" name="qtyBeli" value="1">
+                                    </form>
+                                    <div class="beliCard2 buttonBeli">BELI SEKARANG!</div>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +183,11 @@ if(isset($_SESSION["currentUserId"])){
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
                                     <p class="harga10">Rp8.000.000</p>
-                                    <a href="../checkoutBundle/checkoutBundle.php?bundle=2"><div class="beliCard2">BELI SEKARANG!</div></a>
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="2">
+                                        <input type="hidden" name="qtyBeli" value="1">
+                                    </form>
+                                    <div class="beliCard2 buttonBeli">BELI SEKARANG!</div>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +236,11 @@ if(isset($_SESSION["currentUserId"])){
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
                                     <p class="harga10">Rp8.000.000</p>
-                                    <a href="../checkoutBundle/checkoutBundle.php?bundle=3"><div class="beliCard2">BELI SEKARANG!</div></a>
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="3">
+                                        <input type="hidden" name="qtyBeli" value="1">
+                                    </form>
+                                    <div class="beliCard2 buttonBeli">BELI SEKARANG!</div>
                                 </div>
                             </div>
                         </div>
@@ -277,7 +289,11 @@ if(isset($_SESSION["currentUserId"])){
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
                                     <p class="harga10">Rp8.000.000</p>
-                                    <a href="../checkoutBundle/checkoutBundle.php?bundle=4"><div class="beliCard2">BELI SEKARANG!</div></a>
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="4">
+                                        <input type="hidden" name="qtyBeli" value="1">
+                                    </form>
+                                    <div class="beliCard2 buttonBeli">BELI SEKARANG!</div>
                                 </div>
                             </div>
                         </div>
@@ -314,13 +330,14 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">
-                                    <form action="" method="post">
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="5">
                                         <input type="text" name="qtyBeli" class="inputText qtyBeli" value="1">
                                     </form>
                                 </div>
                                 <div class="kotakTambah">+</div>
                             </div>
-                            <a href="../checkoutBundle/checkoutBundle.php?bundle=5"><div class="beliCard3">BELI SEKARANG!</div></a>
+                            <div class="beliCard3 buttonBeli">BELI SEKARANG!</div>
                         </div>
                     </div>
                     <div class="cardBundle">
@@ -347,13 +364,14 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">
-                                    <form action="" method="post">
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="6">
                                         <input type="text" name="qtyBeli" class="inputText qtyBeli" value="1">
                                     </form>
                                 </div>
                                 <div class="kotakTambah">+</div>
                             </div>
-                            <a href="../checkoutBundle/checkoutBundle.php?bundle=6"><div class="beliCard3">BELI SEKARANG!</div></a>
+                            <div class="beliCard3 buttonBeli">BELI SEKARANG!</div>
                         </div>
                     </div>
                     <div class="cardBundle">
@@ -380,13 +398,14 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">
-                                    <form action="" method="post">
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="7">
                                         <input type="text" name="qtyBeli" class="inputText qtyBeli" value="1">
                                     </form>
                                 </div>
                                 <div class="kotakTambah">+</div>
                             </div>
-                            <a href="../checkoutBundle/checkoutBundle.php?bundle=7"><div class="beliCard3">BELI SEKARANG!</div></a>
+                            <div class="beliCard3 buttonBeli">BELI SEKARANG!</div>
                         </div>
                     </div>
                     <div class="cardBundle">
@@ -413,13 +432,14 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">
-                                    <form action="" method="post">
+                                    <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
+                                        <input type="hidden" name="bundle" value="8">
                                         <input type="text" name="qtyBeli" class="inputText qtyBeli" value="1">
                                     </form>
                                 </div>
                                 <div class="kotakTambah">+</div>
                             </div>
-                            <a href="../checkoutBundle/checkoutBundle.php?bundle=8"><div class="beliCard3">BELI SEKARANG!</div></a>
+                            <div class="beliCard3 buttonBeli">BELI SEKARANG!</div>
                         </div>
                     </div>
                 </div>

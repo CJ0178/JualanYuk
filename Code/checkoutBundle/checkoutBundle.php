@@ -19,37 +19,16 @@ if(isset($_SESSION["currentUserId"])){
     redirectTo('../home/home.php');
 }
 
-$listOfId = array();
-$listOfQty = array();
-if(isset($_GET['itemId']) && isset($_GET['qty'])){
-    // Mode Checkout now
-    // Masukin database dahulu
-    $currentUserId = $_SESSION['currentUserId'];
-    $itemId = $_GET['itemId'];
-    $qty = $_GET['qty'];
-    $query = "INSERT IGNORE INTO Trolly VALUES ($currentUserId, $itemId, $qty)";
-    mysqli_query($conn, $query);
-    $query = "UPDATE Trolly SET qty = $qty WHERE userId = $currentUserId AND itemId = $itemId";
-    mysqli_query($conn, $query);
-
-    $listOfId[] = $currentUserId;
-    $listOfQty[] = $qty;
-    $items = query("SELECT * FROM Trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = $currentUserId AND t.itemId = $itemId");
-} else {
-    // Mode Keranjang
-    // Query list pesanan
-    $lists = explode(',',$_GET['list']);
-    foreach($lists as $count => $list){
-        if($count % 2 == 0){
-            $listOfId[] = $list;
-        } else {
-            $listOfQty[] = $list;
-        }
-    }
-    
-    $items = query("SELECT * FROM trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = ".$_SESSION['currentUserId']. " AND t.itemId IN (". implode(",",$listOfId).")");
+if(isset($_GET['bundle'])){
+    $bundleId = $_GET['bundle'];
+    $qtyBeli = $_GET['qtyBeli'];
+    $listImage = ['','kiri1.png','kanan2.png', 'kiri3.png', 'kanan4.png', 'bundle1.png', 'bundle2.png','bundle3.png','bundle4.png'];
+    $listNama = ['','WARUNG KESEHATAN', 'WARUNG SEKOLAH', 'WARUNG SEMBAKO', 'WARUNG ALAT TULIS', 'BUNDLE KESEHATAN', 'BUNDLE CEMILAN', 'BUNDLE KEBUTUHAN RT', 'BUNDLE ALAT TULIS'];
+    $query = "SELECT * FROM BundleH bh  WHERE bh.idBundle = $bundleId";
+    $items = query($query)[0    ];
+} else{
+    redirectTo('../home/home.php');
 }
-
 
 // Total harga
 $grandTotal = 0;
@@ -64,7 +43,7 @@ $grandTotal = 0;
     <link rel="stylesheet" href="../header/header.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href="../footer/footer.css">
-    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="checkoutBundle.css">
     <link rel="stylesheet" href="../pembayaran/pembayaran.css">
     
 </head>
@@ -134,27 +113,25 @@ $grandTotal = 0;
             </form>
         </div>
         <div class="listItem">
-            <?php foreach($items as $count=>$item): ?>
             <div class="cardItem">
-               <div class="kotakFoto" style="background-image:url(../image/Produk/<?=$item['itemImage']?>) ;"></div>
+               <div class="kotakFoto" style="background-image:url(../image/<?=$listImage[$bundleId]?>"></div>
                <div class="kotakTengah">
-                    <p class="judul"><?= $item['itemName']."(".$item['qtyPerItem']."pcs)" ?></p>
-                    <p class="harga"><?= "Rp".number_format($item['buyPrice'])?></p>
-                    <p class="jumlah">Jumlah: <?= $listOfQty[$count] ?></p>
+                    <p class="judul"><?=$listNama[$bundleId]?></p>
+                    <p class="harga">Rp<?=number_format($items['price'])?></p>
+                    <p class="jumlah">Jumlah: <?=$qtyBeli?></p>
                </div>
                <div class="kotakTotalHarga">
                     <p class="judul">Total:</p>
-                    <p class="harga"><?= "Rp".number_format($listOfQty[$count] * $item['buyPrice'])?></p>
-                    <?php $grandTotal += $listOfQty[$count] * $item['buyPrice']?>
+                    <p class="harga"><?=number_format($items['price'] * $qtyBeli)?></p>
+                    <?php $grandTotal += $items['price'] * $qtyBeli?>
                </div>
             </div> 
-            <?php endforeach; ?>
         </div>
         <div class="kirimDanBayar">
             <div class="pengiriman">
                 <div class="kirimSvg" style="background-image:url(../image/pengiriman.svg) ;"></div>
                 <p class="tulisanKirim">Pengiriman</p>
-                <p class="harga tulisan2">Rp10.000</p>
+                <p class="harga tulisan2">GRATIS</p>
             </div>
             <div class="pembayaran">
                 <div class="bayarSvg" style="background-image:url(../image/pembayaran.svg) ;"></div>
@@ -171,7 +148,7 @@ $grandTotal = 0;
                 <div class="bawah">
                     <div class="totalPengiriman">
                         <p class="tulis">Pengiriman</p>
-                        <p class="harga">Rp10.000</p>
+                        <p class="harga">GRATIS</p>
                     </div>
                     <div class="totalHrg">
                         <p class="tulis">Total Harga</p>
@@ -181,7 +158,7 @@ $grandTotal = 0;
                     <div class="totalBayar">
                         <p class="tulis">Total Pembayaran</p>
                         <!-- Ini harga plus ongkir 10k -->
-                        <p class="harga"><?= "Rp".number_format($grandTotal+10000) ?></p>
+                        <p class="harga"><?= "Rp".number_format($grandTotal) ?></p>
                     </div>
                 </div>
                 <div class="tombol">
@@ -374,6 +351,6 @@ $grandTotal = 0;
 <?php endif; ?>
     </div>
 
-    <script src="checkout.js"></script>
+    <script src="checkoutBundle.js"></script>
 </body>
 </html>

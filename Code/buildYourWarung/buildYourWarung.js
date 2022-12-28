@@ -1,3 +1,13 @@
+// Button beli sekarang
+buttonBeliSekarang = document.getElementsByClassName('buttonBeli')
+formBeli = document.getElementsByClassName('formBeli')
+
+for(let i = 0; i < buttonBeliSekarang.length; i++){
+    buttonBeliSekarang[i].addEventListener('click', function(){
+        formBeli[i].submit()
+    })
+}
+
 var cardPaket = document.getElementsByClassName("cardPaket");
 var cardPaket1 = document.getElementsByClassName("cardPaket1");
 var cardPaket2 = document.getElementsByClassName("cardPaket2");
