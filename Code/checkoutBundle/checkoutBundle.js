@@ -1,8 +1,9 @@
 buttonCheckout = document.getElementsByClassName('tombolCekot')[0]
+bundle = document.getElementsByClassName('bundle')[0].innerHTML
+qtyBeli = document.getElementsByClassName('qtyBeli')[0].innerHTML
 
 buttonCheckout.addEventListener('click', function(){
-    parameter = document.getElementsByClassName('hidden')[0].innerHTML
-    document.location.href = '../checkoutProcess.php?list='+parameter
+    window.location.href = '../checkoutBundleProcess.php?bundle='+bundle+'&qtyBeli='+qtyBeli;
 })
 
 // Untuk pop up bayar berhasil

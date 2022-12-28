@@ -129,7 +129,7 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kanan2">
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
-                                    <p class="harga10">Rp8.000.000</p>
+                                    <p class="harga10">Rp9.600.000</p>
                                     <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
                                         <input type="hidden" name="bundle" value="1">
                                         <input type="hidden" name="qtyBeli" value="1">
@@ -182,7 +182,7 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kanan2">
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
-                                    <p class="harga10">Rp8.000.000</p>
+                                    <p class="harga10">Rp5.700.000</p>
                                     <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
                                         <input type="hidden" name="bundle" value="2">
                                         <input type="hidden" name="qtyBeli" value="1">
@@ -235,7 +235,7 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kanan2">
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
-                                    <p class="harga10">Rp8.000.000</p>
+                                    <p class="harga10">Rp10.200.000</p>
                                     <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
                                         <input type="hidden" name="bundle" value="3">
                                         <input type="hidden" name="qtyBeli" value="1">
@@ -288,7 +288,7 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="kanan2">
                                 <div class="garis12"></div>
                                 <div class="bagKanan">
-                                    <p class="harga10">Rp8.000.000</p>
+                                    <p class="harga10">Rp7.700.000</p>
                                     <form action="../checkoutBundle/checkoutBundle.php" method="get" class="formBeli">
                                         <input type="hidden" name="bundle" value="4">
                                         <input type="hidden" name="qtyBeli" value="1">
@@ -326,7 +326,7 @@ if(isset($_SESSION["currentUserId"])){
                             </div>
                         </div>
                         <div class="kananBundle">
-                            <p class="harga11">Rp8.000.000</p>
+                            <p class="harga11">Rp7.600.000</p>
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">
@@ -360,7 +360,7 @@ if(isset($_SESSION["currentUserId"])){
                             </div>
                         </div>
                         <div class="kananBundle">
-                            <p class="harga11">Rp8.000.000</p>
+                            <p class="harga11">Rp3.700.000</p>
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">
@@ -394,7 +394,7 @@ if(isset($_SESSION["currentUserId"])){
                             </div>
                         </div>
                         <div class="kananBundle">
-                            <p class="harga11">Rp8.000.000</p>
+                            <p class="harga11">Rp8.200.000</p>
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">
@@ -428,7 +428,7 @@ if(isset($_SESSION["currentUserId"])){
                             </div>
                         </div>
                         <div class="kananBundle">
-                            <p class="harga11">Rp8.000.000</p>
+                            <p class="harga11">Rp5.700.000</p>
                             <div class="kotakJumlah">
                                 <div class="kotakMin">-</div>
                                 <div class="kotakAngka">

@@ -161,6 +161,13 @@ $grandTotal = 0;
                         <p class="harga"><?= "Rp".number_format($grandTotal) ?></p>
                     </div>
                 </div>
+
+                <!-- Untuk checkout form backend -->
+                <div class="bundle displayNone"><?=$bundleId?></div>
+                <div class="qtyBeli displayNone"><?=$qtyBeli?></div>
+
+                <!-- Akhir dari checkout form backend -->
+
                 <div class="tombol">
                     <button type="submit" class="tombolCekot" onclick="openPopUp()">
                     <p class="tulisanCekot">CHECKOUT</p>
