@@ -124,8 +124,10 @@ LIMIT 10
             <div class="bantuan2"></div>
             <div class="kotakFitur">
                 <div class="cardFitur">
+                    <a href="../buildYourWarung/buildYourWarung.php" style="width: 100%; display: flex;">
                     <div class="logoFitur" style="background-image:url(../image/fitur1.svg) ;"></div>
                     <div class="tulisanFitur2">BUILD YOUR WARUNG</div>
+                    </a>
                 </div>
                 <div class="cardFitur">
                     <a href="../gudang/gudang.php" style="width: 100%; display: flex;">
