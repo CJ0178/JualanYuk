@@ -1,0 +1,145 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    border: 0;
+}
+
+.centang{
+    position: absolute;
+    margin-left: 60px;
+}
+
+.centangKosong{
+    position: absolute;
+    margin-left: 60px;
+}
+
+.edit{
+    background-color: black;
+    width: 50px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.displayNone{
+    display: none;
+}
+
+.display{
+    display: contents;
+}
+
+.sampah{
+    position: absolute;
+    background-color: blue;
+}
+
+/* form {
+    width: 50%;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  } */
+
+  input{
+    all: unset;
+  }
+
+.satu{
+    margin-top: 50px;
+    position: absolute;
+}
+
+.nama::placeholder{
+  /* background-color: aquamarine; */
+  /* border: 1px solid black; */
+  color: black;
+}
+
+.nama{
+  background-color: pink;
+}
+
+
+.main{
+  width: 1035px;
+  height: 302px;
+  background-color: #D2C2B0;
+  margin: auto;
+  /* margin-top: 100px; */
+}
+
+.main2{
+  width: 1035px;
+  height: 302px;
+  background-color: rgba(0, 0, 0, 0.28);
+  /* margin: auto; */
+  /* margin-top: 100px; */
+  position: absolute;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.svgBg{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* .main:hover{
+  background-color: #604E49;
+  background-color: pink;
+}
+
+.svgBg:hover{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: none;
+} */
+
+.svgBg2{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.kotak{
+  width: 1035px;
+  height: 302px;
+  /* background-color: pink; */
+  margin: auto;
+}
+
+.kotak1{
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.kotak{
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.minggu{
+  position: absolute;
+  left: 50%;
+  background-color: aquamarine;
+}

@@ -1,0 +1,426 @@
+.main{
+    /* background-color: pink; */
+    width: 32.67%;
+    /* height: 1000px; */
+    margin: auto;
+    margin-top: 25px;
+}
+
+.kotakAtas{
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    /* padding-left: 30px; */
+    /* background-color: yellow; */
+    margin-bottom: 20px;
+}
+
+.tulisanCheckOut{
+    font-size: 18px;
+    font-weight: 900;
+    height: 40px;
+    display: flex;
+    align-items: flex-start;
+    /* padding-bottom: 4px; */
+}
+
+.garis{
+    height: 1px;
+    background-color: white;
+    width: 85px;
+}
+
+.alamatPengiriman{
+    display: flex;
+    align-items: center;
+    /* background-color: yellow; */
+    margin-bottom: 20px;
+}
+
+.tulisanAlamat{
+    margin-left: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.kotakBawah{
+    height: 300px;
+    /* background-color: aquamarine; */
+}
+
+.judulInput{
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.nama{
+    display: flex;
+    flex-direction: column;
+}
+
+.judulEdit{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.isiEdit {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #8C8E81;
+    /* background-color: pink; */
+    color: white;
+    font-family: inherit;
+    width: 100%;
+    height: 20px;
+    outline: none;
+    padding: 0;
+    border-bottom: 1px solid white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.isiEdit2{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #8C8E81;
+    /* background-color: pink; */
+    color: white;
+    font-family: inherit;
+    width: 100%;
+    height: 20px;
+    outline: none;
+    padding: 0;
+    border: 1px solid white;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    padding: 10px;
+    min-width: 413px;
+    min-height: 125px;
+    max-width: 413px;
+    max-height: 125px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.alamatLengkapClass{
+    margin-bottom: 10px;
+}
+
+.listItem{
+    /* background-color: pink; */
+    margin-bottom: 40px;
+}
+
+.cardItem{
+    height: 110px;
+    /* background-color: yellow; */
+    margin-bottom: 15px;
+    display: flex;  
+    align-items: center;
+    /* font-weight: 600; */
+    font-weight: 550;
+    font-size: 14px;
+    line-height: 20px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.kotakFoto{
+    width: 26.65%;
+    height: 100%;
+    background-color: #604E49;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.kotakTengah{
+    width: 48%;
+    /* background-color: aquamarine; */
+    padding-left: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.kotakTotalHarga{
+    width: 25.35%;
+    height: 100%;
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-end;
+}
+
+.harga{
+    text-decoration: underline;
+}
+
+.kirimDanBayar{
+    /* background-color: yellow; */
+    /* height: 300px; */
+    margin-bottom: 40px;
+}
+
+.pengiriman{
+    /* background-color: pink; */
+    height: 35px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.kirimSvg{
+    width: 8.17%;
+    height: 100%;
+    /* background-color: yellow; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.tulisanKirim{
+    width: 70.5%;
+    /* background-color: aquamarine; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 11px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.tulisan2{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    /* background-color: gray; */
+    justify-content: end;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.pembayaran .harga.tulisan2{
+    /* background-color: pink; */
+    cursor: pointer;
+}
+
+.pembayaran{
+    /* background-color: pink; */
+    height: 35px;
+    display: flex;
+}
+
+.bayarSvg{
+    width: 8.17%;
+    height: 100%;
+    /* background-color: yellow; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.tulisanBayar{
+    width: 70.5%;
+    /* background-color: aquamarine; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 11px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* bagian bawah */
+.bagianBawah{
+    background-color: #8C8E81;
+    width: 100%;
+    height: 140px;
+    margin-bottom: 60px;
+}
+
+.kotakDalam{
+    width: 100%;
+    background-color: #604E49;
+    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    height: 195px;
+    padding: 15px 40px;
+}
+
+.tulisanSub{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.garis3{
+    height: 1px;
+    background-color: white;
+    width: 68px;
+}
+
+.atas{
+    margin-bottom: 8px;
+}
+
+.totalPengiriman, .totalHrg, .totalBayar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalPengiriman{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.totalBayar{
+    margin-bottom: 15px;
+}
+
+.garis4{
+    height: 1px;
+    background-color: white;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bawah{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.tulisanCekot{
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.tombol{
+    width: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: end;
+}
+
+.tombolCekot{
+    height: fit-content;
+    background-color: #BDC0AC;
+    width: fit-content;
+    padding: 10px 15px;
+    display: flex;
+    cursor: pointer;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+    border: 0px solid #BDC0AC;
+}
+
+.hidden{
+    display: none;
+}
+
+.bg{
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    visibility: hidden;
+    margin-top: -20px;
+}
+
+.popUp{
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    width: 500px;
+    height: 300px;
+    background-color: #BDC0AC;
+    box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.25);
+}
+
+.isiDalam{
+    width: 25%;
+    /* background-color: pink; */
+    height: 100%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.berhasil{
+    font-weight: 1000;
+    font-size: 20px;
+    line-height: 29px;
+}
+
+.svgBerhasil{
+    /* background-color: yellow; */
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.kembali{
+    background-color: #8C8E81;
+    border: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+    font: inherit;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 15px;
+    cursor: pointer;
+    letter-spacing: .5px;
+}
+
+.open-popUp{
+    visibility: visible;
+}
+
+.open-bg{
+    visibility: visible;
+}
+
+.popUpBayar{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85);
+    top: 0;
+    margin: auto;
+    /* padding-top: 310px; */
+    padding-top: 50vh;
+    width: 100%;
+    height: 250vh;
+    z-index: 1;
+}

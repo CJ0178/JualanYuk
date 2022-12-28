@@ -98,4 +98,53 @@ function detailUser($id){
 
     return $result;
 }
+
+function tambahItem($data){
+    global $conn;
+
+    // Function ini akan return true jika berhasil dan false jika gagal
+    $nama = htmlspecialchars($data['nama']);
+    $qtyPerPcs = htmlspecialchars($data['qtyPerPcs']);
+    $harga = htmlspecialchars($data['harga']);
+    $stok = htmlspecialchars($data['stok']);
+    $kategori = htmlspecialchars($data['kategori']);
+    $deskripsi = htmlspecialchars($data['deskripsi']);
+    $rating = sprintf("%.2f",rand(40,50))/10;
+
+    // Upload gambar
+    $namaFile = $_FILES['gambar']['name'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+
+    // Cek apakah ekstensi file sesuai
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    if(!in_array($ekstensiGambar, $ekstensiGambarValid)){
+        alertMessage('Pastikan yang kamu upload adalah gambar png/jpg/jpeg');
+        return false;
+    }
+
+    // Ubah nama
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.'.$ekstensiGambar;
+
+    // Pindah penyimpanan gambar
+    move_uploaded_file($tmpName, 'image/Produk/' .$namaFileBaru);
+    
+    // String query
+    $strQuery = "INSERT INTO item VALUES
+    (NULL, $kategori, '$nama',$stok,$rating,$qtyPerPcs,$harga,'$namaFileBaru','$deskripsi')
+    ";
+
+
+    mysqli_query($conn, $strQuery);
+
+    // Jika berhasil, maka return true
+    if(mysqli_affected_rows($conn) > 0){
+        return true;
+    } else{
+        return false;
+    }
+}
+
 ?>

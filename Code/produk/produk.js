@@ -4,7 +4,6 @@ buttonPlus = document.getElementsByClassName('kotakTambah')[0]
 inputQty = document.getElementById('qtyBeli')
 
 buttonPlus.addEventListener('click', ()=>{
-    console.log('hi');
     inputQty.value++
 })
 
@@ -16,12 +15,36 @@ buttonMinus.addEventListener('click', ()=>{
     }
 })
 
+// Redirect ke checkout jika pencet tombol beli sekarang
+buttonBeliSekarang = document.getElementsByClassName('beliSekarang')[0]
+itemId = document.getElementById('itemId').value
+
+buttonBeliSekarang.addEventListener('click', function(){
+    qty = inputQty.value
+    window.location.href = "../checkout/checkout.php?itemId=" + itemId + "&qty=" + qty
+})
+
 // Submit jika pencet tombol keranjang
 buttonKeranjang = document.getElementsByClassName('tulisanKeranjang')[0]
 formKeranjang = document.getElementById('formKeranjang')
 
-console.log(buttonKeranjang);
 buttonKeranjang.addEventListener('click', ()=>{
     
     formKeranjang.submit()
 })
+
+// Jalanin header
+window.onload = function(){
+    buttonSearch = document.getElementById('search1')
+    kotakMuncul = document.getElementById('search2')
+    buttonSearch.addEventListener('click', ()=>{
+        kotakMuncul.classList.toggle('displayNone')
+        buttonSearch.classList.add('displayNone')
+    })
+}
+
+function checkSubmit(e) {
+    if(e && e.keyCode == 13) {
+       document.forms[0].submit();
+    }
+ }

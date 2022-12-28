@@ -1,0 +1,312 @@
+.main{
+    width: 71.69%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.tulisanJudul{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+.garis10{
+    width: 240px;
+}
+
+.judul{
+    margin: auto;
+    /* background-color: pink; */
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.kotakJudul{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.cardJudul{
+    background-color: #604E49;
+    border: 1px solid #FFFFFF;
+    width: 130px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.cardJudul:hover{
+    cursor: pointer;
+}
+
+.isi{
+    background-color: #604E49;
+    box-shadow: 6px 4px 8px rgba(0, 0, 0, 0.25);
+    /* height: 2000px; */
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.pilih{
+    width: 37.36%;
+    /* background-color: pink; */
+    margin: auto;
+    /* margin-top: 20px; */
+    /* height: 50px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* untuk harian */
+input[type="date"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    /* background-color: pink; */
+    text-align: center;
+    /* height: fit-content; */
+    height: 20px;
+}
+
+input#session-date[type="text"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    text-align: center;
+    height: 20px;
+}
+
+input#session-date[type="text"]::placeholder{
+    all: unset;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+input#session-date{
+    position:relative;
+    overflow:hidden;
+}
+
+input#session-date::-webkit-calendar-picker-indicator{
+    display:block;
+    top:0;
+    left:0;
+    background: #0000;
+    position:absolute;
+    transform: scale(12)
+}
+
+/* untuk mingguan */
+input[type="week"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    /* background-color: pink; */
+    text-align: center;
+    /* height: fit-content; */
+    height: 20px;
+}
+
+input#session-week[type="text"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    text-align: center;
+    height: 20px;
+}
+
+input#session-week[type="text"]::placeholder{
+    all: unset;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+input#session-week{
+    position:relative;
+    overflow:hidden;
+}
+
+input#session-week::-webkit-calendar-picker-indicator{
+    display:block;
+    top:0;
+    left:0;
+    background: #0000;
+    position:absolute;
+    transform: scale(12);
+    /* background-color: pink; */
+}
+
+/* untuk bulanan */
+input[type="month"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    /* background-color: pink; */
+    text-align: center;
+    height: 20px;
+}
+
+input#session-month[type="text"]{
+    all: unset;
+    color: white;
+    width: 150px;
+    text-align: center;
+    height: 20px;
+}
+
+input#session-month[type="text"]::placeholder{
+    all: unset;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+input#session-month{
+    position:relative;
+    overflow:hidden;
+}
+
+input#session-month::-webkit-calendar-picker-indicator{
+    display:block;
+    top:0;
+    left:0;
+    background: #0000;
+    position:absolute;
+    transform: scale(12)
+}
+
+/* untuk tahunan */
+.session-year{
+    background-color: #604E49;
+    border: 0;
+    /* background-color: pink; */
+    text-align: center;
+    font-family: 'Montserrat';
+    color: white;
+    outline: none;
+    font-size: 18px;
+    width: 130px;
+}
+
+.session-year:focus{
+    outline: none;
+}
+
+/* selesai */
+
+.bantuan10{
+    /* background-color: pink; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+.tombolLihat{
+    display: flex;
+    justify-content: center;
+    background-color: #D2C2B0;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+    width: 14%;
+    height: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.tombolLihat:hover{
+    cursor: pointer;
+}
+
+.tulisanLihat{
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-decoration-line: underline;
+    text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.kategori{
+    width: 90%;
+    /* height: 200px; */
+    /* background-color: pink; */
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.cardKategori{
+    width: 30%;
+    height: 70px;
+    background-color: #BDC0AC;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.grafik{
+    width: 90%;
+    background-color: aquamarine;
+    height: 500px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.svgLogo{
+    /* background-color: pink; */
+    width: 30.6%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tulisanKategori{
+    display: flex;
+    width: 69.4%;
+    height: 100%;
+    flex-direction: column;
+    /* background-color: yellow; */
+    justify-content: center;
+    padding-left: 8px;
+}
+
+.harga{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.kategoriApa{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.active{
+    height: 55px;
+}
+
+.displayNone{
+    display: none !important;
+}

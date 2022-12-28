@@ -260,3 +260,7 @@
 .beliSekarang p{
     width: 90px;
 }
+
+.beliSekarang:hover{
+    cursor: pointer;
+}
