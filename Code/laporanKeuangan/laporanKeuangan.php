@@ -327,14 +327,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                     <?php if(isset($_GET['mode']) && $_GET['mode'] == 'month'): ?>
                         <!-- Bulanan -->
                         <input type="week" name="session-week"  id="session-week" value="<?=query("
-                        SELECT IF(weekofyear(date_sub('$tanggalAwal', INTERVAL 7 DAY)) = 51, if(year('$tanggalAwal')%4=0,
-                        Concat(year(date_sub('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
-                        Concat(year(date_sub('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
-                        IF(weekofyear(date_add('$tanggalAwal',INTERVAL 7 day)) = 2, if(year('$tanggalAwal')%4=0,
-                        
-                        Concat(year(date_add('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
-                        Concat(year(date_add('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
-                        Concat(year('$tanggalAwal'), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')))) AS format
+                        SELECT CONCAT(SUBSTR(YEARWEEK('$tanggalAwal', 3), 1,4), '-W', SUBSTR(YEARWEEK('$tanggalAwal', 3), 5,2)) as format
                         ")[0]['format']?>" class="input displayNone">
                         
                         <!-- untuk bulanan -->
@@ -356,14 +349,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                     <?php elseif(isset($_GET['mode']) && $_GET['mode'] == 'year'): ?>
                         <!-- Tahunan -->
                         <input type="week" name="session-week"  id="session-week" value="<?=query("
-                        SELECT IF(weekofyear(date_sub('$tanggalAwal', INTERVAL 7 DAY)) = 51, if(year('$tanggalAwal')%4=0,
-                        Concat(year(date_sub('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
-                        Concat(year(date_sub('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
-                        IF(weekofyear(date_add('$tanggalAwal',INTERVAL 7 day)) = 2, if(year('$tanggalAwal')%4=0,
-                        
-                        Concat(year(date_add('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
-                        Concat(year(date_add('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
-                        Concat(year('$tanggalAwal'), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')))) AS format
+                        SELECT CONCAT(SUBSTR(YEARWEEK('$tanggalAwal', 3), 1,4), '-W', SUBSTR(YEARWEEK('$tanggalAwal', 3), 5,2)) as format
                         ")[0]['format']?>" class="input displayNone">
                         
                         <!-- untuk bulanan -->
@@ -388,14 +374,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                             <input type="week" name="session-week"  id="session-week" value="<?=$_GET['session-week']?>" class="input">
                         <?php else: ?>
                             <input type="week" name="session-week"  id="session-week" value="<?=query("
-                            SELECT IF(weekofyear(date_sub('$tanggalAwal', INTERVAL 7 DAY)) = 51, if(year('$tanggalAwal')%4=0,
-                            Concat(year(date_sub('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
-                            Concat(year(date_sub('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
-                            IF(weekofyear(date_add('$tanggalAwal',INTERVAL 7 day)) = 2, if(year('$tanggalAwal')%4=0,
-                            
-                            Concat(year(date_add('$tanggalAwal',INTERVAL 366 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')),
-                            Concat(year(date_add('$tanggalAwal',INTERVAL 365 DAY)), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0'))),
-                            Concat(year('$tanggalAwal'), '-W', LPAD(weekofyear('$tanggalAwal'),2,'0')))) AS format
+                            SELECT CONCAT(SUBSTR(YEARWEEK('$tanggalAwal', 3), 1,4), '-W', SUBSTR(YEARWEEK('$tanggalAwal', 3), 5,2)) as format
                             ")[0]['format']?>" class="input">
                         <?php endif; ?>
                         
@@ -416,6 +395,10 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                             </select>
                         </div>
                     <?php endif; ?>
+
+                    <!-- Untuk backend -->
+                    <div class="banyakMingguTahunIni displayNone"><?=query("SELECT IF(YEAR('$tanggalAwal')%4=0, IF(DAYOFWEEK(CONCAT(YEAR('$tanggalAwal'), '-01-01')) = 4, 53, 52),IF(DAYOFWEEK(CONCAT(YEAR('$tanggalAwal'),'-01-01')) = 5, 53, 52)) as tahun")[0]['tahun']?></div>
+                    <div class="banyakMingguTahunSebelum displayNone"><?=query("SELECT IF((YEAR('$tanggalAwal')-1)%4=0, IF(DAYOFWEEK(CONCAT((YEAR('$tanggalAwal')-1), '-01-01')) = 4, 53, 52),IF(DAYOFWEEK(CONCAT((YEAR('$tanggalAwal')-1),'-01-01')) = 5, 53, 52)) as tahun")[0]['tahun']?></div>
 
                     <!-- Arrow Kanan -->
                     <div class="svgPilih" id="arrowKanan">

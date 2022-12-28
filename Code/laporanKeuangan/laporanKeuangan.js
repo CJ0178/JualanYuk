@@ -38,7 +38,21 @@ arrowKanan.addEventListener('click', function(){
 
     if(indexAktif == 0){
         // Mingguan
-        console.log('1');
+        weekInput = document.getElementById('session-week').value
+        tahunInput = parseInt(weekInput.substring(0, 4))
+        weekInput = parseInt(weekInput.substring(6, 8))
+        weekMax = parseInt(document.getElementsByClassName('banyakMingguTahunIni')[0].innerHTML)
+
+        if(weekInput < weekMax){
+            weekInput++;
+        } else {
+            weekInput = 1;
+            tahunInput++;
+        }
+
+        stringJadi = tahunInput.toString() + '-W' + addLeadingZeros(weekInput, 2)
+        divInput[0].value = stringJadi
+        
     } else if(indexAktif == 1){
         // Bulanan
         const month = new Date(divInput[1].value)
@@ -65,7 +79,20 @@ arrowKiri.addEventListener('click', function(){
 
     if(indexAktif == 0){
         // Mingguan
-        console.log('1');
+        weekInput = document.getElementById('session-week').value
+        tahunInput = parseInt(weekInput.substring(0, 4))
+        weekInput = parseInt(weekInput.substring(6, 8))
+        weekMax = parseInt(document.getElementsByClassName('banyakMingguTahunSebelum')[0].innerHTML)
+
+        if(weekInput > 1){
+            weekInput--;
+        } else {
+            weekInput = weekMax;
+            tahunInput--;
+        }
+
+        stringJadi = tahunInput.toString() + '-W' + addLeadingZeros(weekInput, 2)
+        divInput[0].value = stringJadi
     } else if(indexAktif == 1){
         // Bulanan
         const month = new Date(divInput[1].value)
