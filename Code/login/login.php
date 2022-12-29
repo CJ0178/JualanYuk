@@ -3,6 +3,19 @@
 session_start();
 require '../functions.php';
 
+// Cek apakah current user sudah ada
+if(isset($_SESSION["currentUserId"])){
+    // Jika udah akun tapi masuk ke login,
+    $currentUserData = detailUser($_SESSION["currentUserId"]);
+    $currentUsername = $currentUserData["username"];
+
+    if($currentUsername == 'admin'){
+        header("Location: ../editStok/editStok.php");
+    } else{
+        redirectTo('../home/home.php');
+    }
+}
+
 // Jika user sudah pencet tombol login
 if(isset($_POST["submit"])){
     $_SESSION["currentUserId"] = login($_POST);
