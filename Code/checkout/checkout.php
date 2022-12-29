@@ -21,6 +21,7 @@ if(isset($_SESSION["currentUserId"])){
 
 $listOfId = array();
 $listOfQty = array();
+
 if(isset($_GET['itemId']) && isset($_GET['qty'])){
     // Mode Checkout now
     // Masukin database dahulu
@@ -38,16 +39,21 @@ if(isset($_GET['itemId']) && isset($_GET['qty'])){
 } else {
     // Mode Keranjang
     // Query list pesanan
-    $lists = explode(',',$_GET['list']);
-    foreach($lists as $count => $list){
-        if($count % 2 == 0){
-            $listOfId[] = $list;
-        } else {
-            $listOfQty[] = $list;
+    if(isset($_GET['list']) && strlen($_GET['list']) != 0){
+        $lists = explode(',',$_GET['list']);
+        foreach($lists as $count => $list){
+            if($count % 2 == 0){
+                $listOfId[] = $list;
+            } else {
+                $listOfQty[] = $list;
+            }
         }
+        
+        $items = query("SELECT * FROM trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = ".$_SESSION['currentUserId']. " AND t.itemId IN (". implode(",",$listOfId).")");
+    } else{
+        alertMessage('Tidak ada barang yang dipesan');
+        redirectTo('../keranjang/keranjang.php');
     }
-    
-    $items = query("SELECT * FROM trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = ".$_SESSION['currentUserId']. " AND t.itemId IN (". implode(",",$listOfId).")");
 }
 
 // Total harga
