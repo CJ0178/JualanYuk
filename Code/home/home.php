@@ -256,7 +256,10 @@ LIMIT 10
         <div class="kotakBanner" style="background-image:url(../image/banner.png) ;">
             <div class="kotakBantuan"></div>
             <div class="hyperlink">
+                <a href="../buildYourWarung/buildYourWarung.php">
                 <p>KLIK DISINI</p>
+                </a>
+                <a href="../buildYourWarung/buildYourWarung.php">
                 <div class="panah">
                     <svg width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_111_645)">
@@ -276,6 +279,7 @@ LIMIT 10
                         </defs>
                     </svg>                        
                 </div>
+                </a>
             </div>
         </div>
 
