@@ -59,17 +59,6 @@ for(let i=0; i<edit.length; i++){
 
     // untuk edit stok -> mati hidupin form
     edit[i].addEventListener('click', function(){
-        namaAwal[i].classList.toggle("displayNone");
-        nama[i].classList.toggle("displayNone");
-        nama[i].disabled=false;
-    })
-    centang[i].addEventListener('click', function(){
-        namaAwal[i].classList.toggle("displayNone");
-        nama[i].classList.toggle("displayNone");
-        nama[i].disabled=true;
-    })
-
-    edit[i].addEventListener('click', function(){
         stokAwal[i].classList.toggle("displayNone");
         stok2[i].classList.toggle("displayNone");
         stok2[i].disabled=false;
