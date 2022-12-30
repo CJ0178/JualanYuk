@@ -132,7 +132,6 @@ if(isset($_SESSION["currentUserId"])){
                             <div class="cardBawah">
                                 <div class="bagian">
                                     <label for="namaAwal" class="namaAwal" id="namaAwal"><?=$item['itemName']?></label>
-                                    <input type="text" name="nama" id="nama" class="nama displayNone" value="<?=$item['itemName']?>" disabled>
                                 </div>
                                 <div class="bagian">
                                     <label for="stokAwal" class="stokAwal" id="stokAwal"><?=$item['qty']?></label>
