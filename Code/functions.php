@@ -94,7 +94,7 @@ function login($data){
 function detailUser($id){
     // Function ini akan return array yang berisi informasi dari user dengan id tertentu
 
-    $result = query("SELECT * FROM user WHERE userId='$id'")[0];
+    $result = query("SELECT * FROM user WHERE userId=$id")[0];
 
     return $result;
 }

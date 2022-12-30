@@ -25,6 +25,7 @@ if(isset($_POST["submit"])){
         redirectTo('../home/home.php');
     } else {
         // Kalau login gagal
+        session_destroy();
         alertMessage('Login gagal');
     }
 }
