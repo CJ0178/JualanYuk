@@ -92,6 +92,10 @@ body{
     margin-top: 3px;
 }
 
+.svgSearch:hover{
+    cursor: pointer;
+}
+
 .svgSearch2{
     margin-top: 6px;
     padding-left: 10px;
