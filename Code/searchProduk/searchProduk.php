@@ -28,8 +28,8 @@ if(isset($_SESSION["currentUserId"])){
     $currentUsername = "YOUR NAME";
 }
 
-
-
+// Initialization
+$count = 0;
 ?>
 
 <!DOCTYPE html>

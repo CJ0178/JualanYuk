@@ -43,6 +43,8 @@ ORDER BY IF(abs(userId-$currentUserId) IS NULL, 1000, abs(userId-$currentUserId)
 LIMIT 10
 ");
 
+// Initialization
+$count = 0;
 ?>
 
 <!DOCTYPE html>
