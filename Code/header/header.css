@@ -70,6 +70,10 @@ body{
     /* background-color: beige; */
 }
 
+.logo:hover{
+    transform: scale(1.02);
+}
+
 /* search */
 .search1{
     padding-top: 8px;

@@ -43,9 +43,14 @@
     width: 24%;
     background-color: #BDC0AC;
     height: 89px;
-    /* padding-left: 5px; */
     filter: drop-shadow(5px 4px 12px rgba(0, 0, 0, 0.5));
     display: flex;
+    transition: 0.3s;
+}
+
+.cardFitur:hover{
+    background-color: #604E49;
+    transform: scale(1.05);
 }
 
 .logoFitur{
@@ -54,7 +59,6 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    /* background-color: pink; */
 }
 
 .tulisanFitur2{
@@ -90,7 +94,12 @@
     height: 72px;
     background-color: #BDC0AC;
     border: solid 2px #8C8E81;
+    transition: 0.3s;
     /* display: flex; */
+}
+
+.cardKategori:hover{
+    background-color: #604E49;
 }
 
 .cardKategori>a{
@@ -169,7 +178,17 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    display: none;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.cardRekomendasi:hover, .cardLengkapi:hover{
+    background-color: #362824;
+}
+
+.cardRekomendasi:hover .gambarLengkapi,  .cardLengkapi:hover .gambarLengkapi{
+    display: block;
+    transform: translateY(-2px) scale(1.03);
 }
 
 .deskripsiRekomendasi{
