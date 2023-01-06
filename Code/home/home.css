@@ -273,10 +273,6 @@
     background-size: 10px 10px;
 }
 
-./*panah svg path{
-    width: 5px;
-}*/
-
 .hyperlink p:hover, .panah:hover{
     cursor: pointer;
     transform: scale(1.05);
