@@ -116,6 +116,18 @@
     margin-top: 5px;
 }
 
+.isiEdit2:hover, .isiEdit:hover{
+    cursor: pointer;
+}
+
+.isiEdit:focus{
+    border-bottom: 2px solid white;
+}
+
+.isiEdit2:focus{
+    border: 2px solid white;
+}
+
 .alamatLengkapClass{
     margin-bottom: 10px;
 }
@@ -218,9 +230,14 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.pembayaran .harga.tulisan2{
-    /* background-color: pink; */
+.pembayaran .harga.tulisan2:hover{
     cursor: pointer;
+    color:#604E49;
+    transform: scale(1.1);
+}
+
+.pembayaran .harga.tulisan2:active{
+    transform: scale(0.95);
 }
 
 .pembayaran{
@@ -342,6 +359,15 @@
     border: 0px solid #BDC0AC;
 }
 
+.tombolCekot:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.tombolCekot:active{
+    transform: scale(0.95);
+}
+
 .hidden{
     display: none;
 }
@@ -426,4 +452,16 @@
 
 .popUpBayar .main{
     margin-top: 0px;
+}
+
+.svgPanah:hover svg path{
+    fill:#604E49;
+}
+
+.svgPanah:hover{
+    transform: scale(1.1);
+}
+
+.svgPanah:active{
+    transform: scale(0.95);
 }
