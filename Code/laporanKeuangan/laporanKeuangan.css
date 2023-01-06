@@ -320,11 +320,13 @@ input#session-month::-webkit-calendar-picker-indicator{
 }
 
 #arrowKanan:hover svg path, #arrowKiri:hover svg path{
+    transition: 0.2s;
     fill:#D2C2B0;
     cursor: pointer;
     transform: scale(1.1);
 }
 
 #arrowKanan:active, #arrowKiri:active{
+    transition: 0.2s;
     transform: scale(0.95);
 }
