@@ -41,6 +41,14 @@ window.onload = function(){
         kotakMuncul.classList.toggle('displayNone')
         buttonSearch.classList.add('displayNone')
     })
+
+    buttonHamburger = document.getElementById('hamburger')
+    dropdownMenu = document.getElementsByClassName('dropdownMenu')[0]
+    console.log('hi');
+    
+    buttonHamburger.addEventListener('click', function(){
+        dropdownMenu.classList.toggle('displayNone')
+    })
 }
 
 function checkSubmit(e) {

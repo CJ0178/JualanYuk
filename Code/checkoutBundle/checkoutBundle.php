@@ -266,6 +266,7 @@ $grandTotal = 0;
 <?php endif; ?>
     </div>
 
+    <script src="../header/headerWithoutSearch.js"></script>
     <script src="checkoutBundle.js"></script>
 </body>
 </html>

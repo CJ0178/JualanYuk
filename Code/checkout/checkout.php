@@ -288,6 +288,7 @@ $grandTotal = 0;
 <?php endif; ?>
     </div>
 
+    <script src="../header/headerWithoutSearch.js"></script>
     <script src="checkout.js"></script>
 </body>
 </html>

@@ -174,6 +174,7 @@ $_SESSION['grandTotal'] = 0;
     <!-- footer -->
     <?php include '../footer/footer.php' ?>
 
+    <script src="../header/headerWithoutSearch.js"></script>
     <script src="kasir.js"></script>
 </body>
 </html>

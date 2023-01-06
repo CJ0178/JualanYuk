@@ -120,6 +120,7 @@ if(isset($_GET["id"])){
     <!-- footer -->
     <?php include '../footer/footer.php' ?>
     
+    <script src="../header/headerWithoutSearch.js"></script>
     <script src="editProduk.js"></script>
 </body>
 </html>

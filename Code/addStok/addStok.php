@@ -29,7 +29,6 @@ if(isset($_SESSION["currentUserId"])){
     <link rel="stylesheet" href="addStok.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="addStok.js"></script>
 </head>
 <body>
     <!-- header -->

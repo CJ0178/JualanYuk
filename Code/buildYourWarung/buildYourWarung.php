@@ -423,6 +423,7 @@ if(isset($_SESSION["currentUserId"])){
     <!-- footer -->
     <?php include '../footer/footer.php' ?>
     
+    <script src="../header/headerWithoutSearch.js"></script>
     <script src="buildYourWarung.js"></script>
 </body>
 </html>
