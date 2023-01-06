@@ -1,5 +1,4 @@
 .main{
-    /* background-color: aqua; */
     width: 68.5%;
     margin: auto;
     margin-top: 37px;
@@ -245,8 +244,6 @@
 }
 
 .hyperlink{
-    /* background-color: pink; */
-    /* margin-top: 23%; */
     margin-top: 200px;
     display: flex;
     text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
@@ -254,6 +251,21 @@
     text-decoration: underline;
     font-weight: 600;
     height: 25px;
+    transition: 0.2s;
+}
+
+.hyperlink:hover{
+    color: #BDC0AC;
+    transform: scale(1.1);
+}
+
+.hyperlink:hover svg path{
+    fill: #BDC0AC;
+    transform: scale(1.1);
+}
+
+.hyperlink:active{
+    transform: scale(0.95);
 }
 
 .panah{

@@ -42,10 +42,12 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 23px;
+    transition: 0.2s;
 }
 
 .cardJudul:hover{
     cursor: pointer;
+    background-color: #D2C2B0;
 }
 
 .isi{
@@ -224,10 +226,16 @@ input#session-month::-webkit-calendar-picker-indicator{
     height: 35px;
     padding-left: 5px;
     padding-right: 5px;
+    transition: 0.2s;
 }
 
 .tombolLihat:hover{
     cursor: pointer;
+    transform: scale(1.1);
+}
+
+.tombolLihat:active{
+    transform: scale(0.97);
 }
 
 .tulisanLihat{
@@ -309,4 +317,14 @@ input#session-month::-webkit-calendar-picker-indicator{
 
 .displayNone{
     display: none !important;
+}
+
+#arrowKanan:hover svg path, #arrowKiri:hover svg path{
+    fill:#D2C2B0;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#arrowKanan:active, #arrowKiri:active{
+    transform: scale(0.95);
 }

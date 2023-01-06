@@ -211,8 +211,13 @@
     justify-content: center;
 }
 
-.svgTempatSampah{
+.svgTempatSampah:hover, .tombolCekot:hover{
     cursor: pointer;
+    transform: scale(1.1);
+}
+
+.svgTempatSampah:active, .tombolCekot:active{
+    transform: scale(0.95);
 }
 
 .totalHarga{
@@ -348,6 +353,7 @@
     /* float: right; */
     cursor: pointer;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
 }
 
 .tulisanCekot{
@@ -369,4 +375,23 @@
     display: flex;
     justify-content: end;
     margin-top: 4px;
+}
+
+.kotakMin:hover, .kotakTambah:hover{
+    cursor: pointer;
+    background-color: #BDC0AC;
+}
+
+.inputText:focus {
+    border:1.5px solid white;
+    background-color: none;
+}
+
+.inputText:focus:hover{
+    background-color: transparent;
+}
+
+.inputText:hover {
+    background-color: #BDC0AC;
+    cursor: pointer;
 }

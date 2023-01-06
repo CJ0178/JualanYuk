@@ -68,11 +68,15 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    /* background-color: beige; */
+    transition: 0.2s;
 }
 
 .logo:hover{
-    transform: scale(1.02);
+    transform: scale(1.1);
+}
+
+.logo:active{
+    transform: scale(0.95);
 }
 
 /* search */
