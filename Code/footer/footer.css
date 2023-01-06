@@ -1,26 +1,19 @@
 .footer{
     width: 65.6%;
     margin: auto;
-    height: 100px;
-    /* background-color: aquamarine; */
 }
 
 .bagAtas{
     display: flex;
-    /* background-color: pink; */
 }
 
 .cariKami{
-    /* background-color: pink; */
     width: 60.98%;
-    /* height: 200px; */
     padding-top: 155px;
     padding-bottom: 50px;
 }
 
 .berlangganan{
-    /* background-color: blue; */
-    /* height: 200px; */
     width: 39.02%;
     padding-top: 97px;
     padding-bottom: 45px;
@@ -172,5 +165,34 @@ input:active{
     background-color: #BDC0AC;
 }
 
+@media only screen and (max-width: 392px) {
+    .footer{
+        width: 90%;
+    }
 
+    .bagAtas{
+        flex-direction: column;
+    }
+    
+    .cariKami{
+        padding-top: 40px;
+        padding-bottom: 0px;
+    }
+
+    .logoCariKami>div{
+        margin-right: 5px;
+    }
+
+    .berlangganan{
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .copyright{
+        padding-top: 20px;
+        padding-bottom: 30px;
+        /* background-color: pink; */
+    }
+}
 
