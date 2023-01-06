@@ -166,3 +166,50 @@ body{
 .visibilityHidden{
     visibility: hidden;
 }
+
+.hamburger{
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 30px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3px;
+    margin: 10px;
+    display: none;
+}
+
+.line{
+    width: 30px;
+    height: 2px;
+    background-color: white;
+}
+
+.dropdownMenu{
+    margin-top: 20px;
+}
+
+.menu{
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    border-top: 1px solid white;
+    line-height: 40px;
+}
+
+.logout{
+    border-bottom: 1px solid;
+}
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .kotakLogo, .namaAkun, .search1, .search2{
+        display: none;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+}

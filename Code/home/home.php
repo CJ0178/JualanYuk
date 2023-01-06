@@ -113,6 +113,21 @@ $count = 0;
                 </a>                             
             </div>
         </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </div>
+
+    <div class="dropdownMenu displayNone">
+        <div class="menu">Keranjang</div>
+        <div class="menu">Kasir</div>
+        <div class="menu">Gudang</div>
+        <div class="menu">Laporan Pendapatan</div>
+        <div class="menu logout">Logout</div>
     </div>
 
     <!-- body -->
