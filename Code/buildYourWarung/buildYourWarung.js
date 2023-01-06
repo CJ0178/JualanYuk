@@ -17,7 +17,7 @@ for(let i=0; i<cardPaket1.length; i++){
         cardPaket1[i].classList.toggle("displayNone");
         cardPaket2[i].classList.toggle("displayNone");
     })
-
+    
     cardPaket[i].addEventListener('mouseleave', function(){
         cardPaket1[i].classList.toggle("displayNone");
         cardPaket2[i].classList.toggle("displayNone");

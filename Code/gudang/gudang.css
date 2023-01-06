@@ -96,6 +96,16 @@ input:active{
     height: 53px;
     display: flex;
     margin-bottom: 3px;
+    transition: 0.2s;
+}
+
+.kategoriCard:hover, .cardEdit:hover{
+    transform: scale(1.03);
+    background-color: #604E49;
+}
+
+.kategoriCard:active, .cardEdit:active{
+    transform: scale(0.95);
 }
 
 .kotakFoto{
@@ -168,6 +178,15 @@ input:active{
 
 .harga2{
     text-decoration: underline;
+}
+
+.bagian .harga2:hover, .bagian .stok2:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.bagian .harga2:active, .bagian .stok2:active{
+    transform: scale(0.95);
 }
 
 .bagianKanan{

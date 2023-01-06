@@ -231,6 +231,17 @@
     padding: 12px 24px;
     margin-top: 12px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.beliCard2:hover{
+    transform: scale(1.1);
+    color:#62504a;
+    font-weight: bold;
+}
+
+.beliCard2:active{
+    transform: scale(1.05);
 }
 
 .paket .cardPaket1.displayNone{
@@ -355,7 +366,20 @@
     padding: 12px 24px;
     margin-top: 7px;
     cursor: pointer;
+    transition: 0.2s;
 }
+
+.beliCard3:hover{
+    background-color: #62504a;
+}
+
+.beliCard3:active{
+    transform: scale(0.95);
+}
+
+
+
+
 
 .kotakJumlah{
     margin-top: 10px;
@@ -388,6 +412,7 @@
 
 .kotakMin:hover, .kotakTambah:hover{
     cursor: pointer;
+    background-color: #BDC0AC;
 }
 
 .kotakAngka{
@@ -425,8 +450,19 @@
 }
 
 .inputText:focus {
-    border-bottom: 1px solid white;
-    border-top: 1px solid white;
+    /* border-bottom: 1px solid white;
+    border-top: 1px solid white; */
+    border:1.5px solid white;
+    background-color: none;
+}
+
+.inputText:focus:hover{
+    background-color: transparent;
+}
+
+.inputText:hover {
+    background-color: #BDC0AC;
+    cursor: pointer;
 }
 
 /* kotak plus min */

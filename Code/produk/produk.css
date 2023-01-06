@@ -204,6 +204,23 @@
 
 .kotakMin:hover, .kotakTambah:hover{
     cursor: pointer;
+    background-color: #BDC0AC;
+}
+
+.inputText:focus {
+    /* border-bottom: 1px solid white;
+    border-top: 1px solid white; */
+    border:1.5px solid white;
+    background-color: none;
+}
+
+.inputText:focus:hover{
+    background-color: transparent;
+}
+
+.inputText:hover {
+    background-color: #BDC0AC;
+    cursor: pointer;
 }
 
 .kotakAngka{
@@ -236,10 +253,16 @@
     align-items: center;
     text-align: center;
     letter-spacing: 1.2px;
+    transition: 0.2s;
 }
 
-.tulisanKeranjang:hover{
+.tulisanKeranjang:hover, .beliSekarang:hover, .card:hover{
     cursor: pointer;
+    transform: scale(1.05);
+}
+
+.tulisanKeranjang:active, .beliSekarang:active, .card:active{
+    transform: scale(0.95);
 }
 
 .beliSekarang{
@@ -261,6 +284,5 @@
     width: 90px;
 }
 
-.beliSekarang:hover{
-    cursor: pointer;
-}
+
+
