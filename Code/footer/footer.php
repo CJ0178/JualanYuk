@@ -1,4 +1,4 @@
-<div class="footer" id="footer">
+<div class="footer">
     <div class="bagAtas">
         <div class="cariKami">
             <p>Cari Kami:</p>

@@ -1,7 +1,6 @@
 .footer{
     width: 65.6%;
     margin: auto;
-    height: 100px;
 }
 
 .bagAtas{
@@ -161,8 +160,31 @@ input:active{
 @media only screen and (max-width: 392px) {
     .footer{
         width: 90%;
-        background-color: pink;
     }
 
+    .bagAtas{
+        flex-direction: column;
+    }
+    
+    .cariKami{
+        padding-top: 40px;
+        padding-bottom: 0px;
+    }
+
+    .logoCariKami>div{
+        margin-right: 5px;
+    }
+
+    .berlangganan{
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .copyright{
+        padding-top: 20px;
+        padding-bottom: 30px;
+        /* background-color: pink; */
+    }
 }
 
