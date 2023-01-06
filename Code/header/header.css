@@ -10,6 +10,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     text-decoration: inherit;
 }
 
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -165,4 +166,13 @@ body{
 
 .visibilityHidden{
     visibility: hidden;
+}
+
+.keranjang:hover svg path, .logOut:hover svg path{
+    transform: scale(1.03);
+    fill: #604E49;
+}
+
+.search1:hover svg path{
+    fill: #604E49;  
 }

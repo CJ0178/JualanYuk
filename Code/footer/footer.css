@@ -102,7 +102,16 @@ input:active{
 .btnBerlangganan:focus{
     border: 1px solid white;
     outline: none;
-    background-color: red;
+}
+
+.btnBerlangganan:active{
+    transform: scale(0.95);
+}
+
+.btnBerlangganan:hover{
+    border: 1px solid white;
+    outline: none;
+    background-color: #604E49;
 }
 
 .penutupan p{
@@ -132,3 +141,28 @@ input:active{
     padding-bottom: 15px;
     /* background-color: pink; */
 }
+
+.fb::before{
+    background-color: #FFFFFF;
+}
+
+.fb:hover svg path, .tw:hover svg path, .ig:hover svg path{
+    fill: #604E49;
+}
+
+.fb:active, .tw:active, .ig:active{
+    transform: scale(0.90);
+}
+
+#alamatEmail:focus{
+    border-style: dashed;
+    border-color: #604E49;
+    background-color: #BDC0AC;
+}
+
+#alamatEmail:active{
+    background-color: #BDC0AC;
+}
+
+
+
