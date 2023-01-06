@@ -1,7 +1,5 @@
 .main{
-    /* background-color: pink; */
     width: 32.67%;
-    /* height: 1000px; */
     margin: auto;
     margin-top: 25px;
 }
@@ -10,8 +8,6 @@
     height: 22px;
     display: flex;
     flex-direction: column;
-    /* padding-left: 30px; */
-    /* background-color: yellow; */
     margin-bottom: 20px;
 }
 
@@ -21,7 +17,6 @@
     height: 40px;
     display: flex;
     align-items: flex-start;
-    /* padding-bottom: 4px; */
 }
 
 .garis{
@@ -46,7 +41,6 @@
 
 .kotakBawah{
     height: 300px;
-    /* background-color: aquamarine; */
 }
 
 .judulInput{
@@ -73,7 +67,6 @@
     border-left-style: hidden;
     border-bottom-style: hidden;
     background-color: #8C8E81;
-    /* background-color: pink; */
     color: white;
     font-family: inherit;
     width: 100%;
@@ -88,13 +81,20 @@
     margin-bottom: 10px;
 }
 
+.isiEdit2:hover, .isiEdit:hover{
+    cursor: pointer;
+}
+
+.isiEdit:focus{
+    border-bottom: 2px solid white;
+}
+
 .isiEdit2{
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: hidden;
     background-color: #8C8E81;
-    /* background-color: pink; */
     color: white;
     font-family: inherit;
     width: 100%;
@@ -116,22 +116,23 @@
     margin-top: 5px;
 }
 
+.isiEdit2:focus{
+    border: 2px solid white;
+}
+
 .alamatLengkapClass{
     margin-bottom: 10px;
 }
 
 .listItem{
-    /* background-color: pink; */
     margin-bottom: 40px;
 }
 
 .cardItem{
     height: 110px;
-    /* background-color: yellow; */
     margin-bottom: 15px;
     display: flex;  
     align-items: center;
-    /* font-weight: 600; */
     font-weight: 550;
     font-size: 14px;
     line-height: 20px;
@@ -150,7 +151,6 @@
 
 .kotakTengah{
     width: 48%;
-    /* background-color: aquamarine; */
     padding-left: 25px;
     height: 100%;
     display: flex;
@@ -161,7 +161,6 @@
 .kotakTotalHarga{
     width: 25.35%;
     height: 100%;
-    /* background-color: pink; */
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -173,13 +172,10 @@
 }
 
 .kirimDanBayar{
-    /* background-color: yellow; */
-    /* height: 300px; */
     margin-bottom: 40px;
 }
 
 .pengiriman{
-    /* background-color: pink; */
     height: 35px;
     display: flex;
     margin-bottom: 20px;
@@ -188,7 +184,6 @@
 .kirimSvg{
     width: 8.17%;
     height: 100%;
-    /* background-color: yellow; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -196,7 +191,6 @@
 
 .tulisanKirim{
     width: 70.5%;
-    /* background-color: aquamarine; */
     height: 100%;
     display: flex;
     align-items: center;
@@ -218,15 +212,21 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.pembayaran .harga.tulisan2{
-    /* background-color: pink; */
+.pembayaran .harga.tulisan2:hover{
     cursor: pointer;
+    color:#604E49;
+    transform: scale(1.1);
+}
+
+.pembayaran .harga.tulisan2:active{
+    transform: scale(0.95);
 }
 
 .pembayaran{
     /* background-color: pink; */
     height: 35px;
     display: flex;
+    transition: 0.2s;
 }
 
 .bayarSvg{
@@ -342,6 +342,15 @@
     border: 0px solid #BDC0AC;
 }
 
+.tombolCekot:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.tombolCekot:active{
+    transform: scale(0.95);
+}
+
 .hidden{
     display: none;
 }
@@ -426,4 +435,16 @@
 
 .popUpBayar .main{
     margin-top: 0px;
+}
+
+.svgPanah:hover svg path{
+    fill:#604E49;
+}
+
+.svgPanah:hover{
+    transform: scale(1.1);
+}
+
+.svgPanah:active{
+    transform: scale(0.95);
 }

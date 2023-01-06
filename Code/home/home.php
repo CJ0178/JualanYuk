@@ -123,11 +123,11 @@ $count = 0;
     </div>
 
     <div class="dropdownMenu displayNone">
-        <div class="menu">Keranjang</div>
-        <div class="menu">Kasir</div>
-        <div class="menu">Gudang</div>
-        <div class="menu">Laporan Pendapatan</div>
-        <div class="menu logout">Logout</div>
+        <a href="../keranjang/keranjang.php"><div class="menu">Keranjang</div></a>
+        <a href="../kasir/kasir.php"><div class="menu">Kasir</div></a>
+        <a href="../gudang/gudang.php"><div class="menu">Gudang</div></a>
+        <a href="../laporanKeuangan/laporanKeuangan.php"><div class="menu">Laporan Pendapatan</div></a>
+        <a href="../logout.php"><div class="menu logout">Logout</div></a>
     </div>
 
     <!-- body -->
