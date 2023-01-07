@@ -127,3 +127,10 @@ function checkManaYangAktif(){
 function addLeadingZeros(num, totalLength) {
     return String(num).padStart(totalLength, '0');
 }
+
+buttonHamburger = document.getElementById('hamburger')
+dropdownMenu = document.getElementsByClassName('dropdownMenu')[0]
+
+buttonHamburger.addEventListener('click', function(){
+    dropdownMenu.classList.toggle('displayNone')
+})

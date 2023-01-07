@@ -467,6 +467,7 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
                         </div>
                     </div>
                 </div>
+
                 <div class="grafik" id="grafikContainer">
 
                 </div>
@@ -479,7 +480,6 @@ for($i = $begin; $i <= $end; $i->modify('+1 day')){
     <?php include '../footer/footer.php' ?>
     
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="../header/headerWithoutSearch.js"></script>
     <script src="laporanKeuangan.js"></script>
 </body>
 </html>
