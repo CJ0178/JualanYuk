@@ -480,3 +480,61 @@ input:active{
 .open-bg{
     visibility: visible;
 }
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main{
+        width: 90%;
+    }
+
+    .kotakBawah{
+        flex-direction: column;
+    }
+
+    .garis2{
+        display: none;
+    }
+
+    .kotakKiri{
+        order: 2;
+        width: 100%;
+    }
+    
+    .kotakKanan{
+        order: 1;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .atas{
+        font-size: 13px;
+    }
+
+    .cardPesanan{
+        width: 100%;
+    }
+
+    .kotakKiriBawah{
+        flex-direction: column;
+    }
+
+    .bagianKiri a{
+        width: 49.5%;
+    }
+
+    .bagianKiri{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .kategoriCard{
+        width: 100%;
+    }
+
+    .bagianKanan{
+        width: 100%;
+        margin-top: 20px;
+    }
+}
