@@ -157,8 +157,6 @@
 .cardKeranjang{
     width: 100%;
     height: 115px;
-    /* background-color: green; */
-    /* border: 1px solid white; */
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -295,7 +293,6 @@
 
 .bagianBawah{
     background-color: #8C8E81;
-    /* background-color: aquamarine; */
     width: 100%;
     height: 140px;
     position: fixed;
@@ -394,4 +391,38 @@
 .inputText:hover {
     background-color: #BDC0AC;
     cursor: pointer;
+}
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main{
+        width: 90%;
+    }
+
+    .cardKeranjang{
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .kotakTulisan{
+        width: 100px;
+    }
+
+    .kotakJumlah{
+        margin-left: 67px;
+        margin-top: 20px;
+    }
+
+    .tempatSampah{
+        width: 40px;
+        margin-top: 20px;
+    }
+
+    .harga.totalHarga{
+        margin-top: 20px;
+    }
+
+    .kotakDalam{
+        width: 80%;
+    }
 }
