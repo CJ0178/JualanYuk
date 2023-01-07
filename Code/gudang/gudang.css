@@ -323,3 +323,45 @@ input[type=text].harga2{
 .bagian .harga2.displayNone{
     display: none;
 }
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main{
+        width: 90%;
+    }
+    
+    .cari{
+        width: 100%;
+    }
+    
+    .isi{
+        margin-top: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .bagianKiri{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .bagianKiri a{
+        width: 49.5%;
+    }
+
+    .kategoriCard{
+        width: 100%;
+    }
+
+    .bagianTengah{
+        width: 73%;
+        margin-top: 15px;
+    }
+    
+    .bagianKanan{
+        width: 25%;
+        margin-top: 15px;
+    }
+}
