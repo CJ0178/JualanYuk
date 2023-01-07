@@ -272,7 +272,6 @@ input#session-month::-webkit-calendar-picker-indicator{
 
 .grafik{
     width: 90%;
-    background-color: aquamarine;
     height: 500px;
     margin: auto;
     margin-top: 20px;
@@ -329,4 +328,44 @@ input#session-month::-webkit-calendar-picker-indicator{
 #arrowKanan:active, #arrowKiri:active{
     transition: 0.2s;
     transform: scale(0.95);
+}
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main{
+        width: 90%;
+    }
+
+    .pilih{
+        width: 55%;
+    }
+
+    .tombolLihat{
+        width: 30%;
+    }
+
+    .cardKategori{
+        width: 49.7%;
+    }
+
+    .tulisanKategori .harga{
+        font-size: 15px;
+    }
+
+    .svgLogo{
+        width: 20%;
+        margin-left: 3px;
+    }
+
+    .tulisanKategori .kategoriApa{
+        font-size: 10px;
+    }
+
+    .isi{
+        padding-bottom: 420px;
+    }
+
+    .grafik{
+        height: auto;
+    }
 }
