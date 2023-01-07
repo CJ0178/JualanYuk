@@ -81,7 +81,7 @@ $grandTotal = 0;
     <?php require '../header/headerWithoutSearch.php' ?>
 
     <!-- body -->
-    <div class="main">
+    <div class="main mainContainer">
         <div class="kotakAtas">
             <div class="tulisanCheckOut">
                 CHECKOUT

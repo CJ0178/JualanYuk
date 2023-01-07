@@ -448,3 +448,10 @@
 .svgPanah:active{
     transform: scale(0.95);
 }
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main.mainContainer{
+        width: 80%;
+    }
+}
