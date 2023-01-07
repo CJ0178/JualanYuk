@@ -81,6 +81,10 @@
     margin-bottom: 10px;
 }
 
+.isiEdit:active{
+    border-bottom: 1px solid white;
+}
+
 .isiEdit2:hover, .isiEdit:hover{
     cursor: pointer;
 }
@@ -453,5 +457,17 @@
 @media only screen and (max-width: 392px) {
     .main.mainContainer{
         width: 80%;
+    }
+
+    .popUpBayar .main{
+        width: 80%;
+    }
+
+    .isiEdit2{
+        width: 100%;
+        min-width: 100%;
+        min-height: 125px;
+        max-width: 100%;
+        max-height: 125px;
     }
 }
