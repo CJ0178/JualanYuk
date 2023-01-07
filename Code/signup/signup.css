@@ -131,3 +131,10 @@ a:hover{
 #username:focus, #password:focus,#confirmPassword:focus{
     background-color:#362824;
 }
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .box{
+        width: 80%;
+    }
+}
