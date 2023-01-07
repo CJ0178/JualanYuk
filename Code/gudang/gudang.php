@@ -64,7 +64,7 @@ if(isset($_SESSION["currentUserId"])){
                         <path d="M26.2497 24.9676L20.7222 19.4026L19.6572 20.4601L25.1847 26.0251C25.2542 26.095 25.3367 26.1506 25.4276 26.1886C25.5185 26.2266 25.616 26.2464 25.7146 26.2467C25.8131 26.2471 25.9108 26.228 26.0019 26.1906C26.0931 26.1532 26.176 26.0982 26.246 26.0288C26.3159 25.9594 26.3715 25.8768 26.4095 25.7859C26.4475 25.695 26.4673 25.5975 26.4676 25.499C26.468 25.4004 26.4489 25.3028 26.4115 25.2116C26.3741 25.1204 26.3192 25.0375 26.2497 24.9676Z" fill="#FFF9F9"/>
                     </svg>                    
                 </div>
-                <input type="text" name="keyword" id="tulisanCari" placeholder="Cari" class="tulisanCari">
+                <input type="text" name="keyword" id="tulisanCari" placeholder="Cari" class="tulisanCari" autocomplete="off" spellcheck="false">
             </div>
         </form>
         <div class="isi">
