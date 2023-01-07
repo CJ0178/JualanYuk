@@ -42,6 +42,7 @@
     width: 73%;
     height: 140px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
 }
 
 .gambarCard{
@@ -256,12 +257,22 @@
     transition: 0.2s;
 }
 
-.tulisanKeranjang:hover, .beliSekarang:hover, .card:hover{
+.card:Hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #362824;
+}
+
+.card:active{
+    transform: scale(0.95);
+}
+
+.tulisanKeranjang:hover, .beliSekarang:hover{
     cursor: pointer;
     transform: scale(1.05);
 }
 
-.tulisanKeranjang:active, .beliSekarang:active, .card:active{
+.tulisanKeranjang:active, .beliSekarang:active{
     transform: scale(0.95);
 }
 

@@ -122,3 +122,12 @@ a{
 a:hover{
     color:#604E49;
 }
+
+#username:hover, #password:hover, #confirmPassword:hover{
+    background-color:#362824;
+    cursor: pointer;
+}
+
+#username:focus, #password:focus,#confirmPassword:focus{
+    background-color:#362824;
+}

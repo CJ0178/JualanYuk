@@ -399,6 +399,7 @@ input:active{
     cursor: pointer;
     border: 0;
     color: white;
+    transition: 0.2s;
 }
 
 .tombolBayar:hover{

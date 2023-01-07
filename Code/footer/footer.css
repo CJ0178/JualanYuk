@@ -79,9 +79,6 @@ input:active{
 }
 
 .btnBerlangganan{
-    /* width: 42.01%; */
-    /* width: 129.5%; */
-    /* width: 100%; */
     padding-left: 20px;
     padding-right: 20px;
     height: 52px;
@@ -90,6 +87,7 @@ input:active{
     border: 1px solid white;
     font-family: inherit;
     font-size: 14px;
+    transition: 0.2s;
 }
 
 .btnBerlangganan:focus{
@@ -102,6 +100,7 @@ input:active{
 }
 
 .btnBerlangganan:hover{
+    cursor: pointer;
     border: 1px solid white;
     outline: none;
     background-color: #604E49;
@@ -139,12 +138,21 @@ input:active{
     background-color: #FFFFFF;
 }
 
+.fb:hover, .tw:hover, .ig:hover{
+    cursor: pointer;
+}
+
 .fb:hover svg path, .tw:hover svg path, .ig:hover svg path{
     fill: #604E49;
 }
 
 .fb:active, .tw:active, .ig:active{
+    transition: 0.2s;
     transform: scale(0.90);
+}
+
+#alamatEmail:hover{
+    cursor: pointer;
 }
 
 #alamatEmail:focus{
