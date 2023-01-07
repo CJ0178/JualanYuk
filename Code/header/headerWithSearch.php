@@ -24,7 +24,7 @@
         </div>
         <div class="searchText">
             <form action="../searchProduk/searchProduk.php" method="get">
-                <input type="text" id="inputKeyword" class="inputKeyword" name="keyword" placeholder="Cari" onKeyPress="return checkSubmit(event)" autocomplete="off">
+                <input type="text" id="inputKeyword" class="inputKeyword" name="keyword" placeholder="Cari" onKeyPress="return checkSubmit(event)" autocomplete="off" spellcheck="false">
             </form>
         </div>
     </div>
