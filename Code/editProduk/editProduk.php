@@ -44,7 +44,7 @@ if(isset($_GET["id"])){
 </head>
 <body>
     <!-- header -->
-    <?php require '../header/headerWithoutSearch.php' ?>
+<?php require '../header/headerWithoutSearchAdmin.php' ?>
 
     <!-- body -->
     <div class="main">

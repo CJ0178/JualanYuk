@@ -31,7 +31,7 @@ if(isset($_SESSION["currentUserId"])){
 </head>
 <body>
     <!-- header -->
-    <?php require '../header/headerWithSearch.php' ?>
+    <?php require '../header/headerWithSearchAdmin.php' ?>
 
     <!-- body -->
     <div class="main">

@@ -32,7 +32,7 @@ if(isset($_SESSION["currentUserId"])){
 </head>
 <body>
     <!-- header -->
-    <?php require '../header/headerWithoutSearch.php' ?>
+    <?php require '../header/headerWithoutSearchAdmin.php' ?>
 
     <!-- body -->
     <div class="main">
