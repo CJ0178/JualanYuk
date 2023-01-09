@@ -465,3 +465,18 @@
 .svgPanah:active{
     transform: scale(0.95);
 }
+
+@media only screen and (max-width: 392px) {
+    .main.mainContainer{
+        width: 90%;
+    }
+
+    .isiEdit2{
+        min-width: 350px;
+        max-width: 350px;
+    }
+
+    .popUpBayar .main{
+        width: 90%;
+    }
+}
