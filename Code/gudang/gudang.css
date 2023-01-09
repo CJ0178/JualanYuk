@@ -360,6 +360,11 @@ input[type=text].harga2{
         margin-top: 15px;
     }
     
+    .bagianTengahAtas{
+        font-size: 10px;
+        text-align: center;
+    }
+
     .bagianKanan{
         width: 25%;
         margin-top: 15px;
