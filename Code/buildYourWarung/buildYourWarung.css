@@ -508,4 +508,122 @@
     .buttonBeli{
         margin-top: 15px;
     }
+
+    .cardPaket1, .cardPaket2{
+        margin-left: 15%;
+        width: 70%;
+        filter: drop-shadow(0px 0.278vw 0.278vw rgba(0, 0, 0, 0.25));
+        height: 17.743vw;
+    }
+
+    .judulCard2{
+        font-size: 1.806vw;
+        line-height: 2.569vw;
+        text-shadow: 0.278vw 0.278vw 0.278vw rgba(0, 0, 0, 0.25);
+        margin-top: 1.389vw;
+        margin-bottom: 1.042vw;
+    }
+
+    .judulCard1{
+        font-size: 1.806vw;
+        line-height: 1.2845vw;
+        text-shadow: 0.278vw 0.278vw 0.278vw rgba(0, 0, 0, 0.25);
+        margin-bottom: 1.042vw;
+    }
+
+    .deskripsiCard1{
+        font-size: 1.181vw;
+        line-height: 1.667vw;
+        text-shadow: 0px 0.278vw 0.278vw rgba(0, 0, 0, 0.25);
+        margin-bottom: 2.083vw;
+    }
+
+    .deskripsiCard2{
+        font-size: 0.764vw;
+        line-height: 0.972vw;
+        text-shadow: 0px 0.278vw 0.278vw rgba(0, 0, 0, 0.25);
+        margin-bottom: 2.083vw;
+    }
+
+    .beliCard1{
+        font-size: 1.493vw;
+        line-height: 1.944vw;
+        text-shadow: 0.208vw 0.278vw 0.278vw rgba(0, 0, 0, 0.25);
+    }
+
+    .beliCard2{
+        font-size: 0.833vw;
+        line-height: 0.833vw;
+        letter-spacing: 0.083vw;
+        padding: 0.833vw 1.667vw;
+        margin-top: 0.833vw;
+    }
+
+    .kiri1{
+        width: 32.85%;
+        height: 100%;
+    }
+
+    .tengah1{
+        width: 34.3%;
+        height: 100%;
+    }    
+
+    .kanan1{
+        width: 32.85%;
+        height: 100%;
+    }
+
+    .kiri2{
+        width: 32.85%;
+        height: 100%;
+    }
+
+    .tengah2{
+        width: 34.3%;
+        height: 100%;
+    }
+
+    .kanan2{
+        padding-top: 2.431vw;
+        padding-bottom: 2.431vw;
+    }
+
+    .harga10{
+        font-size: 1.806vw;
+        line-height: 2.569vw;
+        text-shadow: 0px 0.278vw 0.278vw rgba(0, 0, 0, 0.25);
+    }
+
+    .harga11{
+        width: 49%;
+        height: 2.222vw;
+    }
+
+    .garis10{
+        width: 17.361vw;
+        height: 0.104vw;
+        margin-bottom: 1.389vw;
+    }
+
+    .garis11{
+        height: 0.069vw;
+        width: 16.667vw;;
+    }
+
+    .garis12{
+        width: 0.139vw;
+        margin-left: 2.083vw;
+        margin-right: 2.083vw;
+    }
+
+    .garis13{
+        height: 0.069vw;
+        width: 4.514vw;
+        background-color: white;
+    }
+
+    .buttonBeli{
+        margin-top: 1.042vw;
+    }
 }
