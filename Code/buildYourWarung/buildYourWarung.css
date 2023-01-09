@@ -462,3 +462,50 @@
     background-color: #BDC0AC;
     cursor: pointer;
 }
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main{
+        width: 90%;
+    }
+
+    .judul{
+        width: 80%;
+    }
+
+    .cardBundle{
+        flex-wrap: wrap;
+        margin-bottom: 130px;
+    }
+
+    .kiriBundle{
+        width: 40%;
+    }
+
+    .tengahBundle{
+        width: 50%;
+    }
+
+    .kananBundle{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .harga11{
+        width: 49%;
+        height: 32px;
+    }
+
+    .kotakJumlah{
+        width: 49%;
+        margin-top: 0;
+    }
+
+    .buttonBeli{
+        margin-top: 15px;
+    }
+}
