@@ -32,7 +32,6 @@ input[type=file]::-webkit-file-upload-button{
     justify-content: center;
     font-size: 150px;
     align-content:center;
-    /* background-color: pink; */
     height: 381px;
     align-items: center;
 }
