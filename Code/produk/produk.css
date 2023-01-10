@@ -20,17 +20,14 @@
 }
 
 .main{
-    /* background-color: yellow; */
     width: 60.65%;
     margin: auto;
-    /* height: 2000px; */
     margin-top: 50px;
     display: flex;
 }
 
 .kotakKiri{
     width: 24.54%;
-    /* background-color: pink; */
     height: 480px;
     display: flex;
     flex-direction: column;
@@ -58,7 +55,6 @@
 }
 
 .kiri{
-    /* background-color: aquamarine; */
     width: 84.16%;
     font-weight: 500;
     font-size: 9.2px;
@@ -70,7 +66,6 @@
 
 .kanan{
     width: 15.84%;
-    /* background-color: blue; */
     padding-right: 30px;
     height: 20px;
     padding-top: 10px;
@@ -101,14 +96,10 @@
 
 .deskripsiKiri{
     width: 73.55%;
-    /* height: 500px; */
-    /* background-color: darkcyan; */
 }
 
 .deskripsiKanan{
     width: 26.45%;
-    /* height: 500px; */
-    /* background-color: indigo; */
 }
 
 .namaProduk{
@@ -145,7 +136,6 @@
 }
 
 .rating{
-    /* margin-top: 10px; */
     display: flex;
 }
 
@@ -188,7 +178,6 @@
 .totalItem{
     display: flex;
     width: 85.7%;
-    /* background-color: red; */
 }
 
 .kotakMin{
@@ -209,8 +198,6 @@
 }
 
 .inputText:focus {
-    /* border-bottom: 1px solid white;
-    border-top: 1px solid white; */
     border:1.5px solid white;
     background-color: none;
 }

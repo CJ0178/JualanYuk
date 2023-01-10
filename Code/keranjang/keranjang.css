@@ -1,7 +1,5 @@
 .main{
     width: 59.66%;
-    /* background-color: pink; */
-    /* height: 2000px; */
     margin: auto;
     margin-top: 25px;
     margin-bottom: 150px;
@@ -16,7 +14,6 @@
     display: flex;
     flex-direction: column;
     padding-left: 30px;
-    /* background-color: yellow; */
     margin-bottom: 20px;
 }
 
@@ -36,14 +33,11 @@
 }
 
 .kotakBawah{
-    /* background-color: brown ; */
     width: 100%;
-    /* height: 2000px; */
 }
 
 .pilihSemua{
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     font-weight: 500;
     font-size: 14px;
@@ -57,7 +51,6 @@
     border: 1px solid #FFFFFF;
     margin-right: 35px;
     margin-left: 13px;
-    /* background-color: yellow; */
     
     cursor: pointer;
     position: relative;
@@ -76,7 +69,6 @@
 
 
 .kotakPilih input{
-    /* Hide default checkbox */
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -95,49 +87,6 @@
     
 }
 
-/* .checkBox{
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #FFFFFF;
-}
-
-.checkBoxInput{
-    display: none;
-}
-
-.checkBoxBox{
-    width: 20px;
-    height: 20px;
-    border: 1px solid #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 35px;
-    margin-left: 13px;
-    flex-shrink: 0;
-    transition: background 0.15s, border-color 0.15s;
-}
-
-.checkBoxBox::after{
-    content: '\2714';
-    color: #8C8E81;
-    transform: scale(0);
-    transition: transform 0.15s;
-}
-
-.checkBoxInput:checked + .checkBoxBox{
-    background: white;
-    border: 1px solid #FFFFFF;
-} 
-
-.checkBoxInput:checked + .checkBoxBox::after{
-    transform: scale(1);
-} */
-
 .garis2{
     height: 1px;
     background-color: white;
@@ -147,9 +96,7 @@
 }
 
 .kumpulanKeranjang{
-    /* background-color: brown; */
     width: 100%;
-    /* height: 1150px; */
     display: flex;
     flex-direction: column;
 }
@@ -173,7 +120,6 @@
 }
 
 .kotakTulisan{
-    /* background-color: aquamarine; */
     width: 220px;
     height: 100%;
     font-weight: 500;
@@ -196,14 +142,12 @@
 
 .kotakJumlah{
     width: 130px;
-    /* background-color: tan; */
     height: 100%;
 }
 
 .tempatSampah{
     width: 110px;
     height: 100%;
-    /* background-color: cornflowerblue; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -221,9 +165,7 @@
 .totalHarga{
     width: 111px;
     height: 100%;
-    /* background-color: black; */
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     padding-left: 13px;
 }
@@ -307,14 +249,11 @@
     margin: auto;
     height: 125px;
     padding: 10px 40px;
-    /* padding-left: 40px; */
-    /* padding-right: 40px; */
 }
 
 .tulisanSub{
     font-weight: 600;
     font-size: 15px;
-    /* text-decoration: underline; */
     line-height: 22px;
 }
 
@@ -332,7 +271,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    /* background-color: yellow; */
 }
 
 .totalBrg, .totalHrg{
@@ -341,13 +279,11 @@
 }
 
 .tombolCekot{
-    /* margin-top: 4px; */
     height: fit-content;
     background-color: #BDC0AC;
     width: fit-content;
     padding: 10px 15px;
     display: flex;
-    /* float: right; */
     cursor: pointer;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
     transition: 0.2s;
@@ -368,7 +304,6 @@
 
 .tombol{
     width: 100%;
-    /* background-color: yellow; */
     display: flex;
     justify-content: end;
     margin-top: 4px;

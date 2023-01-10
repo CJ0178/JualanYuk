@@ -71,13 +71,11 @@
     line-height: 21px;
     font-size: 15px;
     font-weight: 700;
-    /* background-color: blueviolet; */
     width: 57.1%;
 }
 
 /* kategori */
 .kategori{
-    /* background-color: saddlebrown; */
     margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
@@ -99,7 +97,6 @@
     background-color: #BDC0AC;
     border: solid 2px #8C8E81;
     transition: 0.3s;
-    /* display: flex; */
 }
 
 .cardKategori:hover{
@@ -117,7 +114,6 @@
 }
 
 .gambar{
-    /* background-color: aqua; */
     width: 37.7%;
     height: 100%;
     background-repeat: no-repeat;

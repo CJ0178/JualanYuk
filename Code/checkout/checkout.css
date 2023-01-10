@@ -28,7 +28,6 @@
 .alamatPengiriman{
     display: flex;
     align-items: center;
-    /* background-color: yellow; */
     margin-bottom: 20px;
 }
 
@@ -208,7 +207,6 @@
     width: 50%;
     display: flex;
     align-items: center;
-    /* background-color: gray; */
     justify-content: end;
     font-weight: 500;
     font-size: 15px;
@@ -227,7 +225,6 @@
 }
 
 .pembayaran{
-    /* background-color: pink; */
     height: 35px;
     display: flex;
     transition: 0.2s;
@@ -236,7 +233,6 @@
 .bayarSvg{
     width: 8.17%;
     height: 100%;
-    /* background-color: yellow; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -244,7 +240,6 @@
 
 .tulisanBayar{
     width: 70.5%;
-    /* background-color: aquamarine; */
     height: 100%;
     display: flex;
     align-items: center;
@@ -330,7 +325,6 @@
 
 .tombol{
     width: 100%;
-    /* background-color: yellow; */
     display: flex;
     justify-content: end;
 }
@@ -385,7 +379,6 @@
 
 .isiDalam{
     width: 25%;
-    /* background-color: pink; */
     height: 100%;
     margin: auto;
     padding-top: 30px;
@@ -399,7 +392,6 @@
 }
 
 .svgBerhasil{
-    /* background-color: yellow; */
     margin-top: 10px;
     margin-bottom: 15px;
 }

@@ -38,13 +38,11 @@
 
 .email{
     display: flex;
-    /* background-color: yellow; */
     margin-top: 18px;
     margin-bottom: 15px;
 }
 
 .kotakEmail{
-    /* background-color: red; */
     width: 57.99%;
 }
 
@@ -131,7 +129,6 @@ input:active{
     color: white;
     padding-top: 35px;
     padding-bottom: 15px;
-    /* background-color: pink; */
 }
 
 .fb::before{
@@ -192,7 +189,6 @@ input:active{
     .copyright{
         padding-top: 20px;
         padding-bottom: 30px;
-        /* background-color: pink; */
     }
 }
 
