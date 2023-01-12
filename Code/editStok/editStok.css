@@ -38,3 +38,13 @@
     font-size: 12px;
     padding-right: 15px;
 }
+
+.tambahProduk:hover{
+    background-color: #BDC0AC;
+    transform: scale(1.1);
+}
+
+.tambahProduk:active{
+    transform: scale(0.95);
+}
+

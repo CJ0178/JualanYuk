@@ -1,7 +1,5 @@
 .main{
-    /* background-color: pink; */
     width: 32.67%;
-    /* height: 1000px; */
     margin: auto;
     margin-top: 25px;
 }
@@ -10,8 +8,6 @@
     height: 22px;
     display: flex;
     flex-direction: column;
-    /* padding-left: 30px; */
-    /* background-color: yellow; */
     margin-bottom: 20px;
 }
 
@@ -21,7 +17,6 @@
     height: 40px;
     display: flex;
     align-items: flex-start;
-    /* padding-bottom: 4px; */
 }
 
 .garis{
@@ -33,7 +28,6 @@
 .alamatPengiriman{
     display: flex;
     align-items: center;
-    /* background-color: yellow; */
     margin-bottom: 20px;
 }
 
@@ -46,7 +40,6 @@
 
 .kotakBawah{
     height: 300px;
-    /* background-color: aquamarine; */
 }
 
 .judulInput{
@@ -73,7 +66,6 @@
     border-left-style: hidden;
     border-bottom-style: hidden;
     background-color: #8C8E81;
-    /* background-color: pink; */
     color: white;
     font-family: inherit;
     width: 100%;
@@ -94,7 +86,6 @@
     border-left-style: hidden;
     border-bottom-style: hidden;
     background-color: #8C8E81;
-    /* background-color: pink; */
     color: white;
     font-family: inherit;
     width: 100%;
@@ -133,17 +124,14 @@
 }
 
 .listItem{
-    /* background-color: pink; */
     margin-bottom: 40px;
 }
 
 .cardItem{
     height: 110px;
-    /* background-color: yellow; */
     margin-bottom: 15px;
     display: flex;  
     align-items: center;
-    /* font-weight: 600; */
     font-weight: 550;
     font-size: 14px;
     line-height: 20px;
@@ -162,7 +150,6 @@
 
 .kotakTengah{
     width: 48%;
-    /* background-color: aquamarine; */
     padding-left: 25px;
     height: 100%;
     display: flex;
@@ -173,7 +160,6 @@
 .kotakTotalHarga{
     width: 25.35%;
     height: 100%;
-    /* background-color: pink; */
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -185,13 +171,10 @@
 }
 
 .kirimDanBayar{
-    /* background-color: yellow; */
-    /* height: 300px; */
     margin-bottom: 40px;
 }
 
 .pengiriman{
-    /* background-color: pink; */
     height: 35px;
     display: flex;
     margin-bottom: 20px;
@@ -200,7 +183,6 @@
 .kirimSvg{
     width: 8.17%;
     height: 100%;
-    /* background-color: yellow; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -208,7 +190,6 @@
 
 .tulisanKirim{
     width: 70.5%;
-    /* background-color: aquamarine; */
     height: 100%;
     display: flex;
     align-items: center;
@@ -241,7 +222,6 @@
 }
 
 .pembayaran{
-    /* background-color: pink; */
     height: 35px;
     display: flex;
 }
@@ -249,7 +229,6 @@
 .bayarSvg{
     width: 8.17%;
     height: 100%;
-    /* background-color: yellow; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -257,7 +236,6 @@
 
 .tulisanBayar{
     width: 70.5%;
-    /* background-color: aquamarine; */
     height: 100%;
     display: flex;
     align-items: center;
@@ -267,7 +245,6 @@
     line-height: 22px;
 }
 
-/* bagian bawah */
 .bagianBawah{
     background-color: #8C8E81;
     width: 100%;
@@ -343,7 +320,6 @@
 
 .tombol{
     width: 100%;
-    /* background-color: yellow; */
     display: flex;
     justify-content: end;
 }
@@ -412,7 +388,6 @@
 }
 
 .svgBerhasil{
-    /* background-color: yellow; */
     margin-top: 10px;
     margin-bottom: 15px;
 }
@@ -464,4 +439,19 @@
 
 .svgPanah:active{
     transform: scale(0.95);
+}
+
+@media only screen and (max-width: 392px) {
+    .main.mainContainer{
+        width: 90%;
+    }
+
+    .isiEdit2{
+        min-width: 350px;
+        max-width: 350px;
+    }
+
+    .popUpBayar .main{
+        width: 90%;
+    }
 }

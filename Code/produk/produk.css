@@ -20,17 +20,14 @@
 }
 
 .main{
-    /* background-color: yellow; */
     width: 60.65%;
     margin: auto;
-    /* height: 2000px; */
     margin-top: 50px;
     display: flex;
 }
 
 .kotakKiri{
     width: 24.54%;
-    /* background-color: pink; */
     height: 480px;
     display: flex;
     flex-direction: column;
@@ -42,6 +39,7 @@
     width: 73%;
     height: 140px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
 }
 
 .gambarCard{
@@ -57,7 +55,6 @@
 }
 
 .kiri{
-    /* background-color: aquamarine; */
     width: 84.16%;
     font-weight: 500;
     font-size: 9.2px;
@@ -69,7 +66,6 @@
 
 .kanan{
     width: 15.84%;
-    /* background-color: blue; */
     padding-right: 30px;
     height: 20px;
     padding-top: 10px;
@@ -100,14 +96,10 @@
 
 .deskripsiKiri{
     width: 73.55%;
-    /* height: 500px; */
-    /* background-color: darkcyan; */
 }
 
 .deskripsiKanan{
     width: 26.45%;
-    /* height: 500px; */
-    /* background-color: indigo; */
 }
 
 .namaProduk{
@@ -144,7 +136,6 @@
 }
 
 .rating{
-    /* margin-top: 10px; */
     display: flex;
 }
 
@@ -187,7 +178,6 @@
 .totalItem{
     display: flex;
     width: 85.7%;
-    /* background-color: red; */
 }
 
 .kotakMin{
@@ -208,8 +198,6 @@
 }
 
 .inputText:focus {
-    /* border-bottom: 1px solid white;
-    border-top: 1px solid white; */
     border:1.5px solid white;
     background-color: none;
 }
@@ -256,12 +244,22 @@
     transition: 0.2s;
 }
 
-.tulisanKeranjang:hover, .beliSekarang:hover, .card:hover{
+.card:Hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #362824;
+}
+
+.card:active{
+    transform: scale(0.95);
+}
+
+.tulisanKeranjang:hover, .beliSekarang:hover{
     cursor: pointer;
     transform: scale(1.05);
 }
 
-.tulisanKeranjang:active, .beliSekarang:active, .card:active{
+.tulisanKeranjang:active, .beliSekarang:active{
     transform: scale(0.95);
 }
 
@@ -284,5 +282,38 @@
     width: 90px;
 }
 
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main{
+        width: 90%;
+        flex-direction: column;
+    }
 
+    .kotakKanan{
+        width: 100%;
+        order: 1;
+    }
 
+    .deskripsiKiri{
+        width: 60%;
+    }
+
+    .deskripsiKanan{
+        width: 40%;
+    }
+    
+    .kotakKiri{
+        height: auto;
+        width: 100%;
+        order: 2;
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .card{
+        width: 180px;
+        height: 180px;
+        margin-top: 20px;
+    }
+}

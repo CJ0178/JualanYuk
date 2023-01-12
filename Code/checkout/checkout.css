@@ -28,7 +28,6 @@
 .alamatPengiriman{
     display: flex;
     align-items: center;
-    /* background-color: yellow; */
     margin-bottom: 20px;
 }
 
@@ -79,6 +78,10 @@
     line-height: 20px;
     color: #FFFFFF;
     margin-bottom: 10px;
+}
+
+.isiEdit:active{
+    border-bottom: 1px solid white;
 }
 
 .isiEdit2:hover, .isiEdit:hover{
@@ -204,7 +207,6 @@
     width: 50%;
     display: flex;
     align-items: center;
-    /* background-color: gray; */
     justify-content: end;
     font-weight: 500;
     font-size: 15px;
@@ -223,7 +225,6 @@
 }
 
 .pembayaran{
-    /* background-color: pink; */
     height: 35px;
     display: flex;
     transition: 0.2s;
@@ -232,7 +233,6 @@
 .bayarSvg{
     width: 8.17%;
     height: 100%;
-    /* background-color: yellow; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -240,7 +240,6 @@
 
 .tulisanBayar{
     width: 70.5%;
-    /* background-color: aquamarine; */
     height: 100%;
     display: flex;
     align-items: center;
@@ -326,7 +325,6 @@
 
 .tombol{
     width: 100%;
-    /* background-color: yellow; */
     display: flex;
     justify-content: end;
 }
@@ -381,7 +379,6 @@
 
 .isiDalam{
     width: 25%;
-    /* background-color: pink; */
     height: 100%;
     margin: auto;
     padding-top: 30px;
@@ -395,7 +392,6 @@
 }
 
 .svgBerhasil{
-    /* background-color: yellow; */
     margin-top: 10px;
     margin-bottom: 15px;
 }
@@ -447,4 +443,23 @@
 
 .svgPanah:active{
     transform: scale(0.95);
+}
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main.mainContainer{
+        width: 80%;
+    }
+
+    .popUpBayar .main{
+        width: 80%;
+    }
+
+    .isiEdit2{
+        width: 100%;
+        min-width: 100%;
+        min-height: 125px;
+        max-width: 100%;
+        max-height: 125px;
+    }
 }

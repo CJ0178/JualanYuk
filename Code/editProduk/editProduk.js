@@ -6,3 +6,12 @@ buttonSave.addEventListener('click', ()=>{
         form.submit()
     }
 })
+
+buttonDelete = document.getElementById('buttonDelete')
+itemId = document.getElementById('itemId').value
+
+buttonDelete.addEventListener('click', function(){
+    if(confirm('yakin?')){
+        window.location = "../delete.php?id="+itemId
+    }
+})

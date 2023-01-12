@@ -16,7 +16,6 @@
 
 .judul{
     margin: auto;
-    /* background-color: pink; */
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
@@ -53,30 +52,23 @@
 .isi{
     background-color: #604E49;
     box-shadow: 6px 4px 8px rgba(0, 0, 0, 0.25);
-    /* height: 2000px; */
     padding-top: 30px;
     padding-bottom: 50px;
 }
 
 .pilih{
     width: 37.36%;
-    /* background-color: pink; */
     margin: auto;
-    /* margin-top: 20px; */
-    /* height: 50px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* untuk harian */
 input[type="date"]{
     all: unset;
     color: white;
     width: 150px;
-    /* background-color: pink; */
     text-align: center;
-    /* height: fit-content; */
     height: 20px;
 }
 
@@ -114,9 +106,7 @@ input[type="week"]{
     all: unset;
     color: white;
     width: 150px;
-    /* background-color: pink; */
     text-align: center;
-    /* height: fit-content; */
     height: 20px;
 }
 
@@ -147,7 +137,6 @@ input#session-week::-webkit-calendar-picker-indicator{
     background: #0000;
     position:absolute;
     transform: scale(12);
-    /* background-color: pink; */
 }
 
 /* untuk bulanan */
@@ -155,7 +144,6 @@ input[type="month"]{
     all: unset;
     color: white;
     width: 150px;
-    /* background-color: pink; */
     text-align: center;
     height: 20px;
 }
@@ -193,7 +181,6 @@ input#session-month::-webkit-calendar-picker-indicator{
 .session-year{
     background-color: #604E49;
     border: 0;
-    /* background-color: pink; */
     text-align: center;
     font-family: 'Montserrat';
     color: white;
@@ -209,7 +196,6 @@ input#session-month::-webkit-calendar-picker-indicator{
 /* selesai */
 
 .bantuan10{
-    /* background-color: pink; */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -252,8 +238,6 @@ input#session-month::-webkit-calendar-picker-indicator{
 
 .kategori{
     width: 90%;
-    /* height: 200px; */
-    /* background-color: pink; */
     margin: auto;
     margin-top: 20px;
     display: flex;
@@ -272,14 +256,12 @@ input#session-month::-webkit-calendar-picker-indicator{
 
 .grafik{
     width: 90%;
-    background-color: aquamarine;
     height: 500px;
     margin: auto;
     margin-top: 20px;
 }
 
 .svgLogo{
-    /* background-color: pink; */
     width: 30.6%;
     height: 100%;
     display: flex;
@@ -292,7 +274,6 @@ input#session-month::-webkit-calendar-picker-indicator{
     width: 69.4%;
     height: 100%;
     flex-direction: column;
-    /* background-color: yellow; */
     justify-content: center;
     padding-left: 8px;
 }
@@ -320,11 +301,53 @@ input#session-month::-webkit-calendar-picker-indicator{
 }
 
 #arrowKanan:hover svg path, #arrowKiri:hover svg path{
+    transition: 0.2s;
     fill:#D2C2B0;
     cursor: pointer;
     transform: scale(1.1);
 }
 
 #arrowKanan:active, #arrowKiri:active{
+    transition: 0.2s;
     transform: scale(0.95);
+}
+
+/* Responsive */
+@media only screen and (max-width: 392px) {
+    .main{
+        width: 90%;
+    }
+
+    .pilih{
+        width: 55%;
+    }
+
+    .tombolLihat{
+        width: 30%;
+    }
+
+    .cardKategori{
+        width: 49.7%;
+    }
+
+    .tulisanKategori .harga{
+        font-size: 15px;
+    }
+
+    .svgLogo{
+        width: 20%;
+        margin-left: 3px;
+    }
+
+    .tulisanKategori .kategoriApa{
+        font-size: 10px;
+    }
+
+    .isi{
+        padding-bottom: 420px;
+    }
+
+    .grafik{
+        height: auto;
+    }
 }
