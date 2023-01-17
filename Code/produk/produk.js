@@ -25,7 +25,11 @@ itemId = document.getElementById('itemId').value
 
 buttonBeliSekarang.addEventListener('click', function(){
     qty = inputQty.value
-    window.location.href = "../checkout/checkout.php?itemId=" + itemId + "&qty=" + qty
+    if(qty <= stokItem){
+        window.location.href = "../checkout/checkout.php?itemId=" + itemId + "&qty=" + qty
+    } else{
+        alert('Stok barang tidak cukup')
+    }
 })
 
 // Submit jika pencet tombol keranjang
@@ -33,8 +37,12 @@ buttonKeranjang = document.getElementsByClassName('tulisanKeranjang')[0]
 formKeranjang = document.getElementById('formKeranjang')
 
 buttonKeranjang.addEventListener('click', ()=>{
-    
-    formKeranjang.submit()
+    qty = inputQty.value
+    if(qty <= stokItem){
+        formKeranjang.submit()
+    } else{
+        alert('Stok barang tidak cukup')
+    }
 })
 
 // Jalanin header

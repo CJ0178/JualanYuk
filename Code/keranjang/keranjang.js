@@ -122,12 +122,18 @@ containerInputsItem.forEach((element, index)=>{
 buttonMinus = document.getElementsByClassName('kotakMin')
 buttonPlus = document.getElementsByClassName('kotakTambah')
 inputQty = document.getElementsByClassName('qtyBeli')
+stokItem = document.getElementsByClassName('stokItem')
 
 for(let i = 0; i < buttonMinus.length; i++){
     buttonPlus[i].addEventListener('click', ()=>{
-        inputQty[i].value++
-        // Submit form yang bersangkutan
-        document.getElementsByClassName('qty'+i)[0].submit()
+        stok = parseInt(stokItem[i].innerHTML)
+        if(inputQty[i].value < stok){
+            inputQty[i].value++
+            // Submit form yang bersangkutan
+            document.getElementsByClassName('qty'+i)[0].submit()
+        } else {
+            alert('Stok barang tidak cukup')
+        }
     })
     
     buttonMinus[i].addEventListener('click', ()=>{

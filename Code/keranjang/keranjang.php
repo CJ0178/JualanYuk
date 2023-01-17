@@ -21,7 +21,7 @@ if(isset($_SESSION["currentUserId"])){
 
 // Query seluruh keranjang yang dimiliki currentUser
 $currentUserId = $currentUserData['userId'];
-$trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.buyPrice, i.itemImage FROM trolly t JOIN item i ON i.itemId=t.itemId WHERE t.userId=$currentUserId");
+$trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.buyPrice, i.itemImage, i.itemStock FROM trolly t JOIN item i ON i.itemId=t.itemId WHERE t.userId=$currentUserId");
 $i = 0;
 ?>
 
@@ -80,6 +80,7 @@ $i = 0;
                     <div class="kotakTulisan">
                         <p class="namaBarang"><?=$trolly['itemName']?> (<?=$trolly['qtyPerItem']?>pcs)</p>
                         <p class="harga">Rp<?=number_format($trolly['buyPrice'])?></p>
+                        <p class="stokItem displayNone"><?=$trolly['itemStock']?></p>
                     </div>
                     <div class="kotakJumlah">
                         <div class="kotakMin">-</div>
