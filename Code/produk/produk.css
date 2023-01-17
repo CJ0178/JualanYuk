@@ -282,6 +282,10 @@
     width: 90px;
 }
 
+.namaProduk .isiDeskripsi{
+    font-size: 14px;
+}
+
 /* Responsive */
 @media only screen and (max-width: 392px) {
     .main{

@@ -147,4 +147,32 @@ function tambahItem($data){
     }
 }
 
+function getItemStock($itemId){
+    // Function ini akan mengembalikan stock sebuah item
+    $query = "SELECT itemStock FROM item WHERE itemId = $itemId";
+    $stock = query($query)[0];
+    
+    return $stock;
+}
+
+function substractStock($itemId, $qtyBuy){
+    // Function ini akan return true jika berhasil dan false jika gagal
+    global $conn;
+
+    if(getItemStock($itemId) >= $qtyBuy){
+        // Kurangin stok
+        $query = "UPDATE item SET itemStock = itemStock - $qtyBuy WHERE itemId = $itemId";
+        mysqli_query($conn, $query);
+
+        // Cek jika berhasil
+        if(mysqli_affected_rows($conn) > 0){
+            return true;
+        } else{
+            return false;
+        }
+    } else{
+        return false;
+    }
+}
+
 ?>

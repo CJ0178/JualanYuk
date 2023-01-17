@@ -90,7 +90,8 @@ if(isset($_GET["id"])){
                 <div class="bawahProduk">
                     <div class="deskripsiKiri">
                         <div class="namaProduk">
-                            <p><?=$item["itemName"]?></p>
+                            <p><?=$item["itemName"]?> (<?=$item['qtyPerItem']?> pcs)</p>
+                            <p class="isiDeskripsi">Stok : <?=$item['itemStock']?></p>
                         </div>
                         <div class="deskripsiProduk">
                             <div class="tulisanDeskripsi">Deskripsi</div>
