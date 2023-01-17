@@ -150,7 +150,7 @@ function tambahItem($data){
 function getItemStock($itemId){
     // Function ini akan mengembalikan stock sebuah item
     $query = "SELECT itemStock FROM item WHERE itemId = $itemId";
-    $stock = query($query)[0];
+    $stock = query($query)[0]['itemStock'];
     
     return $stock;
 }
@@ -158,7 +158,6 @@ function getItemStock($itemId){
 function substractStock($itemId, $qtyBuy){
     // Function ini akan return true jika berhasil dan false jika gagal
     global $conn;
-
     if(getItemStock($itemId) >= $qtyBuy){
         // Kurangin stok
         $query = "UPDATE item SET itemStock = itemStock - $qtyBuy WHERE itemId = $itemId";
