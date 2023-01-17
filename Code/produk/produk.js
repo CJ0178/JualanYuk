@@ -1,10 +1,14 @@
+
 // Plus minus
 buttonMinus = document.getElementsByClassName('kotakMin')[0]
 buttonPlus = document.getElementsByClassName('kotakTambah')[0]
 inputQty = document.getElementById('qtyBeli')
+stokItem = parseInt(document.getElementsByClassName('stokItem')[0].innerHTML)
 
 buttonPlus.addEventListener('click', ()=>{
-    inputQty.value++
+    if(inputQty.value < stokItem){
+        inputQty.value++
+    }
 })
 
 buttonMinus.addEventListener('click', ()=>{
@@ -44,7 +48,6 @@ window.onload = function(){
 
     buttonHamburger = document.getElementById('hamburger')
     dropdownMenu = document.getElementsByClassName('dropdownMenu')[0]
-    console.log('hi');
     
     buttonHamburger.addEventListener('click', function(){
         dropdownMenu.classList.toggle('displayNone')
