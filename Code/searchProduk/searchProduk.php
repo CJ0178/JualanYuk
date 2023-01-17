@@ -56,7 +56,8 @@ $count = 0;
         <div class="kotakLengkapi">
             <div class="isiLengkapi">
                 <!-- Looping item -->
-                <?php foreach($items as $count => $item): ?>
+                <?php foreach($items as $item): ?>
+                <?php if($item['itemStock'] <= 0) {continue;} else {$count++;} ?>
                 <a href="../produk/produk.php?id=<?=$item["itemId"]?>" style="color: inherit; text-decoration: inherit;">
                     <div class="cardLengkapi">
                         <div class="gambarLengkapi" style="background-image:url(../image/Produk/<?=$item["itemImage"]?>);"></div>
@@ -89,7 +90,7 @@ $count = 0;
                 </a>
                 <?php endforeach; ?>
                 <!-- Sisa item -->
-                <?php for($i = 0; $i < (5 - ($count + 1)%5)%5; $i++): ?>
+                <?php for($i = 0; $i < (5 - ($count)%5)%5; $i++): ?>
                     <div class="cardLengkapi visibilityHidden"></div>
                 <?php endfor; ?>
             </div>
