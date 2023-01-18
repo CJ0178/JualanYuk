@@ -147,7 +147,7 @@ $_SESSION['grandTotal'] = 0;
                         <p class="totalPes">Total Pesanan</p>
                         <p class="harga harga2" id="grandTotal">Rp<?=number_format($_SESSION['grandTotal'])?></p>
                     </div>
-                    <a href="../cashierDatabase.php"><button type="submit" class="tombolBayar" onclick="openPopUp()">UPLOAD PESANAN</button></a>
+                    <button type="button" class="tombolBayar" onclick="openPopUp()">UPLOAD PESANAN</button>
                 </div>
             </div>
             <div class="popUp" id="popUp">

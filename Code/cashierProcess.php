@@ -77,7 +77,7 @@ echo'
     <p class="totalPes">Total Pesanan</p>
     <p class="harga harga2" id="grandTotal">Rp'.number_format($_SESSION['grandTotal']).'</p>
 </div>
-<a href="../cashierDatabase.php"><div class="tombolBayar" onclick="openPopUp()">UPLOAD PESANAN</div></a>
+<div class="tombolBayar" onclick="openPopUp()">UPLOAD PESANAN</div>
 ';
 
 ?>

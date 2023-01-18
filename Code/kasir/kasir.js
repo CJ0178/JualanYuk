@@ -58,9 +58,13 @@ let bg = document.getElementById("bg");
 function openPopUp(){
     popUp.classList.add("open-popUp");
     bg.classList.add("open-bg");
+
+    setTimeout(closePopUp, 1500);
 }
 
 function closePopUp(){
     popUp.classList.remove("open-popUp");
     bg.classList.remove("open-bg");
+
+    window.location = '../cashierDatabase.php'
 }
