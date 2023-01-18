@@ -89,6 +89,8 @@ $count = 0;
                 <?php endfor; ?>
             </div>
 
+            <!-- Di sini untuk item habis -->
+            <?php if(sizeof($items) > $count): ?>
             <div class="tulisanHabis">HABIS</div>
             
             <div class="isiLengkapi">
@@ -118,6 +120,7 @@ $count = 0;
                     <div class="cardLengkapi visibilityHidden"></div>
                 <?php endfor; ?>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 

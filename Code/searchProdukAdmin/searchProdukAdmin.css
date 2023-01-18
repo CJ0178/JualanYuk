@@ -38,3 +38,8 @@
     font-size: 12px;
     padding-right: 15px;
 }
+
+.tulisanHabis{
+    margin: 20px;
+    text-decoration: underline;
+}
