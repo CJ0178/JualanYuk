@@ -48,3 +48,7 @@
     transform: scale(0.95);
 }
 
+.tulisanHabis{
+    margin: 20px;
+    text-decoration: underline;
+}
