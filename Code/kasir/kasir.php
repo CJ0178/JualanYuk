@@ -2,6 +2,22 @@
 session_start();
 require '../functions.php';
 $currentUserId = $_SESSION['currentUserId'];
+
+// Cek apakah current user sudah ada
+if(isset($_SESSION["currentUserId"])){
+    // Jika masuk memlalui login,
+    $currentUserData = detailUser($_SESSION["currentUserId"]);
+    $currentUsername = $currentUserData["username"];
+
+    // Jika dia adalah admin, langsung lempar
+    if($currentUsername == 'admin'){
+        header("Location: ../editStok/editStok.php");
+    }
+} else{
+    // Jika masuk melalui url
+    redirectTo('../login/login.php');
+}
+
 if(isset($_GET['category'])){
     $categoryId = $_GET['category'];
     $query = "SELECT * FROM Owns o JOIN Item i ON i.itemId = o.itemId JOIN `user` u ON u.userId = o.userId JOIN category c ON c.categoryId = i.categoryId WHERE u.userId = $currentUserId AND c.categoryId = $categoryId";
@@ -18,20 +34,6 @@ $items = query($query);
 $categories = query("SELECT * FROM category");
 $cashiers = query("SELECT *, o.qty AS 'qty', c.qty AS 'qtyPesan' FROM cashier c JOIN item i ON i.itemId = c.itemId JOIN Owns o ON o.itemId = i.itemId WHERE c.userId = $currentUserId  AND o.userId = $currentUserId");
 
-// Cek apakah current user sudah ada
-if(isset($_SESSION["currentUserId"])){
-    // Jika masuk memlalui login,
-    $currentUserData = detailUser($_SESSION["currentUserId"]);
-    $currentUsername = $currentUserData["username"];
-
-    // Jika dia adalah admin, langsung lempar
-    if($currentUsername == 'admin'){
-        header("Location: ../editStok/editStok.php");
-    }
-} else{
-    // Jika masuk melalui url
-    redirectTo('../login/login.php');
-}
 
 $i = 0;
 $_SESSION['grandTotal'] = 0;
