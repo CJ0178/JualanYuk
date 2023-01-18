@@ -104,7 +104,7 @@ $grandTotal = 0;
                 </div>
                 <div class="alamatLengkap">
                     <label for="alamatLengkapId" class="judulEdit alamatLengkapClass">Alamat Lengkap :</label>
-                    <textarea name="alamatLengkapName" id="alamatLengkapId" cols="30" rows="4" class="isiEdit2"></textarea>
+                    <textarea name="alamatLengkapName" id="alamatLengkapId" cols="30" rows="4" class="isiEdit2" spellcheck="false"></textarea>
                 </div>
                 <div class="telp">
                     <label for="telpId" class="judulEdit telpClass">No. Telp :</label>

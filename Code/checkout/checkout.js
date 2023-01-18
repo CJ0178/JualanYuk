@@ -5,18 +5,14 @@ buttonCheckout.addEventListener('click', function(){
     if(validasiBerhasil()){
         popUp.classList.add("open-popUp");
         bg.classList.add("open-bg");
-        
+
+        setTimeout(closePopUp,1500);
     }
 })
 
 // Untuk pop up bayar berhasil
 let popUp = document.getElementById("popUp");
 let bg = document.getElementById("bg");
-
-// function openPopUp(){
-//     popUp.classList.add("open-popUp");
-//     bg.classList.add("open-bg");
-// }
 
 function closePopUp(){
     popUp.classList.remove("open-popUp");
