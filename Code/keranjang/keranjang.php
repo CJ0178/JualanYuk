@@ -19,8 +19,17 @@ if(isset($_SESSION["currentUserId"])){
     redirectTo('../home/home.php');
 }
 
-// Query seluruh keranjang yang dimiliki currentUser
 $currentUserId = $currentUserData['userId'];
+
+// Validasi semua keranjang, kalau ada yang stoknya kurang, keranjang diperbaiki
+$query = "UPDATE Trolly t JOIN Item i ON i.itemId = t.itemId SET t.qty = i.itemStock WHERE i.itemStock < t.qty AND t.userId = $currentUserId";
+mysqli_query($conn, $query);
+
+// Delete semua keranjang yang 0
+$query = "DELETE FROM Trolly WHERE qty = 0 AND userId = $currentUserId";
+mysqli_query($conn, $query);
+
+// Query seluruh keranjang yang dimiliki currentUser
 $trollies = query("SELECT t.userId, t.qty, i.qtyPerItem, i.itemId,i.itemName, i.buyPrice, i.itemImage, i.itemStock FROM trolly t JOIN item i ON i.itemId=t.itemId WHERE t.userId=$currentUserId");
 $i = 0;
 ?>
