@@ -6,7 +6,7 @@ require '../functions.php';
 // Cek apakah ada keyword
 if(isset($_GET['keyword'])){
     $keyword = $_GET['keyword'];
-    $items = query("SELECT * FROM ITEM WHERE itemName LIKE '%$keyword%'");
+    $items = query("SELECT * FROM item WHERE itemName LIKE '%$keyword%'");
 } else{
     // Jika tidak ada keyword
     redirectTo('../home/home.php');
