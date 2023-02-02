@@ -31,13 +31,13 @@ ORDER BY SUM(b.qty) DESC
 LIMIT 10");
 
 $recommendations = query("SELECT i.*,o.userId, o.qty FROM item i
-JOIN Owns o ON o.itemId = i.itemId
+JOIN owns o ON o.itemId = i.itemId
 WHERE o.userId = $currentUserId AND i.itemStock > 0
 UNION
 SELECT i.*, 0, 0 FROM item i
 WHERE i.itemId NOT IN (
 	SELECT i.itemId FROM item i
-	JOIN Owns o ON o.itemId = i.itemId
+	JOIN owns o ON o.itemId = i.itemId
 	WHERE o.userId = $currentUserId
 ) AND i.itemStock > 0
 ORDER BY IF(abs(userId-$currentUserId) IS NULL, 1000, abs(userId-$currentUserId)) ASC, qty ASC
