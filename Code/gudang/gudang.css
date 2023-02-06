@@ -291,7 +291,7 @@ input[type=text].harga2{
     display: none;
 }
 
-@media only screen and (max-width: 392px) {
+@media only screen and (max-width: 430px) {
     .main{
         width: 90%;
     }

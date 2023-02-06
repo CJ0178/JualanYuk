@@ -162,7 +162,7 @@ input:active{
     background-color: #BDC0AC;
 }
 
-@media only screen and (max-width: 392px) {
+@media only screen and (max-width: 430px) {
     .footer{
         width: 90%;
     }

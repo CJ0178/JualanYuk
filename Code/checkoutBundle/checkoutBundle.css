@@ -441,7 +441,7 @@
     transform: scale(0.95);
 }
 
-@media only screen and (max-width: 392px) {
+@media only screen and (max-width: 430px) {
     .main.mainContainer{
         width: 90%;
     }

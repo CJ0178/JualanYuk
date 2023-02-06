@@ -313,7 +313,7 @@ input#session-month::-webkit-calendar-picker-indicator{
 }
 
 /* Responsive */
-@media only screen and (max-width: 392px) {
+@media only screen and (max-width: 430px) {
     .main{
         width: 90%;
     }

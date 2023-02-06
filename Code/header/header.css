@@ -214,7 +214,7 @@ body{
 }
 
 /* Responsive */
-@media only screen and (max-width: 392px) {
+@media only screen and (max-width: 430px) {
     .kotakLogo, .namaAkun, .search1, .search2{
         display: none;
     }

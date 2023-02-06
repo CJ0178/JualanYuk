@@ -359,7 +359,7 @@
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 392px) {
+@media only screen and (max-width: 430px) {
     .kotakFitur{
         flex-direction: row;
         flex-wrap: wrap;
