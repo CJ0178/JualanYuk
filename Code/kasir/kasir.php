@@ -20,9 +20,9 @@ if(isset($_SESSION["currentUserId"])){
 
 if(isset($_GET['category'])){
     $categoryId = $_GET['category'];
-    $query = "SELECT * FROM Owns o JOIN Item i ON i.itemId = o.itemId JOIN `user` u ON u.userId = o.userId JOIN category c ON c.categoryId = i.categoryId WHERE u.userId = $currentUserId AND c.categoryId = $categoryId";
+    $query = "SELECT * FROM owns o JOIN item i ON i.itemId = o.itemId JOIN `user` u ON u.userId = o.userId JOIN category c ON c.categoryId = i.categoryId WHERE u.userId = $currentUserId AND c.categoryId = $categoryId";
 } else {
-    $query = "SELECT * FROM Owns o JOIN Item i ON i.itemId = o.itemId JOIN `user` u ON u.userId = o.userId WHERE u.userId = $currentUserId";
+    $query = "SELECT * FROM owns o JOIN item i ON i.itemId = o.itemId JOIN `user` u ON u.userId = o.userId WHERE u.userId = $currentUserId";
 }
 
 if(isset($_GET['keyword'])){

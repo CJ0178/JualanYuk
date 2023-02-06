@@ -22,11 +22,11 @@ if(isset($_SESSION["currentUserId"])){
 $currentUserId = $currentUserData['userId'];
 
 // Validasi semua keranjang, kalau ada yang stoknya kurang, keranjang diperbaiki
-$query = "UPDATE Trolly t JOIN Item i ON i.itemId = t.itemId SET t.qty = i.itemStock WHERE i.itemStock < t.qty AND t.userId = $currentUserId";
+$query = "UPDATE trolly t JOIN Item i ON i.itemId = t.itemId SET t.qty = i.itemStock WHERE i.itemStock < t.qty AND t.userId = $currentUserId";
 mysqli_query($conn, $query);
 
 // Delete semua keranjang yang 0
-$query = "DELETE FROM Trolly WHERE qty = 0 AND userId = $currentUserId";
+$query = "DELETE FROM trolly WHERE qty = 0 AND userId = $currentUserId";
 mysqli_query($conn, $query);
 
 // Query seluruh keranjang yang dimiliki currentUser

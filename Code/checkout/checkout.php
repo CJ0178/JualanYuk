@@ -28,14 +28,14 @@ if(isset($_GET['itemId']) && isset($_GET['qty'])){
     $currentUserId = $_SESSION['currentUserId'];
     $itemId = $_GET['itemId'];
     $qty = $_GET['qty'];
-    $query = "INSERT IGNORE INTO Trolly VALUES ($currentUserId, $itemId, $qty)";
+    $query = "INSERT IGNORE INTO trolly VALUES ($currentUserId, $itemId, $qty)";
     mysqli_query($conn, $query);
-    $query = "UPDATE Trolly SET qty = $qty WHERE userId = $currentUserId AND itemId = $itemId";
+    $query = "UPDATE trolly SET qty = $qty WHERE userId = $currentUserId AND itemId = $itemId";
     mysqli_query($conn, $query);
 
     $listOfId[] = $currentUserId;
     $listOfQty[] = $qty;
-    $items = query("SELECT * FROM Trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = $currentUserId AND t.itemId = $itemId");
+    $items = query("SELECT * FROM trolly t JOIN item i ON i.itemId = t.itemId WHERE t.userId = $currentUserId AND t.itemId = $itemId");
 } else {
     // Mode Keranjang
     // Query list pesanan

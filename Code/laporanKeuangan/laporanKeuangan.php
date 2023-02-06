@@ -1,43 +1,4 @@
 <?php 
-// Keuntungan (Omset)
-// SELECT
-// SUM(s.sellPrice*s.qty) AS 'revenue',
-// SUM(s.qty * s.COGS) AS 'COGS',
-// SUM(s.sellPrice*s.qty) - SUM(s.qty * s.COGS) AS 'income'
-// FROM sell s
-// JOIN item i ON i.itemId = s.itemId
-// WHERE DATEDIFF('2022-12-31', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '2022-12-01') >= 0
-
-// Produk Terlaris
-// SELECT
-// i.itemName as 'nama'
-// FROM sell s
-// JOIN item i ON i.itemId = s.itemId
-// JOIN category c ON i.categoryId = c.categoryId
-// WHERE DATEDIFF('2022-12-31', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '2022-12-01') >= 0
-// GROUP BY i.itemId
-// ORDER BY SUM(s.qty) DESC
-// LIMIT 2
-
-// Kategori Terpopuler
-// SELECT
-// c.categoryName as 'nama'
-// FROM sell s
-// JOIN item i ON i.itemId = s.itemId
-// JOIN category c ON i.categoryId = c.categoryId
-// WHERE DATEDIFF('2022-12-31', s.sellDate) >= 0 AND DATEDIFF(s.sellDate, '2022-12-01') >= 0
-// GROUP BY c.categoryId
-// ORDER BY SUM(s.qty) DESC
-// LIMIT 1
-
-// SELECT IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
-//           DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 50 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 49 WEEK)) as 'TanggalAwal', 
-          
-//           DATE_SUB(IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
-//           DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 50 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 49 WEEK))
-//                    , INTERVAL WEEKDAY(IF(DAY(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY)) < 5,    
-//           DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 50 WEEK), DATE_ADD(DATE_ADD(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'), INTERVAL ((7 - WEEKDAY(CONCAT(YEAR(CURRENT_TIMESTAMP),'-01-01'))) MOD 7) DAY), INTERVAL 49 WEEK))) DAY) + INTERVAL 6 DAY as 'TanggalAkhir'
-
 
 session_start();
 require '../functions.php';
