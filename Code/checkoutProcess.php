@@ -63,7 +63,7 @@ foreach($items as $count => $item){
         mysqli_query($conn, $query);
     
         // ====== Proses Hapus Keranjang  ======
-        $query = "DELETE FROM Trolly WHERE userId = $userId AND itemId = $itemId";
+        $query = "DELETE FROM trolly WHERE userId = $userId AND itemId = $itemId";
         mysqli_query($conn, $query);
     
         // Redirect

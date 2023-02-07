@@ -25,7 +25,7 @@ if(!mysqli_affected_rows($conn) > 0){
     }
 }
 
-$cashiers = query("SELECT *, o.qty AS 'qty', c.qty AS 'qtyPesan' FROM cashier c JOIN item i ON i.itemId = c.itemId JOIN Owns o ON o.itemId = i.itemId WHERE c.userId = $currentUserId AND o.userId = $currentUserId");
+$cashiers = query("SELECT *, o.qty AS 'qty', c.qty AS 'qtyPesan' FROM cashier c JOIN item i ON i.itemId = c.itemId JOIN owns o ON o.itemId = i.itemId WHERE c.userId = $currentUserId AND o.userId = $currentUserId");
 $_SESSION['grandTotal'] = 0;
 $i = 0;
 
