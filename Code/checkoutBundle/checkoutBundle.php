@@ -24,8 +24,8 @@ if(isset($_GET['bundle'])){
     $qtyBeli = $_GET['qtyBeli'];
     $listImage = ['','kiri1.png','kanan2.png', 'kiri3.png', 'kanan4.png', 'bundle1.png', 'bundle2.png','bundle3.png','bundle4.png'];
     $listNama = ['','WARUNG KESEHATAN', 'WARUNG SEKOLAH', 'WARUNG SEMBAKO', 'WARUNG ALAT TULIS', 'BUNDLE KESEHATAN', 'BUNDLE CEMILAN', 'BUNDLE KEBUTUHAN RT', 'BUNDLE ALAT TULIS'];
-    $query = "SELECT * FROM bundleH bh  WHERE bh.idBundle = $bundleId";
-    $items = query($query)[0    ];
+    $query = "SELECT * FROM bundleh bh  WHERE bh.idBundle = $bundleId";
+    $items = query($query)[0];
 } else{
     redirectTo('../home/home.php');
 }
