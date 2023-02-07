@@ -10,15 +10,15 @@ require 'functions.php';
 
 // Modify/Delete Owns
 $query = "
-UPDATE Owns o
-JOIN Cashier c ON c.userId = o.userId AND c.itemId = o.itemId
+UPDATE owns o
+JOIN cashier c ON c.userId = o.userId AND c.itemId = o.itemId
 SET o.qty = o.qty - c.qty
 ";
 mysqli_query($conn, $query);
 
 // Kalau qty nya 0, maka delete aja
 $query = "
-DELETE FROM Owns
+DELETE FROM owns
 WHERE qty = 0
 ";
 
@@ -28,7 +28,7 @@ mysqli_query($conn, $query);
 
 // Insert Sell
 $query = "
-INSERT INTO Sell
+INSERT INTO sell
 SELECT
 NULL AS 'SellId',
 c.userId,
@@ -37,14 +37,14 @@ DATE(CURRENT_TIMESTAMP),
 c.qty,
 o.COGS,
 o.sellPrice
-FROM Cashier c
+FROM cashier c
 JOIN owns o ON o.itemId = c.itemId AND o.userId = c.userId
 ";
 
 mysqli_query($conn, $query);
 
 // Delete dari kasir
-$query = "DELETE FROM Cashier";
+$query = "DELETE FROM cashier";
 mysqli_query($conn, $query);
 
 redirectTo('kasir/kasir.php')

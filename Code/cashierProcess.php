@@ -13,11 +13,11 @@ mysqli_query($conn, $query);
 if(!mysqli_affected_rows($conn) > 0){
     // Jika tidak berhasil insert, barulah nambah qty 1
     // Cek dulu stoknya yang sudah ada
-    $stok = query("SELECT qty FROM Owns WHERE userId = $currentUserId AND itemId = $itemId")[0]['qty'];
+    $stok = query("SELECT qty FROM owns WHERE userId = $currentUserId AND itemId = $itemId")[0]['qty'];
     $qtySekarang = query("SELECT qty FROM cashier WHERE userId = $currentUserId AND itemId = $itemId")[0]['qty'];
     if($qtySekarang < $stok){
         // Kalau nambah masih cukup, maka tambah
-        $query = "UPDATE Cashier SET qty = qty + 1 WHERE userId = $currentUserId AND itemId = $itemId";
+        $query = "UPDATE cashier SET qty = qty + 1 WHERE userId = $currentUserId AND itemId = $itemId";
         mysqli_query($conn, $query);
     } else{
         // Kalau dak cukup lagi, kasih pesan

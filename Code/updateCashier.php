@@ -13,10 +13,10 @@ if(
     $qtyBeli = $_GET['qtyBeli'];
     $currentUserId = $_SESSION['currentUserId'];
 
-    $stok = query("SELECT qty FROM Owns WHERE userId = $currentUserId AND itemId = $itemId")[0]['qty'];
+    $stok = query("SELECT qty FROM owns WHERE userId = $currentUserId AND itemId = $itemId")[0]['qty'];
 
     if($qtyBeli <= $stok){
-        $strQuery = "UPDATE Cashier SET qty=$qtyBeli WHERE itemId=$itemId AND userId=$currentUserId";
+        $strQuery = "UPDATE cashier SET qty=$qtyBeli WHERE itemId=$itemId AND userId=$currentUserId";
         mysqli_query($conn, $strQuery);
     } else{
         alertMessage('Stok tidak cukup');

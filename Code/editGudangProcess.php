@@ -7,7 +7,7 @@ $stok = $_GET['stok'];
 $harga = $_GET['harga'];
 
 $query = "
-UPDATE Owns
+UPDATE owns
 SET qty = $stok, sellPrice = $harga
 WHERE userId = $userId AND itemId = $itemId
 ";

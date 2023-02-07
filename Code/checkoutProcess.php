@@ -35,13 +35,13 @@ foreach($items as $count => $item){
     
         // Default harga jual 110%
         $qtyBeli = $item['qtyPerItem'] * $listOfQty[$count];
-        $query = "INSERT IGNORE INTO Owns VALUES(".$item['userId'].", ".$item['itemId'].", ".$qtyBeli.", ".$hargaSatuan*1.1.", ".$hargaSatuan.")";
+        $query = "INSERT IGNORE INTO owns VALUES(".$item['userId'].", ".$item['itemId'].", ".$qtyBeli.", ".$hargaSatuan*1.1.", ".$hargaSatuan.")";
         mysqli_query($conn, $query);
         
         if(!mysqli_affected_rows($conn) > 0){
             // Gagal insert, berarti data sudah ada
             // Query quantity & COGS
-            $query = "SELECT qty, COGS FROM Owns WHERE userId = ". $_SESSION['currentUserId']. " AND itemId = ". $item['itemId'];
+            $query = "SELECT qty, COGS FROM owns WHERE userId = ". $_SESSION['currentUserId']. " AND itemId = ". $item['itemId'];
             $raw = query($query)[0];
     
             // Quantity baru = Stok lama berapa + Beli baru berapa
@@ -50,7 +50,7 @@ foreach($items as $count => $item){
             $COGSnew = (($raw['qty'] * $raw['COGS']) + ($item['buyPrice'] * $listOfQty[$count]))/($qtyNew);
             
             // Update database
-            $query = "UPDATE Owns SET qty = $qtyNew, COGS = $COGSnew WHERE userId = ". $_SESSION['currentUserId']. " AND itemId = ". $item['itemId'];
+            $query = "UPDATE owns SET qty = $qtyNew, COGS = $COGSnew WHERE userId = ". $_SESSION['currentUserId']. " AND itemId = ". $item['itemId'];
             mysqli_query($conn, $query);
             
         }
