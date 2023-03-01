@@ -1,2 +1,0 @@
-1. Tampilkan preview gambar setelah insert gambar
-2. Jalanin checkout

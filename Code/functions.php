@@ -1,6 +1,9 @@
 <?php 
 // Connect Database
-$conn = mysqli_connect("localhost", "id20240089_admin", "u_pP6iv1GL||@7zh", "id20240089_jualanyuk");
+// Ini untuk hosting
+// $conn = mysqli_connect("localhost", "id20240089_admin", "u_pP6iv1GL||@7zh", "id20240089_jualanyuk"); 
+// Ini untuk localhost
+$conn = mysqli_connect("localhost", "root", "", "jualanyuk"); 
 
 function alertMessage($message){
     // Function ini cuma untuk alert dengan tulisan tertentu
